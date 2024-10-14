@@ -2,7 +2,7 @@ import power_t from "../assets/images/power_t_logo.png"
 
 export default function NavBar() {
     return (
-        <nav className="h-115 w-full flex flex-row items-center">
+        <nav className="h-115 w-full flex flex-row items-center p-2">
             <img 
                 src={power_t}
                 width={72}

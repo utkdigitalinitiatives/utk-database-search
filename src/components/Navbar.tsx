@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import power_t from "../assets/images/power_t_logo.png"
 
 export default function NavBar() {
@@ -10,8 +11,8 @@ export default function NavBar() {
                 alt="power T"
                 className="flex-none p-1"
             />
-            <a className="grow text-3xl text-utk-smokey" href="https://lib.utk.edu">Libraries Database Search</a>
-            <a className="flex-none text-3xl text-utk-smokey px-3" href="/">Home</a>
+            <Link className="grow text-3xl text-utk-smokey" to="/">Libraries Database Search</Link>
+            <Link className="flex-none text-3xl text-utk-smokey px-3" to="/song">Home</Link>
         </nav>
     )
 }

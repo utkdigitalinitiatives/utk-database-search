@@ -1,12 +1,14 @@
+import Footer from "../components/Footer";
 import NavBar from "../components/Navbar";
 
 
 const Song = () => {
     return (
-        <div>
+        <>
             <NavBar />
             Song DB
-        </div>
+            <Footer />
+        </>
     );
 }
 

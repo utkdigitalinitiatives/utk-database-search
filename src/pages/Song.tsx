@@ -1,9 +1,10 @@
-import React from "react";
+import NavBar from "../components/Navbar";
 
 
 const Song = () => {
     return (
         <div>
+            <NavBar />
             Song DB
         </div>
     );

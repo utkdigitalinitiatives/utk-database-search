@@ -4,6 +4,40 @@ import CampusLogo from "./CampusLogo";
 // Need to add Web Speech API in the future
 
 const Footer = () => {
+    const footerLinks = [
+        {
+            title: "Events",
+            url: "http://calendar.utk.edu/"
+        },
+        {
+            title: "A-Z",
+            url: "http://www.utk.edu/alpha/"
+        },
+        {
+            title: "Apply",
+            url: "http://www.utk.edu/admissions/"
+        },
+        {
+            title: "Privacy",
+            url: "https://www.utk.edu/aboutut/privacy/"
+        },
+        {
+            title: "Map",
+            url: "http://maps.utk.edu/"
+        },
+        {
+            title: "Directory",
+            url: "http://directory.utk.edu"
+        },
+        {
+            title: "Give to UT",
+            url: "http://giveto.utk.edu"
+        },
+        {
+            title: "Accessibility",
+            url: "https://oed.utk.edu/ada/campus-accessibility/"
+        },
+    ]
     return (
         <footer className="grid grid-cols-1 sm:grid-cols-2 bg-utk-light-gray py-2">
             <div className="grid grid-rows-2 px-2">
@@ -25,19 +59,17 @@ const Footer = () => {
                             if (e.target.value === 'Search utk.edu') {
                                 e.target.value = '';
                             }
-                        }} placeholder="Search utk.edu" className="form-control" title="search"  />
-                        <input name="go" type="submit" title="Submit" className="bg-utk-gray--accent" value="Search" />
+                        }} placeholder="Search utk.edu" className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 " title="search" />
+                        <input name="go" type="submit" title="Submit" className="bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-smokey hover:text-utk-white hover:border-utk-smokey  text-center p-1 w-24" value="Search" />
                     </div>
                 </form>
-                <div className="grid grid-cols-4 gap-1 text-utk-smokey text-xs py-1 px-2">
-                    <Link className='' to="http://calendar.utk.edu/">Events</Link>
-                    <Link className='' to="http://www.utk.edu/alpha/">A-Z </Link>
-                    <Link className='' to="http://www.utk.edu/admissions/">Apply</Link>
-                    <Link className='' to="https://www.utk.edu/aboutut/privacy/">Privacy</Link>
-                    <Link className='' to="http://maps.utk.edu/">Map</Link>
-                    <Link className='' to="http://directory.utk.edu">Directory</Link>
-                    <Link className='' to="http://giveto.utk.edu">Give to UT</Link>
-                    <Link className='' to="https://oed.utk.edu/ada/campus-accessibility/">Accessibility</Link>
+                <div className="grid grid-cols-4 gap-1 text-utk-smokey text-xs py-2 px-2">
+                    {footerLinks.map((children) => {
+                        return (
+                            <Link key={`${children.url}_${children.title}`} to={children.url}>{children.title}</Link>
+                        )
+                    })
+                    }
                 </div>
             </div>
         </footer>

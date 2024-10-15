@@ -2,7 +2,7 @@ import CampusLogo from "./CampusLogo";
 
 const Footer = () => {
     return (
-        <footer className="grid grid-cols-1 sm:grid-cols-2 bg-[#f6f6f6] py-2">
+        <footer className="grid grid-cols-1 sm:grid-cols-2 bg-utk-light-gray py-2">
             <div className="grid grid-rows-2 px-2">
                 <CampusLogo />
                 <div className='text-utk-smokey my-0 py-0'>
@@ -14,7 +14,14 @@ const Footer = () => {
                         <a href="tel:+18659741000" className="tel">865-974-1000</a>
                     </p>
                 </div>
-
+            </div>
+            <div className="grid grid-rows-2">
+                <div>
+                    Input group
+                </div>
+                <div className="grid grid-cols-4">
+                    
+                </div>
             </div>
         </footer>
     )

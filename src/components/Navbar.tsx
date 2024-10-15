@@ -11,7 +11,7 @@ export default function NavBar() {
                 alt="power T"
                 className="flex-none p-1"
             />
-            <Link className="grow text-3xl text-utk-smokey" to="/">Libraries Database Search</Link>
+            <Link className="grow text-3xl text-utk-smokey" to="/">Libraries</Link>
             <Link className="flex-none text-3xl text-utk-smokey px-3" to="/song">Home</Link>
         </nav>
     )

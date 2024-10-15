@@ -2,11 +2,11 @@ import CampusLogo from "./CampusLogo";
 
 const Footer = () => {
     return (
-        <footer className="grid grid-cols-1 sm:grid-cols-2">
+        <footer className="grid grid-cols-1 sm:grid-cols-2 bg-[#f6f6f6] py-2">
             <div className="grid grid-rows-2 px-2">
                 <CampusLogo />
-                <div className='text-utk-smokey text-base'>
-                    <p>
+                <div className='text-utk-smokey my-0 py-0'>
+                    <p className="text-xs">
                         <strong>The University of Tennessee, Knoxville</strong>
                         <br />
                         Knoxville, Tennessee 37996

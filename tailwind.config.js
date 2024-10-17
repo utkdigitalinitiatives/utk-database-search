@@ -12,6 +12,7 @@ export default {
             'utk-smokey': "var(--utk-logo--smokey)",
             'utk-orange': "var(--utk-logo--orange)",
             'utk-white': "var(--utk-logo--white)",
+            'utk-light-gray': "var(--utk-light-gray)",
             'utk-blue--accent': "var(--utk-blue--accent)",
             'utk-light-steel-blue--accent': "var(--utk-light-steel-blue--accent)",
             'utk-light-blue--accent': "var(--utk-light-blue--accent)",

@@ -16,7 +16,7 @@ export default function NavBar() {
                     />
                     <Link className="text-3xl text-utk-smokey" to="https://lib.utk.edu">LIBRARIES</Link>
                 </div>
-                <Link className="flex-none text-3xl text-utk-smokey px-3" to="/">Home</Link>
+                <Link className="flex-none text-2xl text-utk-smokey px-3" to="/">Home</Link>
             </nav>
         </>
     )

@@ -3,6 +3,8 @@ import './App.css'
 import Footer from './components/Footer'
 import NavBar from './components/Navbar'
 import Card from './components/Card'
+import musicImg from "./assets/images/musiceresources.jpg"
+import trimString from './utils/utils'
 
 function App() {
 
@@ -10,30 +12,35 @@ function App() {
     dbName: string,
     endpoint: string,
     dbSummary: string,
-
+    image: string,
   }
 
   const dbInfo: Array<dbItem> = [
     {
       dbName: "Song Database",
       endpoint: "/song",
-      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library."
+      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
+      image: musicImg 
     },
     {
       dbName: "Song Database",
       endpoint: "/song",
-      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library."
+      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
+      image: ""
     },
     {
       dbName: "Song Database",
       endpoint: "/song",
-      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library."
+      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
+      image: ""
     },
     {
       dbName: "Song Database",
       endpoint: "/song",
-      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library."
+      dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
+      image: ""
     },
+    
   ]
 
 
@@ -45,13 +52,14 @@ function App() {
           <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-36'>Databases from UTK Libraries</h1>
         </div>
         <div className='container mx-auto py-2'>
-          <div className='grid grid-col-1 sm:grid-cols-2 gap-5 justify-items-stretch py-3 mx-2'>
+          <div className='grid grid-col-1 sm:grid-cols-2 gap-5 px-1'>
             {dbInfo.map((item, index) =>
               <Card
-                key={index}
-                dbName={item.dbName}
-                endpoint={item.endpoint}
-                summary={item.dbSummary}
+              key={index}
+              dbName={item.dbName}
+              endpoint={item.endpoint}
+              summary={trimString(item.dbSummary)}
+              imgSrc={item.image}
               />
             )}
           </div>

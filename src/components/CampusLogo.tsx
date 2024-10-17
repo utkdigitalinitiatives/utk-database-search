@@ -1,7 +1,7 @@
 
 const CampusLogo = () => {
     return (
-        <svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 343.36 76.7" xmlSpace="preserve" className='w-48 my-0 py-0'>
+        <svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 343.36 76.7" xmlSpace="preserve" className='w-52 my-0 py-0'>
             <g>
                 <path fill="#58595B" d="M114.46,24.59c0.45,0.34,0.78,1.06,0.99,2.17c0.09,0.5,0.28,0.74,0.56,0.73c0.34-0.03,0.51-0.28,0.49-0.75
                         c-0.02-0.23-0.06-0.62-0.14-1.15c-0.08-0.42-0.12-1.09-0.12-2.01c0-0.92-0.09-1.47-0.27-1.66c-0.18-0.19-0.7-0.28-1.56-0.28H89.12

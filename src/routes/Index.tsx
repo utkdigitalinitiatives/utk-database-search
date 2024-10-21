@@ -27,9 +27,10 @@ export default function Index() {
             dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
             image: musicImg
         },
+
     ]
     return (
-        <main className='lg:h-fit'>
+        <main className='flex flex-col min-h-screen'>
             <div className='bg-utk-blue--accent'>
                 <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-36'>Databases from UTK Libraries</h1>
             </div>

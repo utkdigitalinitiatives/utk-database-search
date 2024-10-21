@@ -30,7 +30,7 @@ export default function Index() {
     ]
     return (
         <main className='lg:h-fit'>
-            <div className='h-32 bg-utk-blue--accent'>
+            <div className='bg-utk-blue--accent'>
                 <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-36'>Databases from UTK Libraries</h1>
             </div>
             <div className='container mx-auto py-2'>

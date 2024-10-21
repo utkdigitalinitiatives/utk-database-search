@@ -64,7 +64,7 @@ const Footer = () => {
                 <div className="grid grid-cols-4 gap-1 text-utk-smokey text-xs py-2 px-2">
                     {footerLinks.map((children) => {
                         return (
-                            <div className="flex justify-center">
+                            <div className="flex justify-centercenter">
                                 <Link className='hover:underline' key={`${children.url}_${children.title}`} to={children.url}>{children.title}</Link>
                             </div>
                         )

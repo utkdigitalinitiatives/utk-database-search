@@ -54,17 +54,19 @@ const Footer = () => {
             </div>
             <div className="grid row-start-2 sm:row-start-auto grid-cols-1 grid-rows-2 lg:py-1">
                 <form id="utk_seek" method="GET" action="https://search.utk.edu/search" className='flex justify-center px-2 h-9'>
-                        <input type="text" id="utk_seek" name="q" onFocus={(e) => {
-                            if (e.target.value === 'Search utk.edu') {
-                                e.target.value = '';
-                            }
-                        }} placeholder="Search utk.edu" className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 " title="search" />
-                        <input name="go" type="submit" title="Submit" className="bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-smokey hover:text-utk-white hover:border-utk-smokey  text-center p-1 w-24" value="Search" />
+                    <input type="text" id="utk_seek" name="q" onFocus={(e) => {
+                        if (e.target.value === 'Search utk.edu') {
+                            e.target.value = '';
+                        }
+                    }} placeholder="Search utk.edu" className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 " title="search" />
+                    <input name="go" type="submit" title="Submit" className="bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-smokey hover:text-utk-white hover:border-utk-smokey  text-center p-1 w-24" value="Search" />
                 </form>
                 <div className="grid grid-cols-4 gap-1 text-utk-smokey text-xs py-2 px-2">
                     {footerLinks.map((children) => {
                         return (
-                            <Link className='flex justify-center' key={`${children.url}_${children.title}`} to={children.url}>{children.title}</Link>
+                            <div className="flex justify-center">
+                                <Link className='hover:underline' key={`${children.url}_${children.title}`} to={children.url}>{children.title}</Link>
+                            </div>
                         )
                     })}
                 </div>

@@ -17,12 +17,14 @@ const Song = () => {
         }
     }
     console.log(results)
+
     return (
         <>
             <main className='lg:h-fit'>
                 <div className='h-36 bg-utk-blue--accent grid grid-rows-2 justify-center my-auto py-2'>
                     <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2'>Song Database</h1>
                     <div className="py-2 ">
+
                         {/* <SearchBar
                             placeholder="Search the song database..."
                         /> */}
@@ -36,6 +38,7 @@ const Song = () => {
                             />
                             <button type="submit" className=" bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
                         </form>
+
                     </div>
 
                 </div>

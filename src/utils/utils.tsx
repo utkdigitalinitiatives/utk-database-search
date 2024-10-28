@@ -21,6 +21,7 @@ export async function searchSolr(query: any) {
             method: 'GET',
             headers: {
                 'Authorization': 'Basic ' + btoa(`${user}:${pass}`),
+                'Content-Type': 'application/json',
             }
         });
         if (!response.ok) {

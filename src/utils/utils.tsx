@@ -1,5 +1,3 @@
-
-
 export default function trimString(text: string) {
     let shortedString = text.slice(0, 100);
     return shortedString + "..."
@@ -15,12 +13,12 @@ export async function searchSolr(query: any) {
         wt: 'json',
         rows: 10,
     })
-
+    const authParams = btoa(`${user}:${pass}`)
     try {
         const response = await fetch(`${url}?${params}`, {
             method: 'GET',
             headers: {
-                'Authorization': 'Basic ' + btoa(`${user}:${pass}`),
+                'Authorization': `Basic ${authParams}`,
                 'Content-Type': 'application/json',
             }
         });

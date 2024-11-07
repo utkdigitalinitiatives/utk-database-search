@@ -16,7 +16,6 @@ const Song = () => {
             setResults(data.response.docs)
         }
     }
-    console.log(results)
 
     return (
         <>

@@ -10,19 +10,24 @@ export async function searchSolr(query: any) {
 
     const params = new URLSearchParams({
         q: query,
+        indent: "true",
         wt: 'json',
-        rows: 10,
+        // rows: 10,
     })
     const authParams = btoa(`${user}:${pass}`)
+    console.log(url)
     try {
         const response = await fetch(`${url}?${params}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Basic ${authParams}`,
                 'Content-Type': 'application/json',
-            }
+                
+            },
+            credentials:"include",
         });
         if (!response.ok) {
+            console.error(response)
             throw new Error('Network response was not okay');
         }
         const data = await response.json();
@@ -32,3 +37,6 @@ export async function searchSolr(query: any) {
         return null
     }
 }
+
+
+// TODO: I will need to likely make fetch requests to the DB directly 

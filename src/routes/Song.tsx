@@ -11,9 +11,39 @@ const Song = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const data = await searchSolr(query);
-        if (data) {
-            setResults(data.response.docs)
+        
+        const user = import.meta.env.VITE_SOLR_USER;
+        const pass = import.meta.env.VITE_SOLR_PASS;
+
+        const params = new URLSearchParams({
+            q: query,
+            indent: "true",
+            wt: 'json',
+        })
+        // Ensure proper Base64 encoding of credentials
+        
+        const fullUrl = `/unified_song_db_dev/select?${params}`;
+
+        try {
+
+            const response = await fetch(fullUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Basic ${authHeader}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Solr request failed: ${response.status} ${response.statusText}\n${errorText}`);
+            }
+
+            const data = await response.json();
+            console.log(data)
+        } catch (error) {
+            console.error('Error fetching data from Solr: ', error);
+            return error;
         }
     }
 

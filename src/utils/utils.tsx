@@ -4,7 +4,7 @@ export default function trimString(text: string) {
 }
 
 export async function searchSolr(query: any) {
-    const url = import.meta.env.VITE_SOLR;
+    
     const user = import.meta.env.VITE_SOLR_USER;
     const pass = import.meta.env.VITE_SOLR_PASS;
 
@@ -14,29 +14,31 @@ export async function searchSolr(query: any) {
         wt: 'json',
         // rows: 10,
     })
-    const authParams = btoa(`${user}:${pass}`)
+    // Ensure proper Base64 encoding of credentials
+    const authHeader = btoa(`${user}:${pass}`);
     console.log(url)
     try {
-        const response = await fetch(`${url}?${params}`, {
+
+        const response = await fetch(fullUrl, {
             method: 'GET',
             headers: {
-                'Authorization': `Basic ${authParams}`,
+                'Authorization': `Basic ${authHeader}`,
                 'Content-Type': 'application/json',
-                
             },
-            credentials:"include",
         });
+
         if (!response.ok) {
-            console.error(response)
-            throw new Error('Network response was not okay');
+            const errorText = await response.text();
+            throw new Error(`Solr request failed: ${response.status} ${response.statusText}\n${errorText}`);
         }
+
         const data = await response.json();
-        return data;
+        console.log(data)
     } catch (error) {
         console.error('Error fetching data from Solr: ', error);
-        return null
+        return error;
     }
 }
 
 
-// TODO: I will need to likely make fetch requests to the DB directly 
+// TODO: I will need to likely make fetch requests to the DB directly for example query specific record

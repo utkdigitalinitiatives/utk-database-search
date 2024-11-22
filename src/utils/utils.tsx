@@ -3,20 +3,14 @@ export default function trimString(text: string) {
     return shortedString + "..."
 }
 
-export async function searchSolr(query: any) {
-    
+export async function searchSolr(fullUrl:string) {
+
     const user = import.meta.env.VITE_SOLR_USER;
     const pass = import.meta.env.VITE_SOLR_PASS;
 
-    const params = new URLSearchParams({
-        q: query,
-        indent: "true",
-        wt: 'json',
-        // rows: 10,
-    })
     // Ensure proper Base64 encoding of credentials
     const authHeader = btoa(`${user}:${pass}`);
-    console.log(url)
+   
     try {
 
         const response = await fetch(fullUrl, {
@@ -33,7 +27,7 @@ export async function searchSolr(query: any) {
         }
 
         const data = await response.json();
-        console.log(data)
+        return data;
     } catch (error) {
         console.error('Error fetching data from Solr: ', error);
         return error;

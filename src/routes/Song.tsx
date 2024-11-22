@@ -11,12 +11,19 @@ const Song = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const data = await searchSolr(query);
-        if (data) {
-            setResults(data.response.docs)
-        }
+        const params = new URLSearchParams({
+            q: query,
+            indent: "true",
+            wt: 'json',
+        })
+        // Ensure proper Base64 encoding of credentials
+        
+        const fullUrl = `/unified_song_db_dev/select?${params}`;
+
+        const data = await searchSolr(fullUrl)
+        console.log(data);
+
     }
-    console.log(results)
 
     return (
         <>

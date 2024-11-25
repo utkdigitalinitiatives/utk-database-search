@@ -3,16 +3,34 @@ import { useState } from "react";
 
 const Song = () => {
     const [results, setResults] = useState([]);
+    const [totalFound, setTotalFound] = useState(0);
     const endpoint = `/unified_song_db_dev/select?`;
     const placeholder = "Search the song database...";
 
 
-    
 
-    const handleSearchResults = (data) => {
-        setResults(data);
+    const handleSearchResults = (response: any) => {
+        console.log(response);
+        setResults(response.docs);
+        setTotalFound(response.numFound);
     }
-    
+
+    console.log(results);
+    console.log(totalFound);
+
+   
+    const resultList = results.map(result =>
+        // Build out a result componeont
+        <>
+            <div>
+                Composers: {result.composers}
+            </div>
+            <div>
+                call number: {result.call_number}
+            </div>
+        </>
+    )
+        
 
     return (
         <>
@@ -41,7 +59,10 @@ const Song = () => {
 
                 </div>
                 <div>
-                    results go here
+                    <div>
+                        {resultList.length > 0 ? <div>Number of records found: {totalFound} </div> : <div></div> }
+                        {resultList.length > 0 ? resultList : <div>No results to display</div>}
+                    </div>
                 </div>
             </main>
         </>

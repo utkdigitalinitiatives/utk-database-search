@@ -18,8 +18,8 @@ export default function SearchBar(props: any) {
             wt: 'json',
         })
 
-        const data = await searchSolr(`${endpoint}${params}`)
-        setResults(data.response);
+        const data = await searchSolr(`${props.endpoint}${params}`)
+        props.onSearch(data.response);
         
     }
 
@@ -27,7 +27,7 @@ export default function SearchBar(props: any) {
         <form method="post" id="search-form" className="w-full mx-auto" onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Search the song database"
+                placeholder={props.placeholder}
                 name="search"
                 className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 "
                 onChange={handleChange}

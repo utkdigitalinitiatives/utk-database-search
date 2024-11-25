@@ -20,7 +20,7 @@ const Song = () => {
 
 
     const resultList = results.map(result =>
-        // Build out a result componeont
+        // Build out a result component
         <>
             <div>
                 Composers: {result.composers}

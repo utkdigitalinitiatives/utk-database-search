@@ -7,7 +7,7 @@ export default function SearchBar(props: any) {
     const [query, setQuery] = useState('');
 
     const handleChange = (event: any) => {
-        setQuery((event.target.value).toUpperCase());
+        setQuery((event.target.value));
     }
 
     const handleSubmit = async (e: any) => {

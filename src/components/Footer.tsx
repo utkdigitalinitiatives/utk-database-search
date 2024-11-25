@@ -65,7 +65,7 @@ const Footer = () => {
                     {footerLinks.map((children, index) => {
                         return (
                             <div className="" key={`${children.title}-${index}`}>
-                                <Link className='hover:underline ' to={children.url}>{children.title}</Link>
+                                <Link className='hover:underline' to={children.url}>{children.title}</Link>
                             </div>
                         )
                     })}

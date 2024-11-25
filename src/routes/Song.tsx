@@ -16,8 +16,6 @@ const Song = () => {
             indent: "true",
             wt: 'json',
         })
-        // Ensure proper Base64 encoding of credentials
-        
         const fullUrl = `/unified_song_db_dev/select?${params}`;
 
         const data = await searchSolr(fullUrl)

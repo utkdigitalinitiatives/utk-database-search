@@ -1,5 +1,5 @@
 import SearchBar from "../components/SearchBar";
-import ResultTop from "../components/ResultTop";
+import ResultHeader from "../components/ResultHeader";
 import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import SongResults from "../components/SongResults";
@@ -38,7 +38,7 @@ const Song = () => {
                 <div className="container mx-auto">
                     {
                         totalFound > 0 ?
-                            <ResultTop totalRecords={totalFound} />
+                            <ResultHeader totalRecords={totalFound} />
                             :
                             <div className="hidden"></div>
                     }

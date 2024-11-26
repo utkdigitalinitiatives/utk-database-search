@@ -9,12 +9,12 @@ export default function NavBar() {
                 <div className="grow flex flex-row items-center">
                     <img
                         src={power_t}
-                        width={56}
-                        height={56}
+                        width={48}
+                        height={48}
                         alt="power T"
                         className="flex-none p-1"
                     />
-                    <Link className="text-4xl font-light text-utk-smokey" to="https://lib.utk.edu">LIBRARIES</Link>
+                    <Link className="text-3xl font-normal text-utk-smokey" to="https://lib.utk.edu">LIBRARIES</Link>
                 </div>
                 <Link className="flex-none text-2xl text-utk-smokey px-3" to="/">Home</Link>
             </nav>

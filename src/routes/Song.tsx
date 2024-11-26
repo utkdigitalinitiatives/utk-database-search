@@ -33,27 +33,40 @@ const Song = () => {
         </>
     )
 
-    console.log(totalFound)
+    console.log(`total found: ${totalFound}`)
 
     return (
         <>
             <main className=''>
-                <div className='h-36 bg-utk-blue--accent grid grid-rows-2 justify-center my-auto py-2'>
-                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2'>Song Database</h1>
-                    <div className="py-2 ">
-                        <SearchBar
-                            placeholder={placeholder}
-                            endpoint={endpoint}
-                            onSearch={handleSearchResults}
-                        />
+                <div className="bg-utk-smokey shadow-md">
+                    <Breadcrumbs />
+                    <div className='h-36  grid grid-rows-2 justify-center my-auto py-2'>
+                        <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2'>Song Database</h1>
+                        <div className="py-2 ">
+                            <SearchBar
+                                placeholder={placeholder}
+                                endpoint={endpoint}
+                                onSearch={handleSearchResults}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="container mx-auto">
-                    <Breadcrumbs />
-                    {totalFound > 0 ? <ResultTop totalRecords={totalFound} /> : <div className="hidden"></div>}
-                    {resultList.length > 0 ? resultList : <div className="flex justify-center items-center min-h-96">
-                        Enter a term to search for above to begin
-                    </div>
+                    {
+                        totalFound > 0 ?
+
+                            <ResultTop totalRecords={totalFound} />
+
+                            :
+                            <div className="hidden"></div>
+                    }
+                    {
+                        resultList.length > 0 ?
+                            resultList
+                            :
+                            <div className="flex justify-center items-center min-h-96">
+                                Enter a term to search for above to begin
+                            </div>
                     }
                 </div>
             </main>

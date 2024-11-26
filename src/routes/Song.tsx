@@ -1,5 +1,7 @@
 import SearchBar from "../components/SearchBar";
+import ResultTop from "../components/ResultTop";
 import { useState } from "react";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Song = () => {
     const [results, setResults] = useState([]);
@@ -31,6 +33,7 @@ const Song = () => {
         </>
     )
 
+    console.log(totalFound)
 
     return (
         <>
@@ -45,9 +48,13 @@ const Song = () => {
                         />
                     </div>
                 </div>
-                <div>
-                    {resultList.length > 0 ? <div>Number of records found: {totalFound} </div> : <div></div>}
-                    {resultList.length > 0 ? resultList : <div>No results to display</div>}
+                <div className="container mx-auto">
+                    <Breadcrumbs />
+                    {resultList.length > 0 ? <ResultTop totalRecords={totalFound} /> : <div className="hidden"></div>}
+                    {resultList.length > 0 ? resultList : <div className="flex justify-center items-center min-h-96">
+                        Enter a term to search for above to begin
+                    </div>
+                    }
                 </div>
             </main>
         </>

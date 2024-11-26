@@ -2,6 +2,7 @@ import SearchBar from "../components/SearchBar";
 import ResultTop from "../components/ResultTop";
 import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
+import SongResults from "../components/SongResults";
 
 const Song = () => {
     const [results, setResults] = useState([]);
@@ -12,28 +13,9 @@ const Song = () => {
 
 
     const handleSearchResults = (response: any) => {
-        console.log(response);
         setResults(response.docs);
         setTotalFound(response.numFound);
     }
-
-    console.log(results);
-    console.log(totalFound);
-
-
-    const resultList = results.map(result =>
-        // Build out a result component
-        <>
-            <div>
-                Composers: {result.composers}
-            </div>
-            <div>
-                call number: {result.call_number}
-            </div>
-        </>
-    )
-
-    console.log(`total found: ${totalFound}`)
 
     return (
         <>
@@ -56,15 +38,13 @@ const Song = () => {
                 <div className="container mx-auto">
                     {
                         totalFound > 0 ?
-
                             <ResultTop totalRecords={totalFound} />
-
                             :
                             <div className="hidden"></div>
                     }
                     {
-                        resultList.length > 0 ?
-                            resultList
+                        results.length > 0 ?
+                            <SongResults resultList={results} />
                             :
                             <div className="flex justify-center items-center min-h-96">
                                 Enter a term to search for above to begin

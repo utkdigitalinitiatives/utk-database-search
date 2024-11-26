@@ -50,7 +50,7 @@ const Song = () => {
                 </div>
                 <div className="container mx-auto">
                     <Breadcrumbs />
-                    {resultList.length > 0 ? <ResultTop totalRecords={totalFound} /> : <div className="hidden"></div>}
+                    {totalFound > 0 ? <ResultTop totalRecords={totalFound} /> : <div className="hidden"></div>}
                     {resultList.length > 0 ? resultList : <div className="flex justify-center items-center min-h-96">
                         Enter a term to search for above to begin
                     </div>

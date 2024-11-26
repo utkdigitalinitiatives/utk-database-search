@@ -31,7 +31,7 @@ export default function Index() {
     ]
     return (
         <main className=''>
-            <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-700 bg-blend-soft-light shadow-md">
+            <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
                 <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Search Our Databases</h1>
             </div>
             <div className='container mx-auto py-2 mt-2'>

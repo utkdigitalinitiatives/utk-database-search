@@ -41,7 +41,7 @@ const Song = () => {
                 <div className="bg-utk-smokey">
                     <Breadcrumbs />
                 </div>
-                <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-700 bg-blend-soft-light shadow-md">
+                <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
                     <div className='h-36 grid grid-rows-2 justify-center my-auto py-2'>
                         <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>Song Database</h1>
                         <div className="py-2 ">

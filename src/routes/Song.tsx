@@ -1,56 +1,55 @@
 import SearchBar from "../components/SearchBar";
+import ResultTop from "../components/ResultTop";
 import { useState } from "react";
-import { searchSolr } from "../utils/utils";
+import Breadcrumbs from "../components/Breadcrumbs";
+import SongResults from "../components/SongResults";
+
 const Song = () => {
-    const [query, setQuery] = useState(' ');
     const [results, setResults] = useState([]);
+    const [totalFound, setTotalFound] = useState(0);
+    const endpoint = `/unified_song_db_dev/select?`;
+    const placeholder = "Search the song database...";
 
-    const handleChange = (event: any) => {
-        setQuery(event.target.value);
-    }
 
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        const params = new URLSearchParams({
-            q: query,
-            indent: "true",
-            wt: 'json',
-        })
-        // Ensure proper Base64 encoding of credentials
-        
-        const fullUrl = `/unified_song_db_dev/select?${params}`;
 
-        const data = await searchSolr(fullUrl)
-        console.log(data);
-
+    const handleSearchResults = (response: any) => {
+        setResults(response.docs);
+        setTotalFound(response.numFound);
     }
 
     return (
         <>
-            <main className='lg:h-fit'>
-                <div className='h-36 bg-utk-blue--accent grid grid-rows-2 justify-center my-auto py-2'>
-                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2'>Song Database</h1>
-                    <div className="py-2 ">
-
-                        {/* <SearchBar
-                            placeholder="Search the song database..."
-                        /> */}
-                        <form method="post" id="search-form" className="w-full mx-auto" onSubmit={handleSubmit}>
-                            <input
-                                type="text"
-                                placeholder="Search the song database"
-                                name="search"
-                                className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 "
-                                onChange={handleChange}
-                            />
-                            <button type="submit" className=" bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
-                        </form>
-
-                    </div>
-
+            <main className=''>
+                <div className="bg-utk-smokey">
+                    <Breadcrumbs />
                 </div>
-                <div>
-                    results go here
+                <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
+                    <div className='h-36 grid grid-rows-2 justify-center my-auto py-2'>
+                        <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>Song Database</h1>
+                        <div className="py-2 ">
+                            <SearchBar
+                                placeholder={placeholder}
+                                endpoint={endpoint}
+                                onSearch={handleSearchResults}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="container mx-auto">
+                    {
+                        totalFound > 0 ?
+                            <ResultTop totalRecords={totalFound} />
+                            :
+                            <div className="hidden"></div>
+                    }
+                    {
+                        results.length > 0 ?
+                            <SongResults resultList={results} />
+                            :
+                            <div className="flex justify-center items-center min-h-96">
+                                Enter a term to search for above to begin
+                            </div>
+                    }
                 </div>
             </main>
         </>

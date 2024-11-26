@@ -30,11 +30,11 @@ export default function Index() {
 
     ]
     return (
-        <main className='flex flex-col min-h-screen'>
-            <div className='bg-utk-blue--accent'>
-                <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-36'>Databases from UTK Libraries</h1>
+        <main className=''>
+            <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
+                <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Search Our Databases</h1>
             </div>
-            <div className='container mx-auto py-2'>
+            <div className='container mx-auto py-2 mt-2'>
                 <div className='grid grid-col-1 sm:grid-cols-2 gap-5 px-1'>
                     {dbInfo.map((item, index) =>
                         <Card

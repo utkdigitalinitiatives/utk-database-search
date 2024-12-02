@@ -1,7 +1,7 @@
 import App from './App.tsx'
 import Song from './routes/Song.tsx'
 import Index from './routes/Index.tsx'
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router'
 
 const router = createBrowserRouter([
     {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
         element: <App />,
         // need to add errr page element here
         children: [
-            { index: true, element: <Index />},
+            { index: true, element: <Index /> },
             {
                 path: "/song",
                 element: <Song />

@@ -37,6 +37,9 @@ export default function SongResults(props: any) {
                             </div>
                         </div>
                     </div>
+                    <div className="flex flex-row flex-wrap text-utk-smokey py-2">
+                        <a href="">View All Details</a>
+                    </div>
                 </div>
             )}
         </div>

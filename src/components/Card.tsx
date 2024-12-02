@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const Card = ({ dbName, endpoint, summary, imgSrc }: { dbName: string, endpoint: string, summary: string, imgSrc: string, }) => {
     return (

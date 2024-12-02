@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 import power_t from "../assets/images/power_t_logo.png"
 
 export default function NavBar() {

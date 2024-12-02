@@ -15,13 +15,13 @@ export default function SongResults(props: any) {
                             <div className="flex flex-row flex-wrap">
                                 <span className="font-semibold px-2">Composers:</span>
                                 {result.composers.map(composer =>
-                                    <div className="text-wrap">{composer}</div>
+                                    <div key={`${result.id}${composer}`} className="text-wrap">{composer}</div>
                                 )}
                             </div>
                             <div className="flex flex-row flex-wrap">
                                 <span className="font-semibold px-2">Authors:</span>
                                 {result.authors.map(author =>
-                                    <div className="text-wrap">{author}</div>
+                                    <div key={`${result.id}${author}`} className="text-wrap">{author}</div>
                                 )}
                             </div>
                         </div>
@@ -32,7 +32,7 @@ export default function SongResults(props: any) {
                             <div className="flex flex-row flex-wrap">
                                 <span className="font-semibold px-2">Languages:</span>
                                 {result.languages.map(language =>
-                                    <div className="pe-1">{language}</div>
+                                    <div key={`${result.id}${language}`} className="pe-1">{language}</div>
                                 )}
                             </div>
                         </div>

@@ -35,7 +35,7 @@ const Song = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container mx-auto">
+                <div className="container mx-auto max-w-screen-lg">
                     {
                         totalFound > 0 ?
                             <ResultHeader totalRecords={totalFound} />

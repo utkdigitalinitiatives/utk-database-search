@@ -105,7 +105,7 @@ export default function SongAdvanced(props: any) {
     };
 
     const handleSongTypeChange = (value: string) => {
-        setCallNumber(value);
+        setSongType(value);
     };
 
 

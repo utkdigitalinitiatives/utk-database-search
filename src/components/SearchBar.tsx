@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function SearchBar(props: any) {
     const [query, setQuery] = useState('');
-    
+
     const handleChange = (event: any) => {
         setQuery((event.target.value));
     }
@@ -13,14 +13,14 @@ export default function SearchBar(props: any) {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const params = new URLSearchParams({
-            q: query,
+            q: `full_text:${query}*`,
             indent: "true",
             wt: 'json',
         })
 
         const data = await searchSolr(`${props.endpoint}${params}`)
         props.onSearch(data.response);
-        
+
     }
 
     return (

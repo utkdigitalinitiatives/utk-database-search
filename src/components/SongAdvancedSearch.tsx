@@ -79,7 +79,7 @@ export default function SongAdvanced(props: any) {
 
 
     return (
-        <form method="post" id="search-form" className="w-full mx-auto bg-[rgba(75,75,75,0.90)] rounded-md p-2" onSubmit={handleSubmit}>
+        <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
             <div className="flex flex-row">
                 <input
                     type="text"

@@ -61,7 +61,7 @@ export default function SongAdvanced(props: any) {
         }
         return queryString
     }
-    
+
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
@@ -107,37 +107,43 @@ export default function SongAdvanced(props: any) {
     const songInputVals = [
         {
             type: 'input',
+            label: 'Search by Title',
             placeholder: "Song Title",
             name: "songTitle",
             onChange: handleSongTitleChange
         },
         {
             type: 'input',
-            placeholder: "Composer",
+            label: 'Search by Composers',
+            placeholder: "Composer's Name",
             name: "composer",
             onChange: handleComposerChange
         },
         {
             type: 'input',
-            placeholder: "Author",
+            label: 'Search by Authors',
+            placeholder: "Author's Name",
             name: "author",
             onChange: handleAuthorChange,
         },
         {
             type: 'input',
+            label: 'Search by Anthology Title',
             placeholder: "Anthology Title",
             name: "anthology",
             onChange: handleAnthologyChange,
         },
         {
             type: 'input',
-            placeholder: "Search the first line",
+            label: 'Search by the First Line',
+            placeholder: "Enter the first line",
             name: "firstLine",
             onChange: handleFirstLineChange,
         },
         {
             type: 'input',
-            placeholder: "Call Number",
+            label: 'Search by Call Number',
+            placeholder: "Enter Call Number",
             name: "callNumber",
             onChange: handleCallNumberChange,
         },
@@ -145,13 +151,18 @@ export default function SongAdvanced(props: any) {
 
     return (
         <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
-            {songInputVals.map(inputVal => 
+            {songInputVals.map(inputVal =>
                 <div className="flex flex-row mt-2">
-                    <AdvancedSearchInput
-                        placeholder={inputVal.placeholder}
-                        name={inputVal.name}
-                        onChange={inputVal.onChange}
-                    />
+                    {inputVal.type == 'input' ?
+                        <AdvancedSearchInput
+                            label={inputVal.label}
+                            placeholder={inputVal.placeholder}
+                            name={inputVal.name}
+                            onChange={inputVal.onChange}
+                        />
+                        :
+                        <div>something</div>
+                    }
                 </div>
             )}
 

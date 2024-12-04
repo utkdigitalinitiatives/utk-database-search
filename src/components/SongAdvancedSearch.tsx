@@ -1,5 +1,8 @@
 import { searchSolr } from "../utils/utils";
 import { useState } from "react";
+import AdvancedSearchInput from "./AdvancedSearchInput";
+
+
 
 export default function SongAdvanced(props: any) {
 
@@ -76,70 +79,81 @@ export default function SongAdvanced(props: any) {
 
     }
 
+    const handleSongTitleChange = (value: string) => {
+        setSongTitle(value);
+    };
 
+    const handleComposerChange = (value: string) => {
+        setComposer(value);
+    };
+
+    const handleAuthorChange = (value: string) => {
+        setAuthor(value);
+    };
+
+    const handleAnthologyChange = (value: string) => {
+        setAnthology(value);
+    };
+
+    const handleFirstLineChange = (value: string) => {
+        setFirstLine(value);
+    };
+
+    const handleCallNumberChange = (value: string) => {
+        setCallNumber(value);
+    };
+
+
+    const songInputVals = [
+        {
+            type: 'input',
+            placeholder: "Song Title",
+            name: "songTitle",
+            onChange: handleSongTitleChange
+        },
+        {
+            type: 'input',
+            placeholder: "Composer",
+            name: "composer",
+            onChange: handleComposerChange
+        },
+        {
+            type: 'input',
+            placeholder: "Author",
+            name: "author",
+            onChange: handleAuthorChange,
+        },
+        {
+            type: 'input',
+            placeholder: "Anthology Title",
+            name: "anthology",
+            onChange: handleAnthologyChange,
+        },
+        {
+            type: 'input',
+            placeholder: "Search the first line",
+            name: "firstLine",
+            onChange: handleFirstLineChange,
+        },
+        {
+            type: 'input',
+            placeholder: "Call Number",
+            name: "callNumber",
+            onChange: handleCallNumberChange,
+        },
+    ]
 
     return (
         <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
-            <div className="flex flex-row">
-                <input
-                    type="text"
-                    placeholder="Song Title"
-                    name="songTitle"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
-                    onChange={e => setSongTitle(e.target.value)}
-                />
-            </div>
-
-            <div className="flex flex-row">
-                <input
-                    type="text"
-                    placeholder="Composer"
-                    name="composer"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
-                    onChange={e => setComposer(e.target.value)}
-                />
-            </div>
-
-            <div className="flex flex-row">
-                <input
-                    type="text"
-                    placeholder="Author"
-                    name="author"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
-                    onChange={e => setAuthor(e.target.value)}
-                />
-            </div>
-
-            <div className="flex flex-row">
-                <input
-                    type="text"
-                    placeholder="Anthology Title"
-                    name="anthology"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
-                    onChange={e => setAnthology(e.target.value)}
-                />
-            </div>
-
-            <div className="flex flex-row">
-                <input
-                    type="text"
-                    placeholder="Search the first line"
-                    name="firstLine"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
-                    onChange={e => setFirstLine(e.target.value)}
-                />
-            </div>
-
-            <div className="flex flex-row">
-                <input
-                    type="text"
-                    placeholder="Call Number"
-                    name="callNumber"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
-                    onChange={e => setCallNumber(e.target.value)}
-                />
-            </div>
-
+            {songInputVals.map(inputVal => 
+                <div className="flex flex-row mt-2">
+                    <AdvancedSearchInput
+                        placeholder={inputVal.placeholder}
+                        name={inputVal.name}
+                        onChange={inputVal.onChange}
+                    />
+                </div>
+            )}
 
             <div className="flex flex-row mt-2">
                 <label className="text-utk-white mx-2">Select Song Type

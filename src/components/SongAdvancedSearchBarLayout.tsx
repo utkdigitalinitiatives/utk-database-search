@@ -1,6 +1,7 @@
 import { searchSolr } from "../utils/utils";
 import { useState } from "react";
 import AdvancedSearchInput from "./AdvancedSearchInput";
+import AdvancedSearchSelect from "./AdvancedSearchSelect";
 
 
 
@@ -103,6 +104,10 @@ export default function SongAdvanced(props: any) {
         setCallNumber(value);
     };
 
+    const handleSongTypeChange = (value: string) => {
+        setCallNumber(value);
+    };
+
 
     const songInputVals = [
         {
@@ -147,42 +152,85 @@ export default function SongAdvanced(props: any) {
             name: "callNumber",
             onChange: handleCallNumberChange,
         },
+        {
+            type: 'select',
+            label: 'Select Song Type',
+            onChange: handleSongTypeChange,
+            optionVals: [
+                {
+                    value: 'select',
+                    optionTitle: 'Click Here'
+                },
+                {
+                    value: 'aria',
+                    optionTitle: 'Aria'
+                },
+                {
+                    value: 'art song',
+                    optionTitle: 'Art Song'
+                },
+                {
+                    value: 'carol',
+                    optionTitle: 'Carol'
+                },
+                {
+                    value: "children's",
+                    optionTitle: "Children's"
+                },
+                {
+                    value: "folk",
+                    optionTitle: "Folk"
+                },
+                {
+                    value: "national anthem",
+                    optionTitle: "National Anthem"
+                },
+                {
+                    value: "patriotic",
+                    optionTitle: "Patriotic"
+                },
+                {
+                    value: "popular",
+                    optionTitle: "Popular"
+                },
+                {
+                    value: "sacred",
+                    optionTitle: "Sacred"
+                },
+                {
+                    value: "spiritual",
+                    optionTitle: "Spiritual"
+                },
+
+            ]
+
+        }
     ]
 
     return (
         <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
             {songInputVals.map((inputVal, index) =>
                 <div className="flex flex-row mt-2" key={index}>
-                    {inputVal.type == 'input' ?
+                    {inputVal.type == 'input' ? (
                         <AdvancedSearchInput
                             label={inputVal.label}
                             placeholder={inputVal.placeholder}
                             name={inputVal.name}
                             onChange={inputVal.onChange}
                         />
-                        :
-                        <div>something</div>
+                    ) : inputVal.type == 'select' ? (
+                        <AdvancedSearchSelect
+                            label={inputVal.label}
+                            optionVals={inputVal.optionVals}
+                            onChange={inputVal.onChange}
+                        />
+                    ) :
+                        null
                     }
                 </div>
             )}
 
-            <div className="flex flex-row mt-2">
-                <label className="text-utk-white mx-2">Select Song Type
-                    <select id="songType" name="songType" className="mx-2 text-utk-smokey" onChange={e => setSongType(e.target.value)}>
-                        <option value="select">Click Here</option>
-                        <option value="aria">Aria</option>
-                        <option value="art song">Art Song</option>
-                        <option value="carol">Carol</option>
-                        <option value="children's">Children's</option>
-                        <option value="folk">Folk</option>
-                        <option value="national anthem">National Anthem</option>
-                        <option value="patriotic">Patriotic</option>
-                        <option value="popular">Popular</option>
-                        <option value="sacred">Sacred</option>
-                        <option value="spiritual">Spiritual</option>
-                    </select>
-                </label>
-            </div>
+
 
             <div className="flex flex-row mt-2">
                 <label className="text-utk-white mx-2">Accompaniment

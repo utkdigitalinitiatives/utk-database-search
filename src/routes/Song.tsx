@@ -1,4 +1,4 @@
-import SearchBar from "../components/SearchBar";
+import SingleSearchBar from "../components/SingleSearchBar";
 import ResultHeader from "../components/ResultHeader";
 import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -27,7 +27,7 @@ const Song = () => {
                     <div className='h-36 grid grid-rows-2 justify-center my-auto py-2'>
                         <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>UT Song Index</h1>
                         <div className="py-2 ">
-                            <SearchBar
+                            <SingleSearchBar
                                 placeholder={placeholder}
                                 endpoint={endpoint}
                                 onSearch={handleSearchResults}

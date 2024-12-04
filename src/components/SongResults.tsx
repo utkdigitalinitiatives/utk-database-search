@@ -7,7 +7,7 @@ export default function SongResults(props: any) {
         <div className="mx-4 py-3 px-4 my-3">
             {props?.resultList?.map(result =>
                 // Build out a result component
-                <div key={result?.new_id} className="border-t border-utk-orange my-3 odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2">
+                <div key={result?.id} className="border-t border-utk-orange my-3 odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2">
                     <div className="flex justify-center text-utk-link font-medium text-xl">
                         {result?.title}
                     </div>

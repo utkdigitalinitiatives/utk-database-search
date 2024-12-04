@@ -3,10 +3,9 @@ import { useState } from "react";
 
 export default function SongAdvanced(props: any) {
 
-    const [query, setQuery] = useState('');
+    // const [query, setQuery] = useState('');
     const [songTitle, setSongTitle] = useState('');
     const [composer, setComposer] = useState('');
-    const [largeWork, setLargeWork] = useState('');
     const [author, setAuthor] = useState('');
     const [accompVal, setAccompVal] = useState('select');
     const [songType, setSongType] = useState('select');
@@ -18,11 +17,59 @@ export default function SongAdvanced(props: any) {
     const handleChange = (event: any) => {
         setQuery((event.target.value));
     }
+    const createParams = () => {
+        let queryString = "";
+        let queryParts = [];
+        if (songTitle) {
+            queryParts.push(`title:*${songTitle}*`);
+        }
 
+        if (composer) {
+            queryParts.push(`composers:*${composer}*`);
+        }
+
+        if (author) {
+            queryParts.push(`authors:*${author}*`);
+        }
+
+        if (accompVal && accompVal != 'select') {
+            queryParts.push(`accomp_values:*${accompVal}*`);
+        }
+
+        if (songType && songType != 'select') {
+            queryParts.push(`song_types:*${songType}*`);
+        }
+
+        if (firstLine) {
+            queryParts.push(`first_line:*${firstLine}*`);
+        }
+
+        if (anthology) {
+            queryParts.push(`anthology_title:*${anthology}*`);
+        }
+
+        if (callNumber) {
+            queryParts.push(`call_number:*${callNumber}*`);
+        }
+
+        if (language && language != 'select') {
+            queryParts.push(`languages:*${language}*`);
+        }
+
+        if (queryParts.length > 0) {
+            queryString = queryParts.join(" AND ")
+        }
+        return queryString
+    }
+    
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+
+
+        const query = createParams()
+        console.log(query)
         const params = new URLSearchParams({
-            q: `full_text:*${query}*`,
+            q: `${query}`,
             indent: "true",
             wt: 'json',
         })
@@ -32,8 +79,10 @@ export default function SongAdvanced(props: any) {
 
     }
 
+
+
     return (
-        <form method="post" id="search-form" className="w-full mx-auto" onSubmit={handleSubmit}>
+        <form method="post" id="search-form" className="w-full mx-auto bg-[rgba(75,75,75,0.90)] rounded-md p-2" onSubmit={handleSubmit}>
             <div className="flex flex-row">
                 <input
                     type="text"
@@ -57,16 +106,6 @@ export default function SongAdvanced(props: any) {
             <div className="flex flex-row">
                 <input
                     type="text"
-                    placeholder="Large Work"
-                    name="search"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
-                    onChange={e => setLargeWork(e.target.value)}
-                />
-            </div>
-
-            <div className="flex flex-row">
-                <input
-                    type="text"
                     placeholder="Author"
                     name="author"
                     className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
@@ -81,6 +120,16 @@ export default function SongAdvanced(props: any) {
                     name="anthology"
                     className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
                     onChange={e => setAnthology(e.target.value)}
+                />
+            </div>
+
+            <div className="flex flex-row">
+                <input
+                    type="text"
+                    placeholder="Search the first line"
+                    name="firstLine"
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    onChange={e => setFirstLine(e.target.value)}
                 />
             </div>
 

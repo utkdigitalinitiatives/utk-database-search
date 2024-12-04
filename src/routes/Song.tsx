@@ -1,5 +1,5 @@
 import SingleSearchBar from "../components/SingleSearchBar";
-import SongAdvancedSearch from '../components/SongAdvancedSearch';
+import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
 import ResultHeader from "../components/ResultHeader";
 import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";

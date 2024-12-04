@@ -24,7 +24,7 @@ export default function SearchBar(props: any) {
     }
 
     return (
-        <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
+        <form method="post" id="search-form" className="w-full mx-auto px-2 pb-2" onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder={props.placeholder}

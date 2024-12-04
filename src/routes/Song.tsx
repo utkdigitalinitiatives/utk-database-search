@@ -41,7 +41,7 @@ const Song = () => {
                         {singleSearchVisible &&
                             <div className="py-2">
                                 <div className="flex flex-row-reverse">
-                                    <button className=" text-utk-white text-sm my-1" onClick={setSingleInvisible} >Advanced</button>
+                                    <button className=" text-utk-white text-sm my-1 px-2" onClick={setSingleInvisible} >Advanced</button>
 
                                 </div>
                                 <SingleSearchBar
@@ -55,7 +55,7 @@ const Song = () => {
 
                             <div className="py-2">
                                 <div className="flex flex-row-reverse">
-                                    <button className=" text-utk-white text-sm my-1" onClick={setAdvancedInvisible} >General</button>
+                                    <button className=" text-utk-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
                                 </div>
                                 <SongAdvancedSearch
                                     endpoint={endpoint}

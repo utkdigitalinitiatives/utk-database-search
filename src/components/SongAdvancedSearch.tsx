@@ -14,9 +14,6 @@ export default function SongAdvanced(props: any) {
     const [callNumber, setCallNumber] = useState('');
     const [language, setLanguage] = useState('select')
 
-    const handleChange = (event: any) => {
-        setQuery((event.target.value));
-    }
     const createParams = () => {
         let queryString = "";
         let queryParts = [];
@@ -88,7 +85,7 @@ export default function SongAdvanced(props: any) {
                     type="text"
                     placeholder="Song Title"
                     name="songTitle"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
                     onChange={e => setSongTitle(e.target.value)}
                 />
             </div>
@@ -98,7 +95,7 @@ export default function SongAdvanced(props: any) {
                     type="text"
                     placeholder="Composer"
                     name="composer"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
                     onChange={e => setComposer(e.target.value)}
                 />
             </div>
@@ -108,7 +105,7 @@ export default function SongAdvanced(props: any) {
                     type="text"
                     placeholder="Author"
                     name="author"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
                     onChange={e => setAuthor(e.target.value)}
                 />
             </div>
@@ -118,7 +115,7 @@ export default function SongAdvanced(props: any) {
                     type="text"
                     placeholder="Anthology Title"
                     name="anthology"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
                     onChange={e => setAnthology(e.target.value)}
                 />
             </div>
@@ -128,7 +125,7 @@ export default function SongAdvanced(props: any) {
                     type="text"
                     placeholder="Search the first line"
                     name="firstLine"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
                     onChange={e => setFirstLine(e.target.value)}
                 />
             </div>
@@ -138,7 +135,7 @@ export default function SongAdvanced(props: any) {
                     type="text"
                     placeholder="Call Number"
                     name="callNumber"
-                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md md:w-96 "
+                    className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none mt-2 p-1 rounded-md w-full "
                     onChange={e => setCallNumber(e.target.value)}
                 />
             </div>

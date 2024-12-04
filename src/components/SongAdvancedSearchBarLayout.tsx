@@ -151,8 +151,8 @@ export default function SongAdvanced(props: any) {
 
     return (
         <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
-            {songInputVals.map(inputVal =>
-                <div className="flex flex-row mt-2">
+            {songInputVals.map((inputVal, index) =>
+                <div className="flex flex-row mt-2" key={index}>
                     {inputVal.type == 'input' ?
                         <AdvancedSearchInput
                             label={inputVal.label}

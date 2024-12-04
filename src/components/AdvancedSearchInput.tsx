@@ -13,7 +13,7 @@ export default function AdvancedSearchInput({ label, placeholder, name, onChange
                 type="text"
                 placeholder={placeholder}
                 name={name}
-                className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none p-1 rounded-md w-full "
+                className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none p-1 rounded-md w-full text-utk-smokey"
                 onChange={e => onChange(e.target.value)}
             />
         </label>

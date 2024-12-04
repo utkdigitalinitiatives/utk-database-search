@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import CampusLogo from "./CampusLogo";
 
 // Need to add Web Speech API in the future

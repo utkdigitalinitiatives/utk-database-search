@@ -13,7 +13,7 @@ export default function SearchBar(props: any) {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const params = new URLSearchParams({
-            q: `full_text:${query}*`,
+            q: `full_text:*${query}*`,
             indent: "true",
             wt: 'json',
         })

@@ -8,15 +8,19 @@ import SongResults from "../components/SongResults";
 const Song = () => {
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
+    const [searchURL, setSearchURL] = useState('');
+
     const endpoint = `/unified_song_db_dev/select?`;
     const placeholder = "Search the song database...";
     const [singleSearchVisible, setSingleSearchVisible] = useState(true);
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
 
-    const handleSearchResults = (response: any) => {
+    const handleSearchResults = (response: any, searchURL: string) => {
+        console.log(response);
         setResults(response.docs);
         setTotalFound(response.numFound);
+        setSearchURL(searchURL);
     }
 
     const setSingleInvisible = () => {
@@ -66,14 +70,11 @@ const Song = () => {
                 </div>
                 <div className="container mx-auto max-w-screen-lg">
                     {
-                        totalFound > 0 ?
-                            <ResultHeader totalRecords={totalFound} />
-                            :
-                            <div className="hidden"></div>
-                    }
-                    {
                         results.length > 0 ?
-                            <SongResults resultList={results} />
+                            <>
+                                <ResultHeader totalRecords={totalFound} />
+                                <SongResults resultList={results} searchURL={searchURL} />
+                            </>
                             :
                             <>
                                 <div className="max-w-screen-md px-2 text-sm text-utk-smokey mt-2 mx-auto">

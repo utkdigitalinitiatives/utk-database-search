@@ -66,18 +66,24 @@ export default function SongAdvanced(props: any) {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-
         const query = createParams()
-        console.log(query)
         const params = new URLSearchParams({
             q: `${query}`,
             indent: "true",
             wt: 'json',
         })
-
-        const data = await searchSolr(`${props.endpoint}${params}`)
+        let fullUrl = `${props.endpoint}${params}`;
+        const data = await searchSolr(fullUrl);
         props.onSearch(data.response);
 
+    }
+
+    const handleReset = () => {
+        let response = {
+            docs: 0,
+            numFound: [],
+        }
+        props.onSearch(response);
     }
 
     const handleSongTitleChange = (value: string) => {
@@ -276,7 +282,7 @@ export default function SongAdvanced(props: any) {
     ]
 
     return (
-        <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit}>
+        <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
             {songInputVals.map((inputVal, index) =>
                 <div className="flex flex-row mt-2" key={index}>
                     {inputVal.type == 'input' ? (
@@ -299,6 +305,7 @@ export default function SongAdvanced(props: any) {
             )}
             <div className="flex flex-row justify-end">
                 <button type="submit" className=" bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
+                <button type="reset">Restart Search</button>
             </div>
         </form>
 

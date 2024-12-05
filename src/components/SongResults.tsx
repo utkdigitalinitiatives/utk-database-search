@@ -3,6 +3,7 @@ import { Link } from "react-router"
 
 export default function SongResults(props: any) {
     console.log(props.resultList)
+    console.log(props.searchURL);
     return (
         <div className="mx-4 py-3 px-4 my-3">
             {props?.resultList?.map(result =>

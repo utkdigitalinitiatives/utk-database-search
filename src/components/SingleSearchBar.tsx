@@ -17,9 +17,10 @@ export default function SearchBar(props: any) {
             indent: "true",
             wt: 'json',
         })
+        let fullURL = `${props.endpoint}${params}`;
+        const data = await searchSolr(fullURL);
 
-        const data = await searchSolr(`${props.endpoint}${params}`)
-        props.onSearch(data.response);
+        props.onSearch(data.response, fullURL);
 
     }
 
@@ -29,7 +30,7 @@ export default function SearchBar(props: any) {
             docs: 0,
             numFound: [],
         }
-        props.onSearch(response);
+        props.onSearch(response, '');
     }
 
     return (

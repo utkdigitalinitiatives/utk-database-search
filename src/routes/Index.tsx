@@ -1,4 +1,7 @@
 import musicImg from "../assets/images/musiceresources.jpg"
+import symphonyImg from '../assets/images/samuel-sianipar-unsplash-symphony.jpg';
+import newsImg from '../assets/images/bank-phrom-unsplash-news.jpg';
+import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.jpg';
 import trimString from "../utils/utils"
 import Card from "../components/Card"
 
@@ -26,9 +29,23 @@ export default function Index() {
             endpoint: "/sermon",
             //TODO: Need better copy for the dbsummary on this page
             dbSummary: "A collection of sermons from various denominations throughout East Tennessee",
-            image: musicImg,
+            image: sermonImg,
+        },
+        {
+            dbName: "Tennessee News Database",
+            endpoint: "/tennessee-news",
+            //TODO: Need better copy for the dbsummary on this page
+            dbSummary: "Information regarding Tennessee Newspapers that have been printed",
+            image: newsImg,
         },
 
+        {
+            dbName: "Knoxville Symphony Orchestra Program Notes",
+            endpoint: "/symphony",
+            //TODO: Need better copy for the dbsummary on this page
+            dbSummary: "Program notes for the Knoxville Symphony Orchestra",
+            image: symphonyImg,
+        },
     ]
     return (
         <main className=''>

@@ -16,16 +16,17 @@ export default function Index() {
 
     const dbInfo: Array<dbItem> = [
         {
-            dbName: "Song Database",
+            dbName: "Song Index",
             endpoint: "/song",
             dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
             image: musicImg
         },
         {
-            dbName: "Song Database",
-            endpoint: "/song",
-            dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
-            image: musicImg
+            dbName: "Sermon Database",
+            endpoint: "/sermon",
+            //TODO: Need better copy for the dbsummary on this page
+            dbSummary: "A collection of sermons from various denominations throughout East Tennessee",
+            image: musicImg,
         },
 
     ]

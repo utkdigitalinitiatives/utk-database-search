@@ -76,10 +76,10 @@ const Song = () => {
                             <SongResults resultList={results} />
                             :
                             <>
-                                <div className="px-2 text-sm text-utk-smokey mt-2">
+                                <div className="max-w-screen-md px-2 text-sm text-utk-smokey mt-2 mx-auto">
                                     This database provides access to about 50,000 songs in more than 1,500 published song anthologies owned by the George F. DeVine Music Library at the University of Tennessee, located in Knoxville. Use this citation index to determine which anthologies contain the song(s) you need. You will not find the music or the words here, just the call number and book title. If you are not in Knoxville, ask your librarian about interlibrary loan options to obtain the songs you need be.
                                 </div>
-                                <div className="text-sm text-utk-smokey px-2">
+                                <div className="text-sm text-utk-smokey px-2 max-w-screen-md mx-auto">
                                     <p className="font-semibold my-2">INSTRUCTIONS</p>
                                     <ol className="list-disc px-4 mt-2">
                                         <li>

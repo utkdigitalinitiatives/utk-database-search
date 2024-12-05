@@ -43,7 +43,6 @@ const Song = () => {
                             <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                                 <div className="flex flex-row-reverse">
                                     <button className=" text-utk-white text-sm my-1 px-2" onClick={setSingleInvisible} >Advanced</button>
-
                                 </div>
                                 <SingleSearchBar
                                     placeholder={placeholder}
@@ -53,7 +52,6 @@ const Song = () => {
                             </div>
                         }
                         {advancedSearchVisible &&
-
                             <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                                 <div className="flex flex-row-reverse">
                                     <button className=" text-utk-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
@@ -62,12 +60,14 @@ const Song = () => {
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
                                 />
-
                             </div>
                         }
                     </div>
                 </div>
                 <div className="container mx-auto max-w-screen-lg">
+                    <div>
+                    This database provides access to about 50,000 songs in more than 1,500 published song anthologies owned by the George F. DeVine Music Library at the University of Tennessee, located in Knoxville. Use this citation index to determine which anthologies contain the song(s) you need. You will not find the music or the words here, just the call number and book title. If you are not in Knoxville, ask your librarian about interlibrary loan options to obtain the songs you need be.
+                    </div>
                     {
                         totalFound > 0 ?
                             <ResultHeader totalRecords={totalFound} />

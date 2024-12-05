@@ -108,6 +108,14 @@ export default function SongAdvanced(props: any) {
         setSongType(value);
     };
 
+    const handleAccompChange = (value: string) => {
+        setAccompVal(value);
+    };
+
+    const handleLanguageChange = (value: string) => {
+        setLanguage(value);
+    };
+
 
     const songInputVals = [
         {
@@ -159,7 +167,7 @@ export default function SongAdvanced(props: any) {
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Click Here'
+                    optionTitle: 'Select Song Type'
                 },
                 {
                     value: 'aria',
@@ -201,9 +209,69 @@ export default function SongAdvanced(props: any) {
                     value: "spiritual",
                     optionTitle: "Spiritual"
                 },
-
             ]
-
+        },
+        {
+            type: 'select',
+            label: 'Accompaniment',
+            onChange: handleAccompChange,
+            optionVals: [
+                {
+                    value: 'select',
+                    optionTitle: 'Select Accompaniment'
+                },
+                {
+                    value: 'instrumental',
+                    optionTitle: 'Instrumental'
+                },
+                {
+                    value: 'keyboard',
+                    optionTitle: 'Keyboard'
+                },
+                {
+                    value: 'orchestra',
+                    optionTitle: 'Orchestra'
+                },
+                {
+                    value: 'unaccompanied',
+                    optionTitle: 'Unaccompanied'
+                },
+            ]
+        },
+        {
+            type: 'select',
+            label: 'Language',
+            onChange: handleLanguageChange,
+            optionVals: [
+                {
+                    value: 'select',
+                    optionTitle: 'Choose a Language'
+                },
+                {
+                    value: 'english',
+                    optionTitle: 'English'
+                },
+                {
+                    value: 'french',
+                    optionTitle: 'French'
+                },
+                {
+                    value: 'german',
+                    optionTitle: 'German'
+                },
+                {
+                    value: 'italian',
+                    optionTitle: 'Italian'
+                },
+                {
+                    value: 'portuguese',
+                    optionTitle: 'Portuguese'
+                },
+                {
+                    value: 'spanish',
+                    optionTitle: 'Spanish'
+                },
+            ]
         }
     ]
 
@@ -225,38 +293,10 @@ export default function SongAdvanced(props: any) {
                             onChange={inputVal.onChange}
                         />
                     ) :
-                        null
+                        <div className="text-red-600">An error occurred when loading the advanced form</div>
                     }
                 </div>
             )}
-
-
-
-            <div className="flex flex-row mt-2">
-                <label className="text-utk-white mx-2">Accompaniment
-                    <select id="accompVal" name="accompVal" className="mx-2 text-utk-smokey" onChange={e => setAccompVal(e.target.value)}>
-                        <option value="select">Any Accompaniment</option>
-                        <option value="instrumental">Instrumental</option>
-                        <option value="keyboard">Keyboard</option>
-                        <option value="orchestra">Orchestra</option>
-                        <option value="unaccompanied">Unaccompanied</option>
-                    </select>
-                </label>
-            </div>
-
-            <div className="flex flex-row mt-2">
-                <label className="text-utk-white mx-2">Choose a language
-                    <select id="language" name="language" className="mx-2 text-utk-smokey" onChange={e => setLanguage(e.target.value)}>
-                        <option value="select">Any Language</option>
-                        <option value="english">English</option>
-                        <option value="french">French</option>
-                        <option value="german">German</option>
-                        <option value="italian">Italian</option>
-                        <option value="portuguese">Portuguese</option>
-                        <option value="spanish">Spanish</option>
-                    </select>
-                </label>
-            </div>
             <div className="flex flex-row justify-end">
                 <button type="submit" className=" bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
             </div>

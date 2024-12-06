@@ -35,18 +35,21 @@ export default function SearchBar(props: any) {
 
     return (
         <form method="post" id="search-form" className="w-full mx-auto px-2 pb-2" onSubmit={handleSubmit} onReset={handleReset}>
-            <input
-                type="text"
-                placeholder={props.placeholder}
-                name="search"
-                className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 "
-                onChange={handleChange}
-            />
-            <button type="submit" className=" bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">
-                Search
-            </button>
-
-            <button type='reset'>Clear Search</button>
+            <div className="flex flex-row">
+                <input
+                    type="text"
+                    placeholder={props.placeholder}
+                    name="search"
+                    className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 "
+                    onChange={handleChange}
+                />
+                <button type="submit" className=" bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">
+                    Search
+                </button>
+            </div>
+            <div className="flex flex-row mt-1 ms-1 text-utk-white text-sm">
+                <button type='reset'>Clear Search</button>
+            </div>
         </form>
 
     )

@@ -305,7 +305,9 @@ export default function SongAdvanced(props: any) {
             )}
             <div className="flex flex-row justify-end">
                 <button type="submit" className=" bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
-                <button type="reset">Restart Search</button>
+            </div>
+            <div className="flex flex-row mt-1 ms-1 text-utk-white text-sm">
+                <button type="reset">Clear Search</button>
             </div>
         </form>
 

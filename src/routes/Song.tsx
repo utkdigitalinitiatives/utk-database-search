@@ -4,11 +4,13 @@ import ResultHeader from "../components/ResultHeader";
 import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import SongResults from "../components/SongResults";
+import Pager from "../components/Pager";
 
 const Song = () => {
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
+    const [searchStartVal, setSearchStartVal] = useState(0);
 
     const endpoint = `/unified_song_db_dev/select?`;
     const placeholder = "Search the song database...";
@@ -16,11 +18,13 @@ const Song = () => {
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
 
-    const handleSearchResults = (response: any, searchURL: string) => {
+    const handleSearchResults = (response: any, searchURL: string, startVal: int) => {
         console.log(response);
         setResults(response.docs);
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
+        setSearchStartVal(startVal);
+        console.log(searchStartVal)
     }
 
     const setSingleInvisible = () => {
@@ -52,6 +56,7 @@ const Song = () => {
                                     placeholder={placeholder}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
+                                    searchStart={searchStartVal}
                                 />
                             </div>
                         }
@@ -63,6 +68,7 @@ const Song = () => {
                                 <SongAdvancedSearch
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
+                                    searchStart={searchStartVal}
                                 />
                             </div>
                         }
@@ -74,6 +80,7 @@ const Song = () => {
                             <>
                                 <ResultHeader totalRecords={totalFound} />
                                 <SongResults resultList={results} searchURL={searchURL} />
+                                <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} />
                             </>
                             :
                             <>
@@ -86,7 +93,7 @@ const Song = () => {
                                         <li>
                                             Start your search as simply as possible. For example, enter the last name of the composer and one key word from the song title. However, more than one keyword and any number of fields can be used.
                                         </li>
-                                        <li>
+                                        <li className="pt-1">
                                             To narrow down search results by a specific piece of information, click advanced and fill out various fields to narrow down your search.
                                         </li>
                                         <li className="pt-1">

@@ -86,6 +86,9 @@ const Song = () => {
                                         <li>
                                             Start your search as simply as possible. For example, enter the last name of the composer and one key word from the song title. However, more than one keyword and any number of fields can be used.
                                         </li>
+                                        <li>
+                                            To narrow down search results by a specific piece of information, click advanced and fill out various fields to narrow down your search.
+                                        </li>
                                         <li className="pt-1">
                                             DO NOT use initial articles such as: the/of/a/an  (use 'Sound of Music' rather than 'The Sound of Music').
                                         </li>

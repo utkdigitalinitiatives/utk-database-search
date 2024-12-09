@@ -1,14 +1,18 @@
 import SingleSearchBar from "../components/SingleSearchBar";
 import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
 import ResultHeader from "../components/ResultHeader";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import SongResults from "../components/SongResults";
+import Pager from "../components/Pager";
 
 const Song = () => {
+
+    const searchRef = useRef<HTMLDivElement | null>(null);
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
+    const [searchStartVal, setSearchStartVal] = useState(0);
 
     const endpoint = `/unified_song_db_dev/select?`;
     const placeholder = "Search the song database...";
@@ -16,11 +20,12 @@ const Song = () => {
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
 
-    const handleSearchResults = (response: any, searchURL: string) => {
+    const handleSearchResults = (response: any, searchURL: string, startVal: int) => {
         console.log(response);
         setResults(response.docs);
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
+        setSearchStartVal(startVal);
     }
 
     const setSingleInvisible = () => {
@@ -52,6 +57,7 @@ const Song = () => {
                                     placeholder={placeholder}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
+                                    searchStart={searchStartVal}
                                 />
                             </div>
                         }
@@ -63,21 +69,23 @@ const Song = () => {
                                 <SongAdvancedSearch
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
+                                    searchStart={searchStartVal}
                                 />
                             </div>
                         }
                     </div>
                 </div>
-                <div className="container mx-auto max-w-screen-lg">
+                <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                     {
                         results.length > 0 ?
                             <>
-                                <ResultHeader totalRecords={totalFound} />
+                                <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                                 <SongResults resultList={results} searchURL={searchURL} />
+                                <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                             </>
                             :
                             <>
-                                <div className="max-w-screen-md px-2 text-sm text-utk-smokey mt-2 mx-auto">
+                                <div className="max-w-screen-md px-2 text-sm text-utk-smokey mt-4 mx-auto">
                                     This database provides access to about 50,000 songs in more than 1,500 published song anthologies owned by the George F. DeVine Music Library at the University of Tennessee, located in Knoxville. Use this citation index to determine which anthologies contain the song(s) you need. You will not find the music or the words here, just the call number and book title. If you are not in Knoxville, ask your librarian about interlibrary loan options to obtain the songs you need be.
                                 </div>
                                 <div className="text-sm text-utk-smokey px-2 max-w-screen-md mx-auto">
@@ -85,6 +93,9 @@ const Song = () => {
                                     <ol className="list-disc px-4 mt-2">
                                         <li>
                                             Start your search as simply as possible. For example, enter the last name of the composer and one key word from the song title. However, more than one keyword and any number of fields can be used.
+                                        </li>
+                                        <li className="pt-1">
+                                            To narrow down search results by a specific piece of information, click advanced and fill out various fields to narrow down your search.
                                         </li>
                                         <li className="pt-1">
                                             DO NOT use initial articles such as: the/of/a/an  (use 'Sound of Music' rather than 'The Sound of Music').

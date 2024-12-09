@@ -1,12 +1,14 @@
 import SingleSearchBar from "../components/SingleSearchBar";
 import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
 import ResultHeader from "../components/ResultHeader";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import SongResults from "../components/SongResults";
 import Pager from "../components/Pager";
 
 const Song = () => {
+
+    const searchRef = useRef<HTMLDivElement | null>(null);
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
@@ -77,9 +79,12 @@ const Song = () => {
                     {
                         results.length > 0 ?
                             <>
-                                <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
+
+                                <div ref={searchRef}>
+                                    <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
+                                </div>
                                 <SongResults resultList={results} searchURL={searchURL} />
-                                <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} />
+                                <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                             </>
                             :
                             <>

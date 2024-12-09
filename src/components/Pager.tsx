@@ -3,6 +3,9 @@ import { searchSolr } from "../utils/utils";
 export default function Pager(props: any) {
 
     const handlePrevious = async () => {
+        props.refVal.current?.scrollIntoView({
+            behavior: 'smooth'
+        })
         let newSearchStartVal = props.searchStart - 10;
         const data = await searchSolr(`${props.searchURL}&start=${newSearchStartVal}`);
         props.onSearch(data.response, props.searchURL, newSearchStartVal);
@@ -10,6 +13,9 @@ export default function Pager(props: any) {
     }
 
     const handleNext = async () => {
+        props.refVal.current?.scrollIntoView({
+            behavior: 'smooth'
+        })
         let newSearchStartVal = props.searchStart + 10;
         const data = await searchSolr(`${props.searchURL}&start=${newSearchStartVal}`);
         props.onSearch(data.response, props.searchURL, newSearchStartVal);

@@ -1,7 +1,6 @@
 import { searchSolr } from "../utils/utils";
 
 export default function Pager(props: any) {
-    console.log(props);
 
     const handlePrevious = async () => {
         let newSearchStartVal = props.searchStart - 10;

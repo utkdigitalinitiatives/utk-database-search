@@ -24,7 +24,6 @@ const Song = () => {
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
-        console.log(searchStartVal)
     }
 
     const setSingleInvisible = () => {
@@ -78,7 +77,7 @@ const Song = () => {
                     {
                         results.length > 0 ?
                             <>
-                                <ResultHeader totalRecords={totalFound} />
+                                <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                                 <SongResults resultList={results} searchURL={searchURL} />
                                 <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} />
                             </>

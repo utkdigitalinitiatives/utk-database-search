@@ -75,14 +75,11 @@ const Song = () => {
                         }
                     </div>
                 </div>
-                <div className="container mx-auto max-w-screen-lg">
+                <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                     {
                         results.length > 0 ?
                             <>
-
-                                <div ref={searchRef}>
-                                    <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
-                                </div>
+                                <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                                 <SongResults resultList={results} searchURL={searchURL} />
                                 <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                             </>

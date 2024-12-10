@@ -122,7 +122,7 @@ export default function SongAdvanced(props: any) {
         setLanguage(value);
     };
 
-
+    //TODO: There has to be a way better way to query/generate these options?  Maybe just a fetch/sql query?
     const songInputVals = [
         {
             type: 'input',
@@ -173,7 +173,7 @@ export default function SongAdvanced(props: any) {
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Select Song Type'
+                    optionTitle: 'Song Type'
                 },
                 {
                     value: 'aria',
@@ -219,12 +219,12 @@ export default function SongAdvanced(props: any) {
         },
         {
             type: 'select',
-            label: 'Accompaniment',
+            label: 'Select Accompaniment',
             onChange: handleAccompChange,
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Select Accompaniment'
+                    optionTitle: 'Accompaniment'
                 },
                 {
                     value: 'instrumental',
@@ -246,12 +246,12 @@ export default function SongAdvanced(props: any) {
         },
         {
             type: 'select',
-            label: 'Language',
+            label: 'Choose a Language',
             onChange: handleLanguageChange,
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Choose a Language'
+                    optionTitle: 'Language'
                 },
                 {
                     value: 'english',
@@ -277,32 +277,341 @@ export default function SongAdvanced(props: any) {
                     value: 'spanish',
                     optionTitle: 'Spanish'
                 },
+
+                {
+                    value: 'hebrew',
+                    optionTitle: 'Hebrew'
+                },
+
+                {
+                    value: 'russian',
+                    optionTitle: 'Russian'
+                },
+                {
+                    value: 'gullah',
+                    optionTitle: 'Gullah',
+                },
+                {
+                    value: 'none',
+                    optionTitle: 'None',
+                },
+                {
+                    value: 'hungarian',
+                    optionTitle: 'Hungarian',
+                },
+                {
+                    value: 'yiddish',
+                    optionTitle: 'Yiddish',
+                },
+                {
+                    value: 'greek',
+                    optionTitle: 'Greek',
+                },
+                {
+                    value: 'maori',
+                    optionTitle: 'Maori',
+                },
+                {
+                    value: 'hawaiian',
+                    optionTitle: 'Hawaiian',
+                },
+                {
+                    value: 'tahitian',
+                    optionTitle: 'Tahitian',
+                },
+                {
+                    value: 'swedish',
+                    optionTitle: 'Swedish',
+                },
+                {
+                    value: 'chinese',
+                    optionTitle: 'Chinese',
+                },
+                {
+                    value: 'catalan',
+                    optionTitle: 'Catalan',
+                },
+                {
+                    value: 'romanian',
+                    optionTitle: 'Romanian',
+                },
+                {
+                    value: 'czech',
+                    optionTitle: 'Czech',
+                },
+                {
+                    value: 'polish',
+                    optionTitle: 'Polish'
+                },
+                {
+                    value: 'latvian',
+                    optionTitle: 'Latvian',
+                },
+                {
+                    value: 'lithuanian',
+                    optionTitle: 'Lithuanian',
+                },
+                {
+                    value: 'dutch',
+                    optionTitle: 'Dutch',
+                },
+                {
+                    value: 'gaelic',
+                    optionTitle: 'Gaelic (Scots)'
+                },
+                {
+                    value: 'norwegian',
+                    optionTitle: 'Norwegian'
+                },
+                {
+                    value: 'english,middle',
+                    optionTitle: 'English, Middle'
+                },
+                {
+                    value: 'malayo-polynesian',
+                    optionTitle: 'Malayo-Polynesian',
+                },
+                {
+                    value: 'vietnamese',
+                    optionTitle: 'Vietnamese',
+                },
+                {
+                    value: 'sub-saharan african',
+                    optionTitle: 'Sub-Saharan African'
+                },
+                {
+                    value: 'slavic',
+                    optionTitle: 'Slavic'
+                },
+                {
+                    value: 'irish',
+                    optionTitle: 'Irish',
+                },
+                {
+                    value: 'japanese',
+                    optionTitle: 'Japanese'
+                },
+                {
+                    value: 'icelandic',
+                    optionTitle: 'Icelandic'
+                },
+                {
+                    value: 'north american indian',
+                    optionTitle: 'North American Indian'
+                },
+                {
+                    value: 'indonesian',
+                    optionTitle: 'Indonesian'
+                },
+                {
+                    value: 'iranian',
+                    optionTitle: 'Iranian',
+                },
+                {
+                    value: 'celtic group',
+                    optionTitle: 'Celtic Group'
+                },
+                {
+                    value: 'arabic',
+                    optionTitle: 'Arabic'
+                },
+                {
+                    value: 'nepali',
+                    optionTitle: 'Nepali'
+                },
+                {
+                    value: 'papiamento',
+                    optionTitle: 'Papiamento'
+                },
+                {
+                    value: 'tagalog',
+                    optionTitle: 'Tagalog',
+                },
+                {
+                    value: 'syriac',
+                    optionTitle: 'Syriac'
+                },
+                {
+                    value: 'swahili',
+                    optionTitle: 'Swahili'
+                },
+                {
+                    value: 'albanian',
+                    optionTitle: 'Albanian'
+                },
+                {
+                    value: 'burmese',
+                    optionTitle: 'Burmese'
+                },
+                {
+                    value: 'cambodian',
+                    optionTitle: 'Cambodian',
+                },
+                {
+                    value: 'slovak',
+                    optionTitle: 'Slovak',
+                },
+                {
+                    value: 'finnish',
+                    optionTitle: 'Finnish'
+                },
+                {
+                    value: 'turkish',
+                    optionTitle: 'Turkish'
+                },
+                {
+                    value: 'estonian',
+                    optionTitle: 'Estonian',
+                },
+                {
+                    value: 'breton',
+                    optionTitle: 'Breton',
+                },
+                {
+                    value: 'macedonian',
+                    optionTitle: 'Macedonian'
+                },
+                {
+                    value: 'iroquois',
+                    optionTitle: 'Iroquois'
+                },
+                {
+                    value: 'korean',
+                    optionTitle: 'Korean'
+                },
+                {
+                    value: 'sinhala',
+                    optionTitle: 'Sinhala'
+                },
+                {
+                    value: 'malagasy',
+                    optionTitle: 'Malagasy'
+                },
+                {
+                    value: 'thai',
+                    optionTitle: 'Thai'
+                },
+                {
+                    value: 'ewe',
+                    optionTitle: 'Ewe'
+                },
+                {
+                    value: 'tongan',
+                    optionTitle: 'Tongan',
+                },
+                {
+                    value: 'welsh',
+                    optionTitle: 'Welsh'
+                },
+                {
+                    value: 'bulgarian',
+                    optionTitle: 'Bulgarian'
+                },
+                {
+                    value: 'ukrainian',
+                    optionTitle: 'Ukrainian'
+                },
+                {
+                    value: 'alaskan native',
+                    optionTitle: 'Alaskan Native'
+                },
+                {
+                    value: 'zuni',
+                    optionTitle: 'Zuni'
+                },
+                {
+                    value: 'creole',
+                    optionTitle: 'Creole'
+                },
+                {
+                    value: 'javanese',
+                    optionTitle: 'Javanese'
+                },
+                {
+                    value: 'malay',
+                    optionTitle: 'Malay'
+                },
+                {
+                    value: 'urdu',
+                    optionTitle: 'Urdu'
+                },
+                {
+                    value: 'afrikaans',
+                    optionTitle: 'Afrikaans'
+                },
+                {
+                    value: 'samoan',
+                    optionTitle: 'Samoan'
+                },
+                {
+                    value: 'serbo-croation',
+                    optionTitle: 'Serbo-Croation (Roman)'
+                },
+                {
+                    value: 'faroese',
+                    optionTitle: 'Faroese'
+                },
+                {
+                    value: 'laotion',
+                    optionTitle: 'Laotion'
+                },
+                {
+                    value: 'ethiopic',
+                    optionTitle: 'Ethiopic'
+                },
+                {
+                    value: 'hindi',
+                    optionTitle: 'Hindi'
+                },
+                {
+                    value: 'anglo-saxon',
+                    optionTitle: 'Anglo-Saxon'
+                },
+                {
+                    value: 'xhosa',
+                    optionTitle: 'Xhosa'
+                },
+                {
+                    value: 'armenian',
+                    optionTitle: 'Armenian'
+                },
+                {
+                    value: 'azerbaijani',
+                    optionTitle: 'Azerbaijani'
+                },
+                {
+                    value: 'aramaic',
+                    optionTitle: 'Aramaic'
+                }
+
             ]
         }
     ]
 
     return (
-        <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
-            {songInputVals.map((inputVal, index) =>
-                <div className="flex flex-row mt-2" key={index}>
-                    {inputVal.type == 'input' ? (
-                        <AdvancedSearchInput
-                            label={inputVal.label}
-                            placeholder={inputVal.placeholder}
-                            name={inputVal.name}
-                            onChange={inputVal.onChange}
-                        />
-                    ) : inputVal.type == 'select' ? (
-                        <AdvancedSearchSelect
-                            label={inputVal.label}
-                            optionVals={inputVal.optionVals}
-                            onChange={inputVal.onChange}
-                        />
-                    ) :
-                        <div className="text-red-600">An error occurred when loading the advanced form</div>
-                    }
-                </div>
-            )}
+        <form method="post" id="search-form" className="mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
+            <div className="lg:container lg:columns-2 gap-3">
+                {songInputVals.map((inputVal, index) =>
+                    <div className="flex flex-row content-center" key={index}>
+                        {inputVal.type == 'input' ? (
+                            <AdvancedSearchInput
+                                label={inputVal.label}
+                                placeholder={inputVal.placeholder}
+                                name={inputVal.name}
+                                onChange={inputVal.onChange}
+                            />
+                        ) : inputVal.type == 'select' ? (
+                            <AdvancedSearchSelect
+                                label={inputVal.label}
+                                optionVals={inputVal.optionVals}
+                                onChange={inputVal.onChange}
+                            />
+                        ) :
+                            <div className="text-red-600">An error occurred when loading the advanced form</div>
+                        }
+                    </div>
+                )}
+            </div>
             <div className="flex flex-row justify-end">
                 <button type="submit" className=" bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
             </div>

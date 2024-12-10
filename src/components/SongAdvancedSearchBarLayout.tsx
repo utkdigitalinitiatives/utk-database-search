@@ -173,7 +173,7 @@ export default function SongAdvanced(props: any) {
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Select Song Type'
+                    optionTitle: 'Song Type'
                 },
                 {
                     value: 'aria',
@@ -219,12 +219,12 @@ export default function SongAdvanced(props: any) {
         },
         {
             type: 'select',
-            label: 'Accompaniment',
+            label: 'Select Accompaniment',
             onChange: handleAccompChange,
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Select Accompaniment'
+                    optionTitle: 'Accompaniment'
                 },
                 {
                     value: 'instrumental',
@@ -246,12 +246,12 @@ export default function SongAdvanced(props: any) {
         },
         {
             type: 'select',
-            label: 'Language',
+            label: 'Choose a Language',
             onChange: handleLanguageChange,
             optionVals: [
                 {
                     value: 'select',
-                    optionTitle: 'Choose a Language'
+                    optionTitle: 'Language'
                 },
                 {
                     value: 'english',

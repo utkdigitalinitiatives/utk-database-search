@@ -30,7 +30,9 @@ const Song = () => {
                     setTotalFound(data.response.numFound)
                     setResults(data.response.docs);
                     setSearchURL(previousSearchURL);
-                    setSearchStartVal(parseInt(start));
+                    if (start) {
+                        setSearchStartVal(parseInt(start));
+                    }
                 } catch (error) {
                     console.error('Error fetching existing data:', error);
                 }
@@ -40,7 +42,7 @@ const Song = () => {
         getData();
 
     }, [])
-    const handleSearchResults = (response: any, searchURL: string, startVal: int) => {
+    const handleSearchResults = (response: any, searchURL: string, startVal: number) => {
         // console.log(`${searchURL}&start=${startVal}`);
         setResults(response.docs);
         setTotalFound(response.numFound);

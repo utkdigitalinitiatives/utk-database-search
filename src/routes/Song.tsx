@@ -1,13 +1,13 @@
 import SingleSearchBar from "../components/SingleSearchBar";
 import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
 import ResultHeader from "../components/ResultHeader";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import SongResults from "../components/SongResults";
 import Pager from "../components/Pager";
+import { searchSolr } from "../utils/utils";
 
 const Song = () => {
-
     const searchRef = useRef<HTMLDivElement | null>(null);
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
@@ -19,13 +19,35 @@ const Song = () => {
     const [singleSearchVisible, setSingleSearchVisible] = useState(true);
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
+    useEffect(() => {
+        const getData = async () => {
 
+            const previousSearchURL = sessionStorage.getItem('searchURL');
+            const start = sessionStorage.getItem('startVal');
+            if (previousSearchURL) {
+                try {
+                    const data = await searchSolr(`${previousSearchURL}&start=${start}`);
+                    setTotalFound(data.response.numFound)
+                    setResults(data.response.docs);
+                    setSearchURL(previousSearchURL);
+                    setSearchStartVal(parseInt(start));
+                } catch (error) {
+                    console.error('Error fetching existing data:', error);
+                }
+
+            }
+        };
+        getData();
+
+    }, [])
     const handleSearchResults = (response: any, searchURL: string, startVal: int) => {
-        console.log(response);
+        // console.log(`${searchURL}&start=${startVal}`);
         setResults(response.docs);
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
+        sessionStorage.setItem('searchURL', `${searchURL}`);
+        sessionStorage.setItem('startVal', `${startVal}`);
     }
 
     const setSingleInvisible = () => {

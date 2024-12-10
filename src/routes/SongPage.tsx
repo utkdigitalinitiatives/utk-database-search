@@ -1,6 +1,10 @@
+import { useParams } from "react-router";
 
 
-const SongPage = ()  => {
+const SongPage = () => {
+    let params = useParams();
+
+    console.log(params)
     return (
         <div>Song Page!</div>
     )

@@ -282,27 +282,29 @@ export default function SongAdvanced(props: any) {
     ]
 
     return (
-        <form method="post" id="search-form" className="w-full mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
-            {songInputVals.map((inputVal, index) =>
-                <div className="flex flex-row mt-2" key={index}>
-                    {inputVal.type == 'input' ? (
-                        <AdvancedSearchInput
-                            label={inputVal.label}
-                            placeholder={inputVal.placeholder}
-                            name={inputVal.name}
-                            onChange={inputVal.onChange}
-                        />
-                    ) : inputVal.type == 'select' ? (
-                        <AdvancedSearchSelect
-                            label={inputVal.label}
-                            optionVals={inputVal.optionVals}
-                            onChange={inputVal.onChange}
-                        />
-                    ) :
-                        <div className="text-red-600">An error occurred when loading the advanced form</div>
-                    }
-                </div>
-            )}
+        <form method="post" id="search-form" className="mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
+            <div className="lg:container lg:columns-2 gap-3">
+                {songInputVals.map((inputVal, index) =>
+                    <div className="flex flex-row content-center" key={index}>
+                        {inputVal.type == 'input' ? (
+                            <AdvancedSearchInput
+                                label={inputVal.label}
+                                placeholder={inputVal.placeholder}
+                                name={inputVal.name}
+                                onChange={inputVal.onChange}
+                            />
+                        ) : inputVal.type == 'select' ? (
+                            <AdvancedSearchSelect
+                                label={inputVal.label}
+                                optionVals={inputVal.optionVals}
+                                onChange={inputVal.onChange}
+                            />
+                        ) :
+                            <div className="text-red-600">An error occurred when loading the advanced form</div>
+                        }
+                    </div>
+                )}
+            </div>
             <div className="flex flex-row justify-end">
                 <button type="submit" className=" bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
             </div>

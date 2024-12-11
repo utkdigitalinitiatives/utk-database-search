@@ -593,14 +593,14 @@ export default function SongAdvanced(props: any) {
             <div className="lg:container lg:columns-2 gap-3">
                 {songInputVals.map((inputVal, index) =>
                     <div className="flex flex-row content-center" key={index}>
-                        {inputVal.type == 'input' ? (
+                        {inputVal.type === 'input' ? (
                             <AdvancedSearchInput
                                 label={inputVal.label}
                                 placeholder={inputVal.placeholder}
                                 name={inputVal.name}
                                 onChange={inputVal.onChange}
                             />
-                        ) : inputVal.type == 'select' ? (
+                        ) : inputVal.type === 'select' ? (
                             <AdvancedSearchSelect
                                 label={inputVal.label}
                                 optionVals={inputVal.optionVals}

@@ -1,21 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import SingleSearchBar from "../components/SingleSearchBar";
-import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
 import ResultHeader from "../components/ResultHeader";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Pager from "../components/Pager";
 import { searchSolr } from "../utils/utils";
 import SongResults from "../components/SongResults";
 
-export default function PageLayout(props:any) {
+// Advanced Search Bar Components
+import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
+import SermonAdvancedSearch from "../components/SermonAdvancedSearchLayout";
+
+
+
+export default function PageLayout({ routeInfo }: any) {
     const searchRef = useRef<HTMLDivElement | null>(null);
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
     const [searchStartVal, setSearchStartVal] = useState(0);
 
-    const endpoint = props.endpoint;
-    const placeholder = props.placeholder;
+    const endpoint = routeInfo.endpoint;
+    const placeholder = routeInfo.placeholder;
     const [singleSearchVisible, setSingleSearchVisible] = useState(true);
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
@@ -69,7 +74,7 @@ export default function PageLayout(props:any) {
             </div>
             <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
                 <div className='h-full grid justify-center my-auto py-3'>
-                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{props.title}</h1>
+                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                     {singleSearchVisible &&
                         <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                             <div className="flex flex-row-reverse">
@@ -88,11 +93,18 @@ export default function PageLayout(props:any) {
                             <div className="flex flex-row-reverse">
                                 <button className=" text-utk-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
                             </div>
-                            <SongAdvancedSearch
-                                endpoint={endpoint}
-                                onSearch={handleSearchResults}
-                                searchStart={searchStartVal}
-                            />
+                            {routeInfo.routeName === 'song' ? (
+
+                                <SongAdvancedSearch
+                                    endpoint={endpoint}
+                                    onSearch={handleSearchResults}
+                                    searchStart={searchStartVal}
+                                />
+                            ) : routeInfo.routeName === 'sermon' ? (
+                                <SermonAdvancedSearch />
+                            ) :
+                                <div className="text-red-600">An error occurred when loading the advanced form</div>
+                            }
                         </div>
                     }
                 </div>

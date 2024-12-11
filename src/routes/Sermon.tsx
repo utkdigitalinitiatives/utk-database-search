@@ -5,12 +5,15 @@ import PageLayout from "./PageLayout";
 export default function Sermon() {
    
     // TODO: add logic to check for localhost vs production here for endpoint
-    const endpoint = `/sermon_db_new_dev/select?`;
-    const placeholder = "Search the sermon index database...";
-    const title = 'UT Sermon Index'
-    
+    const routeInfo = {
+        routeName: 'sermon',
+        endpoint: `/sermon_db_new_dev/select?`,
+        placeholder: "Search the sermon index database...",
+        siteTitle: 'UT Sermon Index',
+    }
+       
 
     return (
-        <PageLayout endpoint={endpoint} placeholder={placeholder} title={title}/>
+        <PageLayout routeInfo={routeInfo} />
     )
 }

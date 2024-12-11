@@ -18,11 +18,11 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Index />} />
-          <Route path="/song" element={<Song />} />
+          <Route path="song" element={<Song />} />
           <Route path="song/:songId" element={<SongPage />} />
-          <Route path="/sermon" element={<Sermon />} />
-          <Route path="/symphony" element={<Symphony />} />
-          <Route path="/tennessee-news" element={<TennesseeNews />} />
+          <Route path="sermon" element={<Sermon />} />
+          <Route path="symphony" element={<Symphony />} />
+          <Route path="tennessee-news" element={<TennesseeNews />} />
         </Route>
       </Routes>
     </BrowserRouter>

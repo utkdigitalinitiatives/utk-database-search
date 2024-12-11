@@ -1,7 +1,6 @@
 
 
 export default function ResultTop(props: any) {
-    console.log(props)
     return (
         <div className="mx-4 py-3 px-4 my-3 text-lg bg-utk-light-gray border-2 rounded-sm shadow-inner md:flex md:flex-row">
             <div>

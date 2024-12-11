@@ -6,6 +6,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import SongResults from "../components/SongResults";
 import Pager from "../components/Pager";
 import { searchSolr } from "../utils/utils";
+// import { useLocation } from "react-router";
 
 const Song = () => {
     const searchRef = useRef<HTMLDivElement | null>(null);

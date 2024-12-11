@@ -7,8 +7,8 @@ import { searchSolr } from "../utils/utils";
 import SongResults from "../components/SongResults";
 
 // Advanced Search Bar Components
-import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
-import SermonAdvancedSearch from "../components/SermonAdvancedSearchLayout";
+import SongAdvancedSearch from '../components/AdvancedSearchBarLayoutSong';
+import SermonAdvancedSearch from "../components/AdvancedSearchBarLayoutSermon";
 
 
 
@@ -64,7 +64,6 @@ export default function PageLayout({ routeInfo }: any) {
             }
         };
         getData();
-
     }, [])
 
     return (

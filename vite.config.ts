@@ -10,6 +10,11 @@ export default defineConfig({
         target: 'https://jchlib.com',
         changeOrigin: true,
         secure: false
+      },
+      '/sermon_db_new_dev': {
+        target: 'https://jchlib.com',
+        changeOrigin: true,
+        secure: false
       }
     }
   }

@@ -1,8 +1,8 @@
-import { searchSolr } from "../utils/utils";
+import { searchSolr } from "../utils/utils.tsx";
 import { useState } from "react";
-import AdvancedSearchInput from "./AdvancedSearchInput";
-import AdvancedSearchSelect from "./AdvancedSearchSelect";
-import songInputVals from './SongInputVals.ts'
+import AdvancedSearchInput from "./AdvancedSearchInput.tsx";
+import AdvancedSearchSelect from "./AdvancedSearchSelect.tsx";
+import songInputVals from './InputValsSong.ts'
 
 
 

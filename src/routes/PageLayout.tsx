@@ -1,24 +1,42 @@
+import { useEffect, useRef, useState } from "react";
 import SingleSearchBar from "../components/SingleSearchBar";
 import SongAdvancedSearch from '../components/SongAdvancedSearchBarLayout';
 import ResultHeader from "../components/ResultHeader";
-import { useEffect, useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
-import SongResults from "../components/SongResults";
 import Pager from "../components/Pager";
 import { searchSolr } from "../utils/utils";
-// import { useLocation } from "react-router";
+import SongResults from "../components/SongResults";
 
-const Song = () => {
+export default function PageLayout(props:any) {
     const searchRef = useRef<HTMLDivElement | null>(null);
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
     const [searchStartVal, setSearchStartVal] = useState(0);
 
-    const endpoint = `/unified_song_db_dev/select?`;
-    const placeholder = "Search the song database...";
+    const endpoint = props.endpoint;
+    const placeholder = props.placeholder;
     const [singleSearchVisible, setSingleSearchVisible] = useState(true);
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
+
+    const handleSearchResults = (response: any, searchURL: string, startVal: number) => {
+        setResults(response.docs);
+        setTotalFound(response.numFound);
+        setSearchURL(searchURL);
+        setSearchStartVal(startVal);
+        sessionStorage.setItem('searchURL', `${searchURL}`);
+        sessionStorage.setItem('startVal', `${startVal}`);
+    }
+
+    const setSingleInvisible = () => {
+        setSingleSearchVisible(false);
+        setAdvancedSearchVisible(true);
+    }
+
+    const setAdvancedInvisible = () => {
+        setAdvancedSearchVisible(false);
+        setSingleSearchVisible(true);
+    }
 
     useEffect(() => {
         const getData = async () => {
@@ -43,25 +61,6 @@ const Song = () => {
         getData();
 
     }, [])
-    const handleSearchResults = (response: any, searchURL: string, startVal: number) => {
-        setResults(response.docs);
-        setTotalFound(response.numFound);
-        setSearchURL(searchURL);
-        setSearchStartVal(startVal);
-        sessionStorage.setItem('searchURL', `${searchURL}`);
-        sessionStorage.setItem('startVal', `${startVal}`);
-    }
-
-    const setSingleInvisible = () => {
-        setSingleSearchVisible(false);
-        setAdvancedSearchVisible(true);
-    }
-
-    const setAdvancedInvisible = () => {
-        setAdvancedSearchVisible(false);
-        setSingleSearchVisible(true);
-    }
-
 
     return (
         <main>
@@ -70,7 +69,7 @@ const Song = () => {
             </div>
             <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
                 <div className='h-full grid justify-center my-auto py-3'>
-                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>UT Song Index</h1>
+                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{props.title}</h1>
                     {singleSearchVisible &&
                         <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                             <div className="flex flex-row-reverse">
@@ -135,7 +134,5 @@ const Song = () => {
                 }
             </div>
         </main>
-    );
+    )
 }
-
-export default Song;

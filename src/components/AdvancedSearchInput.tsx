@@ -1,21 +1,26 @@
-
 interface AdvancedSearchInputProps {
-    label: string,
+    label: string;
     placeholder: string;
     name: string;
-    onChange: (value: string) => void;  // Define the type for the onChange prop
+    value: string;  // The current value of the input field
+    onChange: (field: string, value: string) => void;  // The onChange handler
 }
 
-export default function AdvancedSearchInput({ label, placeholder, name, onChange }: AdvancedSearchInputProps) {
+const AdvancedSearchInput: React.FC<AdvancedSearchInputProps> = ({ label, placeholder, name, value, onChange }) => {
     return (
-        <label className="py-0 text-utk-white w-full"> {label}
+        <div className="flex flex-col">
+            <label htmlFor={name} className="text-sm font-medium py-0 text-utk-white w-full">{label}</label>
             <input
+                id={name}
+                name={name}
                 type="text"
                 placeholder={placeholder}
-                name={name}
+                value={value}  // Bind the input's value to the state
+                onChange={(e) => onChange(name, e.target.value)}  // Call the onChange handler when value changes
                 className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-none p-1 rounded-md w-full text-utk-smokey"
-                onChange={e => onChange(e.target.value)}
             />
-        </label>
-    )
-}
+        </div>
+    );
+};
+
+export default AdvancedSearchInput

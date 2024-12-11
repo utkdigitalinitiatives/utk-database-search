@@ -2,12 +2,13 @@ import { searchSolr } from "../utils/utils";
 import { useState } from "react";
 import AdvancedSearchInput from "./AdvancedSearchInput";
 import AdvancedSearchSelect from "./AdvancedSearchSelect";
+import songInputVals from './SongInputVals.ts'
 
 
 
 export default function SongAdvanced(props: any) {
 
-    // const [query, setQuery] = useState('');
+    // Initialize state variables
     const [songTitle, setSongTitle] = useState('');
     const [composer, setComposer] = useState('');
     const [author, setAuthor] = useState('');
@@ -16,56 +17,29 @@ export default function SongAdvanced(props: any) {
     const [firstLine, setFirstLine] = useState('');
     const [anthology, setAnthology] = useState('');
     const [callNumber, setCallNumber] = useState('');
-    const [language, setLanguage] = useState('select')
+    const [language, setLanguage] = useState('select');
 
+    // Helper function to create query parameters
     const createParams = () => {
-        let queryString = "";
+        let queryString = '';
         let queryParts = [];
-        if (songTitle) {
-            queryParts.push(`title:*${songTitle}*`);
-        }
 
-        if (composer) {
-            queryParts.push(`composers:*${composer}*`);
-        }
+        if (songTitle) queryParts.push(`title:*${songTitle}*`);
+        if (composer) queryParts.push(`composers:*${composer}*`);
+        if (author) queryParts.push(`authors:*${author}*`);
+        if (accompVal && accompVal !== 'select') queryParts.push(`accomp_values:*${accompVal}*`);
+        if (songType && songType !== 'select') queryParts.push(`song_types:*${songType}*`);
+        if (firstLine) queryParts.push(`first_line:*${firstLine}*`);
+        if (anthology) queryParts.push(`anthology_title:*${anthology}*`);
+        if (callNumber) queryParts.push(`call_number:*${callNumber}*`);
+        if (language && language !== 'select') queryParts.push(`languages:*${language}*`);
 
-        if (author) {
-            queryParts.push(`authors:*${author}*`);
-        }
-
-        if (accompVal && accompVal != 'select') {
-            queryParts.push(`accomp_values:*${accompVal}*`);
-        }
-
-        if (songType && songType != 'select') {
-            queryParts.push(`song_types:*${songType}*`);
-        }
-
-        if (firstLine) {
-            queryParts.push(`first_line:*${firstLine}*`);
-        }
-
-        if (anthology) {
-            queryParts.push(`anthology_title:*${anthology}*`);
-        }
-
-        if (callNumber) {
-            queryParts.push(`call_number:*${callNumber}*`);
-        }
-
-        if (language && language != 'select') {
-            queryParts.push(`languages:*${language}*`);
-        }
-
-        if (queryParts.length > 0) {
-            queryString = queryParts.join(" AND ")
-        }
-        return queryString
-    }
-
+        if (queryParts.length > 0) queryString = queryParts.join(' AND ');
+        return queryString;
+    };
+    // Handle submit to query results
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-
         const query = createParams()
         const params = new URLSearchParams({
             q: `${query}`,
@@ -73,12 +47,22 @@ export default function SongAdvanced(props: any) {
             wt: 'json',
         })
         let fullUrl = `${props.endpoint}${params}`;
+        console.log(fullUrl)
         const data = await searchSolr(fullUrl);
         props.onSearch(data.response, fullUrl, 0);
 
     }
-
+    // Reset query
     const handleReset = () => {
+        setSongTitle('');
+        setComposer('');
+        setAuthor('');
+        setAccompVal('select');
+        setSongType('select');
+        setFirstLine('');
+        setAnthology('');
+        setCallNumber('');
+        setLanguage('select');
         let response = {
             docs: 0,
             numFound: [],
@@ -86,539 +70,55 @@ export default function SongAdvanced(props: any) {
         props.onSearch(response, '', 0);
     }
 
-    const handleSongTitleChange = (value: string) => {
-        setSongTitle(value);
+    // Generalized handle change function
+    const handleChange = (field: string, value: string) => {
+        if (field === 'songTitle') setSongTitle(value);
+        if (field === 'composer') setComposer(value);
+        if (field === 'author') setAuthor(value);
+        if (field === 'accompVal') setAccompVal(value);
+        if (field === 'songType') setSongType(value);
+        if (field === 'firstLine') setFirstLine(value);
+        if (field === 'anthology') setAnthology(value);
+        if (field === 'callNumber') setCallNumber(value);
+        if (field === 'language') setLanguage(value);
     };
 
-    const handleComposerChange = (value: string) => {
-        setComposer(value);
-    };
-
-    const handleAuthorChange = (value: string) => {
-        setAuthor(value);
-    };
-
-    const handleAnthologyChange = (value: string) => {
-        setAnthology(value);
-    };
-
-    const handleFirstLineChange = (value: string) => {
-        setFirstLine(value);
-    };
-
-    const handleCallNumberChange = (value: string) => {
-        setCallNumber(value);
-    };
-
-    const handleSongTypeChange = (value: string) => {
-        setSongType(value);
-    };
-
-    const handleAccompChange = (value: string) => {
-        setAccompVal(value);
-    };
-
-    const handleLanguageChange = (value: string) => {
-        setLanguage(value);
-    };
-
-    //TODO: There has to be a way better way to query/generate these options?  Maybe just a fetch/sql query?
-    const songInputVals = [
-        {
-            type: 'input',
-            label: 'Search by Title',
-            placeholder: "Song Title",
-            name: "songTitle",
-            onChange: handleSongTitleChange
-        },
-        {
-            type: 'input',
-            label: 'Search by Composers',
-            placeholder: "Composer's Name",
-            name: "composer",
-            onChange: handleComposerChange
-        },
-        {
-            type: 'input',
-            label: 'Search by Authors',
-            placeholder: "Author's Name",
-            name: "author",
-            onChange: handleAuthorChange,
-        },
-        {
-            type: 'input',
-            label: 'Search by Anthology Title',
-            placeholder: "Anthology Title",
-            name: "anthology",
-            onChange: handleAnthologyChange,
-        },
-        {
-            type: 'input',
-            label: 'Search by the First Line',
-            placeholder: "Enter the first line",
-            name: "firstLine",
-            onChange: handleFirstLineChange,
-        },
-        {
-            type: 'input',
-            label: 'Search by Call Number',
-            placeholder: "Enter Call Number",
-            name: "callNumber",
-            onChange: handleCallNumberChange,
-        },
-        {
-            type: 'select',
-            label: 'Select Song Type',
-            onChange: handleSongTypeChange,
-            optionVals: [
-                {
-                    value: 'select',
-                    optionTitle: 'Song Type'
-                },
-                {
-                    value: 'aria',
-                    optionTitle: 'Aria'
-                },
-                {
-                    value: 'art song',
-                    optionTitle: 'Art Song'
-                },
-                {
-                    value: 'carol',
-                    optionTitle: 'Carol'
-                },
-                {
-                    value: "children's",
-                    optionTitle: "Children's"
-                },
-                {
-                    value: "folk",
-                    optionTitle: "Folk"
-                },
-                {
-                    value: "national anthem",
-                    optionTitle: "National Anthem"
-                },
-                {
-                    value: "patriotic",
-                    optionTitle: "Patriotic"
-                },
-                {
-                    value: "popular",
-                    optionTitle: "Popular"
-                },
-                {
-                    value: "sacred",
-                    optionTitle: "Sacred"
-                },
-                {
-                    value: "spiritual",
-                    optionTitle: "Spiritual"
-                },
-            ]
-        },
-        {
-            type: 'select',
-            label: 'Select Accompaniment',
-            onChange: handleAccompChange,
-            optionVals: [
-                {
-                    value: 'select',
-                    optionTitle: 'Accompaniment'
-                },
-                {
-                    value: 'instrumental',
-                    optionTitle: 'Instrumental'
-                },
-                {
-                    value: 'keyboard',
-                    optionTitle: 'Keyboard'
-                },
-                {
-                    value: 'orchestra',
-                    optionTitle: 'Orchestra'
-                },
-                {
-                    value: 'unaccompanied',
-                    optionTitle: 'Unaccompanied'
-                },
-            ]
-        },
-        {
-            type: 'select',
-            label: 'Choose a Language',
-            onChange: handleLanguageChange,
-            optionVals: [
-                {
-                    value: 'select',
-                    optionTitle: 'Language'
-                },
-                {
-                    value: 'english',
-                    optionTitle: 'English'
-                },
-                {
-                    value: 'french',
-                    optionTitle: 'French'
-                },
-                {
-                    value: 'german',
-                    optionTitle: 'German'
-                },
-                {
-                    value: 'italian',
-                    optionTitle: 'Italian'
-                },
-                {
-                    value: 'portuguese',
-                    optionTitle: 'Portuguese'
-                },
-                {
-                    value: 'spanish',
-                    optionTitle: 'Spanish'
-                },
-
-                {
-                    value: 'hebrew',
-                    optionTitle: 'Hebrew'
-                },
-
-                {
-                    value: 'russian',
-                    optionTitle: 'Russian'
-                },
-                {
-                    value: 'gullah',
-                    optionTitle: 'Gullah',
-                },
-                {
-                    value: 'none',
-                    optionTitle: 'None',
-                },
-                {
-                    value: 'hungarian',
-                    optionTitle: 'Hungarian',
-                },
-                {
-                    value: 'yiddish',
-                    optionTitle: 'Yiddish',
-                },
-                {
-                    value: 'greek',
-                    optionTitle: 'Greek',
-                },
-                {
-                    value: 'maori',
-                    optionTitle: 'Maori',
-                },
-                {
-                    value: 'hawaiian',
-                    optionTitle: 'Hawaiian',
-                },
-                {
-                    value: 'tahitian',
-                    optionTitle: 'Tahitian',
-                },
-                {
-                    value: 'swedish',
-                    optionTitle: 'Swedish',
-                },
-                {
-                    value: 'chinese',
-                    optionTitle: 'Chinese',
-                },
-                {
-                    value: 'catalan',
-                    optionTitle: 'Catalan',
-                },
-                {
-                    value: 'romanian',
-                    optionTitle: 'Romanian',
-                },
-                {
-                    value: 'czech',
-                    optionTitle: 'Czech',
-                },
-                {
-                    value: 'polish',
-                    optionTitle: 'Polish'
-                },
-                {
-                    value: 'latvian',
-                    optionTitle: 'Latvian',
-                },
-                {
-                    value: 'lithuanian',
-                    optionTitle: 'Lithuanian',
-                },
-                {
-                    value: 'dutch',
-                    optionTitle: 'Dutch',
-                },
-                {
-                    value: 'gaelic',
-                    optionTitle: 'Gaelic (Scots)'
-                },
-                {
-                    value: 'norwegian',
-                    optionTitle: 'Norwegian'
-                },
-                {
-                    value: 'english,middle',
-                    optionTitle: 'English, Middle'
-                },
-                {
-                    value: 'malayo-polynesian',
-                    optionTitle: 'Malayo-Polynesian',
-                },
-                {
-                    value: 'vietnamese',
-                    optionTitle: 'Vietnamese',
-                },
-                {
-                    value: 'sub-saharan african',
-                    optionTitle: 'Sub-Saharan African'
-                },
-                {
-                    value: 'slavic',
-                    optionTitle: 'Slavic'
-                },
-                {
-                    value: 'irish',
-                    optionTitle: 'Irish',
-                },
-                {
-                    value: 'japanese',
-                    optionTitle: 'Japanese'
-                },
-                {
-                    value: 'icelandic',
-                    optionTitle: 'Icelandic'
-                },
-                {
-                    value: 'north american indian',
-                    optionTitle: 'North American Indian'
-                },
-                {
-                    value: 'indonesian',
-                    optionTitle: 'Indonesian'
-                },
-                {
-                    value: 'iranian',
-                    optionTitle: 'Iranian',
-                },
-                {
-                    value: 'celtic group',
-                    optionTitle: 'Celtic Group'
-                },
-                {
-                    value: 'arabic',
-                    optionTitle: 'Arabic'
-                },
-                {
-                    value: 'nepali',
-                    optionTitle: 'Nepali'
-                },
-                {
-                    value: 'papiamento',
-                    optionTitle: 'Papiamento'
-                },
-                {
-                    value: 'tagalog',
-                    optionTitle: 'Tagalog',
-                },
-                {
-                    value: 'syriac',
-                    optionTitle: 'Syriac'
-                },
-                {
-                    value: 'swahili',
-                    optionTitle: 'Swahili'
-                },
-                {
-                    value: 'albanian',
-                    optionTitle: 'Albanian'
-                },
-                {
-                    value: 'burmese',
-                    optionTitle: 'Burmese'
-                },
-                {
-                    value: 'cambodian',
-                    optionTitle: 'Cambodian',
-                },
-                {
-                    value: 'slovak',
-                    optionTitle: 'Slovak',
-                },
-                {
-                    value: 'finnish',
-                    optionTitle: 'Finnish'
-                },
-                {
-                    value: 'turkish',
-                    optionTitle: 'Turkish'
-                },
-                {
-                    value: 'estonian',
-                    optionTitle: 'Estonian',
-                },
-                {
-                    value: 'breton',
-                    optionTitle: 'Breton',
-                },
-                {
-                    value: 'macedonian',
-                    optionTitle: 'Macedonian'
-                },
-                {
-                    value: 'iroquois',
-                    optionTitle: 'Iroquois'
-                },
-                {
-                    value: 'korean',
-                    optionTitle: 'Korean'
-                },
-                {
-                    value: 'sinhala',
-                    optionTitle: 'Sinhala'
-                },
-                {
-                    value: 'malagasy',
-                    optionTitle: 'Malagasy'
-                },
-                {
-                    value: 'thai',
-                    optionTitle: 'Thai'
-                },
-                {
-                    value: 'ewe',
-                    optionTitle: 'Ewe'
-                },
-                {
-                    value: 'tongan',
-                    optionTitle: 'Tongan',
-                },
-                {
-                    value: 'welsh',
-                    optionTitle: 'Welsh'
-                },
-                {
-                    value: 'bulgarian',
-                    optionTitle: 'Bulgarian'
-                },
-                {
-                    value: 'ukrainian',
-                    optionTitle: 'Ukrainian'
-                },
-                {
-                    value: 'alaskan native',
-                    optionTitle: 'Alaskan Native'
-                },
-                {
-                    value: 'zuni',
-                    optionTitle: 'Zuni'
-                },
-                {
-                    value: 'creole',
-                    optionTitle: 'Creole'
-                },
-                {
-                    value: 'javanese',
-                    optionTitle: 'Javanese'
-                },
-                {
-                    value: 'malay',
-                    optionTitle: 'Malay'
-                },
-                {
-                    value: 'urdu',
-                    optionTitle: 'Urdu'
-                },
-                {
-                    value: 'afrikaans',
-                    optionTitle: 'Afrikaans'
-                },
-                {
-                    value: 'samoan',
-                    optionTitle: 'Samoan'
-                },
-                {
-                    value: 'serbo-croation',
-                    optionTitle: 'Serbo-Croation (Roman)'
-                },
-                {
-                    value: 'faroese',
-                    optionTitle: 'Faroese'
-                },
-                {
-                    value: 'laotion',
-                    optionTitle: 'Laotion'
-                },
-                {
-                    value: 'ethiopic',
-                    optionTitle: 'Ethiopic'
-                },
-                {
-                    value: 'hindi',
-                    optionTitle: 'Hindi'
-                },
-                {
-                    value: 'anglo-saxon',
-                    optionTitle: 'Anglo-Saxon'
-                },
-                {
-                    value: 'xhosa',
-                    optionTitle: 'Xhosa'
-                },
-                {
-                    value: 'armenian',
-                    optionTitle: 'Armenian'
-                },
-                {
-                    value: 'azerbaijani',
-                    optionTitle: 'Azerbaijani'
-                },
-                {
-                    value: 'aramaic',
-                    optionTitle: 'Aramaic'
-                }
-
-            ]
-        }
-    ]
 
     return (
         <form method="post" id="search-form" className="mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
-            <div className="lg:container lg:columns-2 gap-3">
-                {songInputVals.map((inputVal, index) =>
-                    <div className="flex flex-row content-center" key={index}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {Object.entries(songInputVals).map(([key, inputVal], index) => (
+                    <div className="" key={index}>
                         {inputVal.type === 'input' ? (
                             <AdvancedSearchInput
                                 label={inputVal.label}
                                 placeholder={inputVal.placeholder}
                                 name={inputVal.name}
-                                onChange={inputVal.onChange}
+                                value={inputVal.name === 'songTitle' ? songTitle : inputVal.name === 'composer' ? composer : ''}
+                                onChange={handleChange}
                             />
                         ) : inputVal.type === 'select' ? (
                             <AdvancedSearchSelect
                                 label={inputVal.label}
                                 optionVals={inputVal.optionVals}
-                                onChange={inputVal.onChange}
+                                name={inputVal.name}
+                                value={inputVal.name === 'songType' ? songType : inputVal.name === 'accompVal' ? accompVal : language}
+                                onChange={handleChange}
                             />
-                        ) :
+                        ) : (
                             <div className="text-red-600">An error occurred when loading the advanced form</div>
-                        }
+                        )}
                     </div>
-                )}
+                ))}
             </div>
             <div className="flex flex-row justify-end">
-                <button type="submit" className=" bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">Search</button>
+                <button type="submit" className="bg-[#dbdcde] border-2 mt-2 rounded-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">
+                    Search
+                </button>
             </div>
             <div className="flex flex-row mt-1 ms-1 text-utk-white text-sm">
                 <button type="reset">Restart Search</button>
             </div>
         </form>
-
     )
 }

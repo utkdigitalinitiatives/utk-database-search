@@ -32,7 +32,7 @@ const SongPage = () => {
     }, [])
 
     console.log(result);
-    const handleClick = (e:any, queryVal:any, to:string) => {
+    const handleClick = (e: any, queryVal: any, to: string) => {
         e.preventDefault();
         queryVal = String(queryVal);
         queryVal = queryVal.replace(/[.,!?;:(){}[\]"'"\-<>@#$%^&*_+=|\\/~`]/g, '');
@@ -79,9 +79,9 @@ const SongPage = () => {
                         </div>
                         <div className="flex flex-col px-2">
                             <div className="flex flex-wrap text-wrap">
-                                <span className="font-semibold px-2">Song Type:</span> 
+                                <span className="font-semibold px-2">Song Type:</span>
                                 <Link to={navigateBackToSong} onClick={(e) => handleClick(e, result?.song_types, navigateBackToSong)}>
-                                {result?.song_types}
+                                    {result?.song_types}
                                 </Link>
                             </div>
                             <div className="flex flex-row flex-wrap pt-2 text-wrap">
@@ -98,8 +98,8 @@ const SongPage = () => {
                             </div>
                             <div className="flex flex-wrap pt-2 text-wrap">
                                 <span className="font-semibold px-2">Anthology:</span>
-                                <Link to={navigateBackToSong}  onClick={(e) => handleClick(e, result?.anthology_title, navigateBackToSong)}>
-                                {result?.anthology_title}
+                                <Link to={navigateBackToSong} onClick={(e) => handleClick(e, result?.anthology_title, navigateBackToSong)}>
+                                    {result?.anthology_title}
                                 </Link>
                             </div>
                         </div>

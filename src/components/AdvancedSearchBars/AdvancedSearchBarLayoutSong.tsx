@@ -1,8 +1,8 @@
-import { searchSolr } from "../utils/utils.tsx";
+import { searchSolr } from "../../utils/utils.tsx";
 import { useState } from "react";
-import AdvancedSearchInput from "./AdvancedSearchInput.tsx";
-import AdvancedSearchSelect from "./AdvancedSearchSelect.tsx";
-import songInputVals from './InputValsSong.ts'
+import AdvancedSearchInput from "../AdvancedSearchInput.tsx";
+import AdvancedSearchSelect from "../AdvancedSearchSelect.tsx";
+import songInputVals from '../InputValsSong.ts'
 
 
 
@@ -94,7 +94,13 @@ export default function SongAdvanced(props: any) {
                                 label={inputVal.label}
                                 placeholder={inputVal.placeholder}
                                 name={inputVal.name}
-                                value={inputVal.name === 'songTitle' ? songTitle : inputVal.name === 'composer' ? composer : ''}
+                                value={inputVal.name === 'songTitle' ? songTitle 
+                                    : inputVal.name === 'composer' ? composer 
+                                    : inputVal.name === 'author'? author
+                                    : inputVal.name === 'anthology' ? anthology
+                                    : inputVal.name === 'firstLine' ? firstLine
+                                    : inputVal.name === 'callNumber' ? callNumber
+                                    : ''}
                                 onChange={handleChange}
                             />
                         ) : inputVal.type === 'select' ? (

@@ -1,6 +1,7 @@
 
 import PageLayout from "./PageLayout";
-// import { searchSolr } from "../utils/utils";
+
+}
 
 export default function Sermon() {
    
@@ -13,6 +14,10 @@ export default function Sermon() {
     }
        
 
+
+
+
+    // Props type definition
     return (
         <PageLayout routeInfo={routeInfo} />
     )

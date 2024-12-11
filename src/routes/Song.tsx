@@ -44,7 +44,6 @@ const Song = () => {
 
     }, [])
     const handleSearchResults = (response: any, searchURL: string, startVal: number) => {
-        // console.log(`${searchURL}&start=${startVal}`);
         setResults(response.docs);
         setTotalFound(response.numFound);
         setSearchURL(searchURL);

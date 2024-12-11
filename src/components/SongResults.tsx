@@ -2,12 +2,10 @@ import { Link } from "react-router"
 
 
 export default function SongResults(props: any) {
-    // console.log(props.resultList)
-    // console.log(props.searchURL);
+    
     return (
-        <div className="mx-4 py-3 px-4 my-3">
+        <div className="mx-4 py-3 px-4 my-3 utk-link">
             {props?.resultList?.map(result =>
-                // Build out a result component
                 <div key={result?.id} className="border-t border-utk-orange my-3 odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2">
                     <div className="flex justify-center text-utk-link font-medium text-xl">
                         {result?.title}

@@ -31,7 +31,6 @@ const SongPage = () => {
         getData();
     }, [])
 
-    console.log(result);
     const handleClick = (e: any, queryVal: any, to: string) => {
         e.preventDefault();
         queryVal = String(queryVal);

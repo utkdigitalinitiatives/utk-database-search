@@ -23,7 +23,7 @@ export default function NavBar() {
                     />
                     <Link className="text-3xl font-normal text-utk-smokey" to="https://lib.utk.edu">LIBRARIES</Link>
                 </div>
-                <div className="dropdown relative mx-2 p-4 text-utk-smokey">
+                <div className="dropdown relative mx-2 text-utk-smokey">
                     <button onClick={handleOpen} className="flex items-center">
                         <svg
                             width="24"
@@ -37,7 +37,7 @@ export default function NavBar() {
                                 d="M4 5a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM4 9a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM3 14a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1ZM4 17a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"
                                 fill="#4b4b4b" />
                         </svg>
-                        <div className="hidden md:flex items-center focus:outline-none">
+                        <div className="px-4 hidden md:flex items-center focus:outline-none">
                             Change Database
                             <svg
                                 width="24"

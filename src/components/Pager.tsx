@@ -31,7 +31,7 @@ export default function Pager(props: any) {
                 {props.searchStart > 0 ?
                     <button className="mx-2 p-2 border rounded-sm border-utk-smokey" onClick={handlePrevious}>Previous</button>
                     :
-                    <div className="mx-2 p-2 border rounded-sm border-utk-orange" >Previous</div>
+                    <button disabled  className="mx-2 p-2 border rounded-sm border-utk-orange cursor-not-allowed" >Previous</button>
                 }
                 <button className="mx-2 p-2 border rounded-sm border-utk-smokey" onClick={handleNext}>Next</button>
             </div>

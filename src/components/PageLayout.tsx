@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import SingleSearchBar from "../components/SingleSearchBar";
-import ResultHeader from "../components/ResultHeader";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Pager from "../components/Pager";
+import SingleSearchBar from "./SingleSearchBar";
+import ResultHeader from "./ResultHeader";
+import Breadcrumbs from "./Breadcrumbs";
+import Pager from "./Pager";
 import { searchSolr } from "../utils/utils";
-import SongResults from "../components/SongResults";
+import SongResults from "./SongResults";
 
 // Advanced Search Bar Components
-import AdvancedSearch from "../components/AdvancedSearchBar/AdvancedSearchLayout";
+import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 
 
 // import AdvancedSearch from "../components/AdvancedSearchBars/AdvancedSearchBarLayoutSermon";

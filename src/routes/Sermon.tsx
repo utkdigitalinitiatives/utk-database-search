@@ -1,8 +1,8 @@
-import PageLayout from "./PageLayout";
+import PageLayout from "../components/PageLayout.tsx";
 import sermonInputVals from '../components/InputValsSermon.ts'
 
 export default function Sermon() {
-   
+
     // TODO: add logic to check for localhost vs production here for endpoint
     const routeInfo = {
         routeName: 'sermon',
@@ -11,7 +11,7 @@ export default function Sermon() {
         siteTitle: 'UT Sermon Index',
         inputVals: sermonInputVals,
     }
-       
+
 
 
 

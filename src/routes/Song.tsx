@@ -1,10 +1,10 @@
-import PageLayout from "./PageLayout";
+import PageLayout from "../components/PageLayout";
 import songInputVals from "../components/InputValsSong";
 
 const Song = () => {
     const routeInfo = {
         routeName: 'song',
-        endpoint:  `/unified_song_db_dev/select?`,
+        endpoint: `/unified_song_db_dev/select?`,
         placeholder: 'Search the song index database...',
         siteTitle: 'UT Song Index Search',
         inputVals: songInputVals,

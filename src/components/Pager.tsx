@@ -1,5 +1,7 @@
 import { searchSolr } from "../utils/utils";
 
+
+// TODO: more styling and add jump to deeper pages functionality
 export default function Pager(props: any) {
 
     const handlePrevious = async () => {

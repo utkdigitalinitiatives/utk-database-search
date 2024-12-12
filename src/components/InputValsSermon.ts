@@ -5,6 +5,12 @@ const sermonInputVals = {
         placeholder: "Full Title",
         name: 'sermon_title'
     },
+    keyword: {
+        type: 'input',
+        label: 'Search by some key words',
+        placeholder: 'Prayer, communion, exhortation, etc..',
+        name: 'keywords'
+    },
     shortTitle: {
         type: "input",
         label: "Search Short Title",
@@ -44,8 +50,16 @@ const sermonInputVals = {
         name: 'denomination',
         optionVals: [
             { value: 'select', optionTitle: 'Select' },
-            { value: "Cath.;", optionTitle: 'Catholic'},
-            { value: "Cath.;", optionTitle: 'Baptist'},
+            { value: "Bapt", optionTitle: 'Baptist'},
+            { value: "Cath", optionTitle: 'Catholic'},
+            { value: "Cong", optionTitle: 'Congregationalist'},
+            { value: "Epis", optionTitle: 'Episcopaian'},
+            { value: "Luth", optionTitle: 'Lutheran'},
+            { value: "Meth", optionTitle: 'Methodist'},
+            { value: "Pres", optionTitle: 'Presbyterian'},
+            { value: "QUAKER", optionTitle: 'Quaker'},
+            { value: "Tory Epis", optionTitle: 'Tory Episcopaian'},
+            { value: "*", optionTitle: 'Unknown'},
         ]
 
     }

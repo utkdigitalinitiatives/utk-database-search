@@ -1,5 +1,5 @@
 import PageLayout from "../components/PageLayout.tsx";
-import sermonInputVals from '../components/InputValsSermon.ts'
+import sermonInputVals from '../components/AdvancedSearchInputVals/InputValsSermon.ts'
 
 export default function Sermon() {
 

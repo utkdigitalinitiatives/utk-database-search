@@ -79,8 +79,8 @@ export default function PageLayout({ routeInfo }: any) {
                 <Breadcrumbs />
             </div>
             <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
+                <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                 <div className='h-full grid justify-center my-auto py-3'>
-                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                     {singleSearchVisible &&
                         <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                             <div className="flex flex-row-reverse">
@@ -106,7 +106,7 @@ export default function PageLayout({ routeInfo }: any) {
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
                                 />
-                             ) :
+                            ) :
                                 <div className="text-red-600">An error occurred when loading the advanced form</div>
                             }
                         </div>
@@ -125,7 +125,7 @@ export default function PageLayout({ routeInfo }: any) {
                             ) :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }
-                            
+
                             <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                         </>
                         :

@@ -3,7 +3,7 @@ import { useState } from "react";
 import AdvancedSearchInput from "./AdvancedSearchInput.tsx";
 import AdvancedSearchSelect from "./AdvancedSearchSelect.tsx";
 
-import songInputVals from '../InputValsSong.ts'
+import songInputVals from '../AdvancedSearchInputVals/InputValsSong.ts'
 // import { searchSolr } from "../utils/utils";
 
 interface AdvancedProps {
@@ -86,7 +86,7 @@ export default function AdvancedSearch({
                                 placeholder={inputVal.placeholder}
                                 name={inputVal.name}
                                 value={formState[inputVal.name] || ''}
-                                onChange={handleChange}  
+                                onChange={handleChange}
                             />
                         ) : inputVal.type === 'select' ? (
                             <AdvancedSearchSelect
@@ -94,7 +94,7 @@ export default function AdvancedSearch({
                                 optionVals={inputVal.optionVals}
                                 name={inputVal.name}
                                 value={formState[inputVal.name] || ''}
-                                onChange={handleChange}  
+                                onChange={handleChange}
                             />
                         ) : (
                             <div className="text-red-600">An error occurred when loading the advanced form</div>

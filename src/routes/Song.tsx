@@ -1,5 +1,5 @@
 import PageLayout from "../components/PageLayout";
-import songInputVals from "../components/InputValsSong";
+import songInputVals from "../components/AdvancedSearchInputVals/InputValsSong";
 
 const Song = () => {
     const routeInfo = {

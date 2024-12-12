@@ -7,10 +7,10 @@ import { searchSolr } from "../utils/utils";
 import SongResults from "../components/SongResults";
 
 // Advanced Search Bar Components
-import SongAdvancedSearch from '../components/AdvancedSearchBars/AdvancedSearchBarLayoutSong';
-import SermonAdvancedSearch from "../components/AdvancedSearchBars/AdvancedSearchBarLayoutSermon";
+import AdvancedSearch from "../components/AdvancedSearchBar/AdvancedSearchLayout";
 
-import songInputVals from "../components/InputValsSong";
+
+// import AdvancedSearch from "../components/AdvancedSearchBars/AdvancedSearchBarLayoutSermon";
 
 export default function PageLayout({ routeInfo }: any) {
     const searchRef = useRef<HTMLDivElement | null>(null);
@@ -96,16 +96,18 @@ export default function PageLayout({ routeInfo }: any) {
                             </div>
                             {routeInfo.routeName === 'song' ? (
 
-                                <SongAdvancedSearch
+                                <AdvancedSearch
+                                    inputVals={routeInfo.inputVals}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
-                                    searchStart={searchStartVal}
                                 />
                             ) : routeInfo.routeName === 'sermon' ? (
-                                <SermonAdvancedSearch
-                                    songInputVals={songInputVals}
+                                <AdvancedSearch
+                                    inputVals={songInputVals}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
+                                // TODO: Need to add start value
+                                // searchStart={searchStartVal}
                                 />
                             ) :
                                 <div className="text-red-600">An error occurred when loading the advanced form</div>

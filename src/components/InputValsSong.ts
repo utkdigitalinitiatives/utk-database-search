@@ -3,42 +3,42 @@ const songInputVals = {
     type: "input",
     label: "Search by Title",
     placeholder: "Song Title",
-    name: "songTitle"
+    name: "title"
   },
   composer: {
     type: "input",
     label: "Search by Composers",
     placeholder: "Composer's Name",
-    name: "composer"
+    name: "composers"
   },
   author: {
     type: "input",
     label: "Search by Authors",
     placeholder: "Author's Name",
-    name: "author"
+    name: "authors"
   },
   anthology: {
     type: 'input',
     label: 'Search by Anthology Title',
     placeholder: "Anthology Title",
-    name: "anthology",
+    name: "anthology_title",
   },
   firstLine: {
     type: 'input',
     label: 'Search by the First Line',
     placeholder: "Enter the first line",
-    name: "firstLine",
+    name: "first_line",
   },
   callNumber: {
     type: 'input',
     label: 'Search by Call Number',
     placeholder: "Enter Call Number",
-    name: "callNumber",
+    name: "call_number",
   },
   songType: {
     type: "select",
     label: "Select Song Type",
-    name: "songType",
+    name: "song_types",
     optionVals: [
       { value: "aria", optionTitle: "Aria" },
       { value: "art song", optionTitle: "Art Song" },
@@ -70,7 +70,7 @@ const songInputVals = {
   accompVal: {
     type: "select",
     label: "Select Accompaniment",
-    name: "accompVal",
+    name: "accomp_values",
     optionVals: [
       { value: "instrumental", optionTitle: "Instrumental" },
       { value: "keyboard", optionTitle: "Keyboard" },
@@ -81,7 +81,7 @@ const songInputVals = {
   language: {
     type: "select",
     label: "Choose a Language",
-    name: "language",
+    name: "languages",
     optionVals: [
       { value: "english", optionTitle: "English" },
       { value: "french", optionTitle: "French" },

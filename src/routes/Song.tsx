@@ -1,5 +1,5 @@
 import PageLayout from "./PageLayout";
-
+import songInputVals from "../components/InputValsSong";
 
 const Song = () => {
     const routeInfo = {
@@ -7,6 +7,7 @@ const Song = () => {
         endpoint:  `/unified_song_db_dev/select?`,
         placeholder: 'Search the song index database...',
         siteTitle: 'UT Song Index Search',
+        inputVals: songInputVals,
     }
     return (
         <PageLayout routeInfo={routeInfo} />

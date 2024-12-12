@@ -1,7 +1,5 @@
-
 import PageLayout from "./PageLayout";
-
-}
+import sermonInputVals from '../components/InputValsSermon.ts'
 
 export default function Sermon() {
    
@@ -11,6 +9,7 @@ export default function Sermon() {
         endpoint: `/sermon_db_new_dev/select?`,
         placeholder: "Search the sermon index database...",
         siteTitle: 'UT Sermon Index',
+        inputVals: sermonInputVals,
     }
        
 

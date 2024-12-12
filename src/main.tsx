@@ -9,6 +9,7 @@ import SongPage from './routes/SongPage';
 import Sermon from './routes/Sermon';
 import Symphony from './routes/Symphony';
 import TennesseeNews from './routes/TennesseeNews';
+import SermonPage from './routes/SermonPage';
 
 
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="song" element={<Song />} />
           <Route path="song/:songId" element={<SongPage />} />
           <Route path="sermon" element={<Sermon />} />
+          <Route path="sermon/:sermonId" element={<SermonPage />} />
           <Route path="symphony" element={<Symphony />} />
           <Route path="tennessee-news" element={<TennesseeNews />} />
         </Route>

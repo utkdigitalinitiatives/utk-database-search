@@ -4,15 +4,17 @@ import ResultHeader from "./ResultHeader";
 import Breadcrumbs from "./Breadcrumbs";
 import Pager from "./Pager";
 import { searchSolr } from "../utils/utils";
+
+// Results - working on making these dynamic
 import SongResults from "./SongResults";
+
+// Instructions - need to make these more repeatable
 import SongInstructions from "./Instructions/SongInstructions";
 import SermonInstructions from "./Instructions/SermonInstructions";
 
-// Advanced Search Bar Components
+// Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 
-
-// import AdvancedSearch from "../components/AdvancedSearchBars/AdvancedSearchBarLayoutSermon";
 
 export default function PageLayout({ routeInfo }: any) {
     const searchRef = useRef<HTMLDivElement | null>(null);
@@ -105,7 +107,7 @@ export default function PageLayout({ routeInfo }: any) {
                                 />
                             ) : routeInfo.routeName === 'sermon' ? (
                                 <AdvancedSearch
-                                    inputVals={songInputVals}
+                                    inputVals={routeInfo.inputVals}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
                                 // TODO: Need to add start value

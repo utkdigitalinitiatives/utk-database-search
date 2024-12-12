@@ -39,7 +39,7 @@ const Footer = () => {
         },
     ]
     return (
-        <footer className="mt-auto grid grid-cols-1 md:grid-cols-2 gap-2 bg-utk-light-gray pt-2">
+        <footer className="mt-auto grid grid-cols-1 md:grid-cols-2 gap-2 bg-utk-light-gray pt-3">
             <div className="grid row-start-1 sm:row-start-auto grid-rows-1 px-2">
                 <CampusLogo />
                 <div className='text-utk-smokey py-2 sm:my-0 sm:py-0'>

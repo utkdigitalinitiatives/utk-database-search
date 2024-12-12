@@ -129,12 +129,12 @@ export default function PageLayout({ routeInfo }: any) {
                         :
                         <>
                             {routeInfo.routeName === 'song' ? (
-                            <SongInstructions />
-                        ) : routeInfo.routeName === 'sermon' ? (
-                            <SermonInstructions />
-                        ) : 
-                        <div className="text-red-600">An error occurred when loading the instructions information</div>
-                    }
+                                <SongInstructions />
+                            ) : routeInfo.routeName === 'sermon' ? (
+                                <SermonInstructions />
+                            ) :
+                                <div className="text-red-600">An error occurred when loading the instructions information</div>
+                            }
                         </>
                 }
             </div>

@@ -4,7 +4,7 @@ import power_t from "../assets/images/power_t_logo.png"
 export default function NavBar() {
     return (
         <>
-            <hr className="bg-utk-orange h-1.5 p-0 m-0 border-t-0" />
+            <hr className="bg-utk-orange h-1 p-0 m-0 border-t-0" />
             <nav className="h-115 w-full flex flex-row items-center p-1">
                 <div className="grow flex flex-row items-center">
                     <img

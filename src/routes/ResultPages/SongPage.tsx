@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
-import { searchSolr } from "../utils/utils";
-import Breadcrumbs from "../components/Breadcrumbs";
+import { searchSolr } from "../../utils/utils";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 
 const SongPage = () => {

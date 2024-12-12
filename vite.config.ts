@@ -10,7 +10,22 @@ export default defineConfig({
         target: 'https://jchlib.com',
         changeOrigin: true,
         secure: false
-      }
+      },
+      '/sermon_db_new_dev': {
+        target: 'https://jchlib.com',
+        changeOrigin: true,
+        secure: false
+      },
+      '/knoxville_symphony_dev': {
+        target: 'https://jchlib.com',
+        changeOrigin: true,
+        secure: false
+      },
+      '/tennessee_newspaper_db_dev': {
+        target: 'https://jchlib.com',
+        changeOrigin: true,
+        secure: false
+      },
     }
   }
 })

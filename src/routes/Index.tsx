@@ -4,6 +4,7 @@ import newsImg from '../assets/images/bank-phrom-unsplash-news.jpg';
 import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.jpg';
 import trimString from "../utils/utils"
 import Card from "../components/Card"
+import { useEffect } from "react";
 
 
 
@@ -47,6 +48,15 @@ export default function Index() {
             image: symphonyImg,
         },
     ]
+
+
+    // clear any previous search data if the user navigates back to the central page
+    useEffect(() => {
+
+        sessionStorage.setItem('searchURL', '');
+        sessionStorage.setItem('startVal', "0");
+    }, [])
+
     return (
         <main className=''>
             <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">

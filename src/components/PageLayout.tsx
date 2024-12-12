@@ -98,22 +98,14 @@ export default function PageLayout({ routeInfo }: any) {
                             <div className="flex flex-row-reverse">
                                 <button className=" text-utk-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
                             </div>
-                            {routeInfo.routeName === 'song' ? (
+                            {routeInfo.routeName ? (
 
                                 <AdvancedSearch
                                     inputVals={routeInfo.inputVals}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
                                 />
-                            ) : routeInfo.routeName === 'sermon' ? (
-                                <AdvancedSearch
-                                    inputVals={routeInfo.inputVals}
-                                    endpoint={endpoint}
-                                    onSearch={handleSearchResults}
-                                // TODO: Need to add start value
-                                // searchStart={searchStartVal}
-                                />
-                            ) :
+                             ) :
                                 <div className="text-red-600">An error occurred when loading the advanced form</div>
                             }
                         </div>

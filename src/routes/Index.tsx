@@ -63,7 +63,7 @@ export default function Index() {
                 <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Select a Database to Search</h1>
             </div>
             <div className='container mx-auto py-2 mt-2 max-w-screen-xl'>
-                <div className="text-utk-smokey text-lg max-w-screen-md mx-auto mb-3 mt-2">
+                <div className="text-utk-smokey text-lg max-w-screen-md mx-auto mb-3 mt-2 px-2">
                     Welcome to the University of Tennessee combined database index search tool.   Select from one of the cards below to begin search for index information about the various topics collected here.
                 </div>
                 <div className='grid grid-col-1 sm:grid-cols-2 gap-5 px-1'>

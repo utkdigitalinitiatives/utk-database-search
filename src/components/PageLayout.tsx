@@ -5,16 +5,13 @@ import Breadcrumbs from "./Breadcrumbs";
 import Pager from "./Pager";
 import { searchSolr } from "../utils/utils";
 
-// Results - working on making these dynamic
-import SongResults from "./Results/SongResults";
-
 // Instructions - need to make these more repeatable
 import SongInstructions from "./Instructions/SongInstructions";
 import SermonInstructions from "./Instructions/SermonInstructions";
 
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
-import SermonResults from "./Results/SermonResults";
+import SearchResultsList from "./SearchResultsList";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -118,11 +115,9 @@ export default function PageLayout({ routeInfo }: any) {
                     results.length > 0 ?
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
-                            {routeInfo.routeName === 'song' ? (
-                                <SongResults resultList={results} searchURL={searchURL} />
-                            ) : routeInfo.routeName === 'sermon' ? (
-                                <SermonResults resultList={results} searchURL={searchURL} />
-                            ) :
+                            {routeInfo.routeName ?
+                                <SearchResultsList resultList={results} resultType={routeInfo.fieldConfigName} />
+                                :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }
 

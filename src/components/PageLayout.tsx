@@ -119,9 +119,9 @@ export default function PageLayout({ routeInfo }: any) {
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                             {routeInfo.routeName === 'song' ? (
-                                <SongResults resultList={results} searchURL={searchURL} />
+                                <SongResults resultList={results}  />
                             ) : routeInfo.routeName === 'sermon' ? (
-                                <SermonResults resultList={results} searchURL={searchURL} />
+                                <SermonResults resultList={results}  resultType={routeInfo.routeName}/>
                             ) :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }

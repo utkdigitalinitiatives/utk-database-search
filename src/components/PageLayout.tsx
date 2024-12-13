@@ -12,6 +12,8 @@ import SermonInstructions from "./Instructions/SermonInstructions";
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 import SearchResultsList from "./SearchResultsList";
+import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
+import SymphonyInstructions from "./Instructions/SymphonyInstructions";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -129,6 +131,10 @@ export default function PageLayout({ routeInfo }: any) {
                                 <SongInstructions />
                             ) : routeInfo.routeName === 'sermon' ? (
                                 <SermonInstructions />
+                            ) : routeInfo.routeName === 'tennessee-news' ? (
+                                <TennesseeNewspaperInstructions />
+                            ) : routeInfo.routeName === 'symphony' ? (
+                                <SymphonyInstructions />
                             ) :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }

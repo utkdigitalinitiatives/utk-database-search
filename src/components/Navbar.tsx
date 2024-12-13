@@ -54,7 +54,7 @@ export default function NavBar() {
                         </div>
                     </button>
                     {open ?
-                        <ul className="dropdown-content absolute right-0 mt-3 w-56 bg-utk-white shadow-lg overflow-y-auto md:text-end text-center">
+                        <ul className="dropdown-content absolute right-0 mt-3 w-56 bg-utk-white shadow-lg overflow-y-auto md:text-end text-center z-[100]">
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
                                 <Link className="flex-none text-utk-smokey px-3" to="/">Home</Link>
                             </li>

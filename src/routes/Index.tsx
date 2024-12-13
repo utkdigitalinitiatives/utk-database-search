@@ -1,7 +1,7 @@
-import musicImg from "../assets/images/musiceresources.jpg"
-import symphonyImg from '../assets/images/samuel-sianipar-unsplash-symphony.jpg';
-import newsImg from '../assets/images/bank-phrom-unsplash-news.jpg';
-import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.jpg';
+import musicImg from "../assets/images/musiceresources.png"
+import symphonyImg from '../assets/images/samuel-sianipar-unsplash-symphony.png';
+import newsImg from '../assets/images/bank-phrom-unsplash-news.png';
+import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.png';
 import trimString from "../utils/utils"
 import Card from "../components/Card"
 import { useEffect } from "react";
@@ -59,7 +59,7 @@ export default function Index() {
 
     return (
         <main className=''>
-            <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
+            <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
                 <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Select a Database to Search</h1>
             </div>
             <div className='container mx-auto py-2 mt-2 max-w-screen-xl'>

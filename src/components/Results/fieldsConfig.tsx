@@ -52,8 +52,48 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                     // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
+                            {data.map((composer, index) => (
+                                <div key={index} className="text-wrap">{composer}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Authors',
+                key: 'authors',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    // Ensure it returns JSX elements, not boolean
+                    return (
+                        <div className="flex flex-col">
                             {data.map((author, index) => (
                                 <div key={index} className="text-wrap">{author}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: "Call Number",
+                key: "call_number",
+                type: "string",
+            },
+            {
+                label: "Song Type",
+                key: "song_types",
+                type: "string",
+            },
+            {
+                label: 'Languages',
+                key: 'languages',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    // Ensure it returns JSX elements, not boolean
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((language, index) => (
+                                <div key={index} className="text-wrap">{language}</div>
                             ))}
                         </div>
                     );

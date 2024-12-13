@@ -6,7 +6,7 @@ interface SearchResultProps {
     resultType: keyof typeof fieldsConfig;  // Accept resultType to determine the configuration
 }
 
-export default function SermonResults({ resultList, resultType }: SearchResultProps) {
+export default function SearchResultsList({ resultList, resultType }: SearchResultProps) {
     const config = fieldsConfig[resultType];
 
     return (

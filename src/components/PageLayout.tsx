@@ -14,7 +14,7 @@ import SermonInstructions from "./Instructions/SermonInstructions";
 
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
-import SearchResultsList from "./Results/SearchResultsList";
+import SearchResultsList from "./SearchResultsList";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -118,9 +118,9 @@ export default function PageLayout({ routeInfo }: any) {
                     results.length > 0 ?
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
-                            {routeInfo.routeName ? 
-                                <SearchResultsList resultList={results} resultType={routeInfo.fieldConfigName}/>
-                             :
+                            {routeInfo.routeName ?
+                                <SearchResultsList resultList={results} resultType={routeInfo.fieldConfigName} />
+                                :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }
 

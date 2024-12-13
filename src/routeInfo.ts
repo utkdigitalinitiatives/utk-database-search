@@ -16,7 +16,7 @@ interface routeInfo {
 const newsRouteInfo: routeInfo = {
     routeName: 'tennessee-news',
     fieldConfigName: 'tennesseeNews',
-    endpoint: `/tennessee_newspaper_db_dev/select/`,
+    endpoint: `/tennessee_newspaper_db_dev/select?`,
     placeholder: 'Search the Tennessee newspaper index database...',
     siteTitle: 'Tennessee Newspaper Index Search',
     inputVals: paperInputVals,

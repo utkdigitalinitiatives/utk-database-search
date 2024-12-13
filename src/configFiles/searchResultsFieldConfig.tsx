@@ -36,8 +36,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: "dates",
                 type: "string",
             },
-            
-            // Add more fields as necessary
         ]
     },
     song: {
@@ -49,7 +47,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: 'composers',
                 type: 'array',
                 render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
                             {data.map((composer, index) => (
@@ -64,7 +61,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: 'authors',
                 type: 'array',
                 render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
                             {data.map((author, index) => (
@@ -89,7 +85,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: 'languages',
                 type: 'array',
                 render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
                             {data.map((language, index) => (
@@ -110,7 +105,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: 'composer_name',
                 type: 'array',
                 render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
                             {data.map((composerName, index) => (
@@ -145,6 +139,69 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                         <div className="flex flex-col">
                             {data.map((date, index) => (
                                 <div key={index} className="text-wrap">{date}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+        ]
+    },
+    tennesseeNews: {
+        titleField: 'mainentry_title',
+        idField: 'id',
+        fields: [
+            {
+                label: 'Copy Type',
+                key: 'copy_type',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    // Ensure it returns JSX elements, not boolean
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((copyType, index) => (
+                                <div key={index} className="text-wrap">{copyType}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'OCLC',
+                key: 'oclc',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((oclc, index) => (
+                                <div key={index} className="text-wrap">{oclc}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Call Number',
+                key: 'call_number',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((callNumber, index) => (
+                                <div key={index} className="text-wrap">{callNumber}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Holding Library',
+                key: 'holding_library',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((library, index) => (
+                                <div key={index} className="text-wrap">{library}</div>
                             ))}
                         </div>
                     );

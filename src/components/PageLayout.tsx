@@ -5,9 +5,6 @@ import Breadcrumbs from "./Breadcrumbs";
 import Pager from "./Pager";
 import { searchSolr } from "../utils/utils";
 
-// Results - working on making these dynamic
-import SongResults from "./Results/SongResults";
-
 // Instructions - need to make these more repeatable
 import SongInstructions from "./Instructions/SongInstructions";
 import SermonInstructions from "./Instructions/SermonInstructions";

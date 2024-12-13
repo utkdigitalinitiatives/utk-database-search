@@ -7,12 +7,12 @@ const Card = ({ dbName, endpoint, summary, imgSrc }: { dbName: string, endpoint:
                 <img className="w-24 h-24 md:w-48 md:h-auto md:rounded-none lg:rounded-l-xl rounded-full mx-auto" src={imgSrc} alt="" width="384" height="512" />
                 <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
                     <figcaption className="">
-                        <div className="text-utk-smokey text-2xl font-bold">
+                        <div className="text-utk-smokey text-xl font-bold">
                             {dbName}
                         </div>
                     </figcaption>
                     <blockquote>
-                        <p className="text-md text-utk-smokey">
+                        <p className="text-sm text-utk-smokey">
                             {summary}
                         </p>
                     </blockquote>

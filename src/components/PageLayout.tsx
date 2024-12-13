@@ -12,6 +12,8 @@ import SermonInstructions from "./Instructions/SermonInstructions";
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 import SearchResultsList from "./SearchResultsList";
+import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
+import SymphonyInstructions from "./Instructions/SymphonyInstructions";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -72,10 +74,10 @@ export default function PageLayout({ routeInfo }: any) {
 
     return (
         <main>
-            <div className="bg-utk-smokey">
+            {/* <div className="bg-utk-smokey">
                 <Breadcrumbs />
-            </div>
-            <div className="bg-[url('/src/assets/images/UT-bridge-campus.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
+            </div> */}
+            <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
                 <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                 <div className='h-full grid justify-center my-auto py-3'>
                     {singleSearchVisible &&
@@ -129,6 +131,10 @@ export default function PageLayout({ routeInfo }: any) {
                                 <SongInstructions />
                             ) : routeInfo.routeName === 'sermon' ? (
                                 <SermonInstructions />
+                            ) : routeInfo.routeName === 'tennessee-news' ? (
+                                <TennesseeNewspaperInstructions />
+                            ) : routeInfo.routeName === 'symphony' ? (
+                                <SymphonyInstructions />
                             ) :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }

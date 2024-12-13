@@ -119,7 +119,7 @@ export default function PageLayout({ routeInfo }: any) {
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                             {routeInfo.routeName ? 
-                                <SearchResultsList resultList={results}  resultType={routeInfo.routeName}/>
+                                <SearchResultsList resultList={results} resultType={routeInfo.fieldConfigName}/>
                              :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }

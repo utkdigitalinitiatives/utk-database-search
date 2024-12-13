@@ -42,7 +42,7 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
     },
     song: {
         titleField: 'title',
-        idField: 'id',
+        idField: 'db_id',
         fields: [
             {
                 label: 'Composers',
@@ -94,6 +94,57 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                         <div className="flex flex-col">
                             {data.map((language, index) => (
                                 <div key={index} className="text-wrap">{language}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+        ]
+    },
+    symphony:{
+        titleField: 'title',
+        idField: 'id',
+        fields: [
+            {
+                label: 'Composer Name',
+                key: 'composer_name',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    // Ensure it returns JSX elements, not boolean
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((composerName, index) => (
+                                <div key={index} className="text-wrap">{composerName}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Season',
+                key: 'season',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    // Ensure it returns JSX elements, not boolean
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((season, index) => (
+                                <div key={index} className="text-wrap">{season}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Date',
+                key: 'date',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    // Ensure it returns JSX elements, not boolean
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((date, index) => (
+                                <div key={index} className="text-wrap">{date}</div>
                             ))}
                         </div>
                     );

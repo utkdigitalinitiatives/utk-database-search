@@ -3,7 +3,7 @@ import { useState } from "react";
 import AdvancedSearchInput from "./AdvancedSearchInput.tsx";
 import AdvancedSearchSelect from "./AdvancedSearchSelect.tsx";
 
-import songInputVals from '../AdvancedSearchInputVals/InputValsSong.ts'
+import songInputVals from '../../configFiles/AdvancedSearchInputVals/InputValsSong.ts'
 // import { searchSolr } from "../utils/utils";
 
 interface AdvancedProps {

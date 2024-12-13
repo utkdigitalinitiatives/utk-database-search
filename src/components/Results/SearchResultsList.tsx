@@ -1,6 +1,5 @@
 import { Link } from "react-router"
-import { fieldsConfig } from "./fieldsConfig";
-
+import { fieldsConfig } from "../../configFiles/searchResultsFieldConfig";
 interface SearchResultProps {
     resultList: any[];
     resultType: keyof typeof fieldsConfig;  // Accept resultType to determine the configuration
@@ -14,7 +13,7 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
             {resultList?.map(result => (
                 <div key={result?.[config.idField]} className="border-t border-utk-orange my-3 odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2">
                     <div className="flex justify-center text-utk-link font-medium text-xl">
-                        {result?.[config.titleField]}  {/* Dynamic title field */}
+                        {result?.[config.titleField]} 
                     </div>
                     <div className="flex flex-row flex-wrap justify-evenly text-utk-smokey py-2">
                         {config.fields.map(field => {

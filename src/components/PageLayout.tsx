@@ -56,7 +56,6 @@ export default function PageLayout({ routeInfo }: any) {
             
             const routeName = sessionStorage.getItem('routeName');
             if (routeName !== routeInfo.routeName) {
-                console.log('no match')
                 return;
             }
             const previousSearchURL  = sessionStorage.getItem('searchURL');

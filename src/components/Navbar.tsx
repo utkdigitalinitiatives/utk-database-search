@@ -21,7 +21,7 @@ export default function NavBar() {
                         alt="power T"
                         className="flex-none p-1"
                     />
-                    <Link className="text-3xl font-normal text-utk-smokey" to="https://lib.utk.edu">LIBRARIES</Link>
+                    <a className="text-3xl font-normal text-utk-smokey" href="https://lib.utk.edu">LIBRARIES</a>
                 </div>
                 <div className="dropdown relative mx-2 text-utk-smokey">
                     <button onClick={handleOpen} className="flex items-center">
@@ -56,19 +56,19 @@ export default function NavBar() {
                     {open ?
                         <ul className="dropdown-content absolute right-0 mt-3 w-56 bg-utk-white shadow-lg overflow-y-auto md:text-end text-center z-[100]">
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <Link className="flex-none text-utk-smokey px-3" to="/">Home</Link>
+                                <a className="flex-none text-utk-smokey px-3" href="/">Home</a>
                             </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <Link className="flex-none text-utk-smokey px-3" to="/song">Song Index</Link>
+                                <a className="flex-none text-utk-smokey px-3" href="/song">Song Index</a>
                             </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <Link className="flex-none text-utk-smokey px-3" to="/sermon">Sermon Database</Link>
+                                <a className="flex-none text-utk-smokey px-3" href="/sermon">Sermon Database</a>
                             </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <Link className="flex-none text-utk-smokey px-3" to="/symphony">Knoxville Symphony</Link>
+                                <a className="flex-none text-utk-smokey px-3" href="/symphony">Knoxville Symphony</a>
                             </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <Link className="flex-none text-utk-smokey px-3" to="/tennessee-news">Tennessee Newspapers</Link>
+                                <a className="flex-none text-utk-smokey px-3" href="/tennessee-news">Tennessee Newspapers</a>
                             </li>
                         </ul>
                         : <></>

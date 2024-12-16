@@ -52,13 +52,13 @@ export default function Index() {
 
     // clear any previous search data if the user navigates back to the central page
     useEffect(() => {
-
+        sessionStorage.setItem('routeName', '');
         sessionStorage.setItem('searchURL', '');
         sessionStorage.setItem('startVal', "0");
     }, [])
 
     return (
-        <main className=''>
+        <main className='pb-2'>
             <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
                 <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Select a Database to Search</h1>
             </div>

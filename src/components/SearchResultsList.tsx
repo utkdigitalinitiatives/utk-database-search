@@ -15,7 +15,7 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
                     <div className="flex justify-center text-utk-link font-medium text-xl">
                         {result?.[config.titleField]}
                     </div>
-                    <div className="flex flex-row flex-wrap justify-evenly text-utk-smokey py-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2">
                         {config.fields.map(field => {
                             const value = result?.[field.key];
 
@@ -32,7 +32,7 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
 
                             if (field.type === "array" && Array.isArray(value)) {
                                 return (
-                                    <div className="flex flex-col px-2" key={`${result[config.idField]}-${field.key}`}>
+                                    <div className="flex flex-col" key={`${result[config.idField]}-${field.key}`}>
                                         <div className="flex flex-wrap">
                                             <span className="font-semibold px-2">{field.label}:</span>
                                             {/* Call the render function to display the array */}

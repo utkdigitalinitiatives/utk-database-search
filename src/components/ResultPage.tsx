@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router';
 import { searchSolr } from '../utils/utils';
-import Breadcrumbs from './Breadcrumbs';
 
 export default function ResultPage({ resultPageInfo }: any) {
     let navigate = useNavigate();
@@ -45,18 +44,30 @@ export default function ResultPage({ resultPageInfo }: any) {
                         {resultPageInfo.resultFields.map(field => (
                             result?.[field.name] ? (
                                 <div key={field.name} className="flex flex-row flex-wrap text-wrap pt-3">
-                                        <span className="font-semibold px-2">
-                                            {field.name.charAt(0).toUpperCase() + field.name.slice(1)}:
-                                        </span>
-                                        {Array.isArray(result[field.name]) ? (
-                                            result[field.name].map((item: string, index: number) => (
-                                                <Link key={`${result.id}${item}${index}`} to={field.linkTo || resultPageInfo.navigateBackTo} onClick={(e) => handleClick(e, item, field.linkTo || resultPageInfo.navigateBackTo)} className="text-wrap">
+                                    <span className="font-semibold px-2">
+                                        {field.name.charAt(0).toUpperCase() + field.name.slice(1)}:
+                                    </span>
+                                    {Array.isArray(result[field.name]) ? (
+                                        result[field.name].map((item: string, index: number) => (
+                                            field.isLink ? (
+                                                <Link
+                                                    key={`${result.id}${item}${index}`}
+                                                    to={field.linkTo || resultPageInfo.navigateBackTo}
+                                                    onClick={(e) => handleClick(e, item, field.linkTo || resultPageInfo.navigateBackTo)}
+                                                    className="text-wrap"
+                                                >
                                                     {item}
                                                 </Link>
-                                            ))
-                                        ) : (
-                                            <div className="text-wrap">{result[field.name]}</div>
-                                        )}
+                                            ) : (
+                                                // Just render as plain text if not a link
+                                                <div key={`${result.id}${item}${index}`} className="text-wrap">
+                                                    {item}
+                                                </div>
+                                            )
+                                        ))
+                                    ) : (
+                                        <div className="text-wrap">{result[field.name]}</div>
+                                    )}
                                 </div>
                             ) : null
                         ))}

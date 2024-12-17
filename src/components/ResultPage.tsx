@@ -35,38 +35,52 @@ export default function ResultPage({ resultPageInfo }: any) {
 
     return (
         <>
-            <div className="border-t flex justify-center">
+            <div className="border-t flex justify-center shadow-inner my-2">
                 <div className="container rounded-md my-2 mx-2 max-w-screen-lg text-utk-smokey border border-utk-orange shadow-md">
-                    <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 rounded-t-md drop-shadow-md">
-                        {result?.[resultPageInfo.titleField]}
+                    <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 rounded-t-md">
+                        {result?.[resultPageInfo.titleField] ? result[resultPageInfo.titleField] : 'Title Not Available'}
                     </div>
-                    <div className="p-4 shadow-inner text-utk-smokey utk-link">
-                        {resultPageInfo.resultFields.map(field => (
+                    <div className="p-4 text-utk-smokey utk-link">
+                        {resultPageInfo.resultFields.map((field: any) => (
                             result?.[field.name] ? (
-                                <div key={field.name} className="flex flex-row flex-wrap text-wrap pt-3">
+                                <div key={`field-${field.name}`} className="flex flex-row flex-wrap text-wrap pt-3">
                                     <span className="font-semibold px-2">
                                         {field.name.charAt(0).toUpperCase() + field.name.slice(1)}:
                                     </span>
+
                                     {Array.isArray(result[field.name]) ? (
-                                        result[field.name].map((item: string, index: number) => (
+                                        result[field.name].map((name: string, index: number) => (
                                             field.isLink ? (
+                                                // If the field is a link, render as a Link component
                                                 <Link
-                                                    key={`${result.id}${item}${index}`}
+                                                    key={`link-${field.name}-${name}-${index}`} // Ensure uniqueness here
                                                     to={field.linkTo || resultPageInfo.navigateBackTo}
-                                                    onClick={(e) => handleClick(e, item, field.linkTo || resultPageInfo.navigateBackTo)}
+                                                    onClick={(e) => handleClick(e, name, field.linkTo || resultPageInfo.navigateBackTo)}
                                                     className="text-wrap"
                                                 >
-                                                    {item}
+                                                    {name}
                                                 </Link>
                                             ) : (
-                                                // Just render as plain text if not a link
-                                                <div key={`${result.id}${item}${index}`} className="text-wrap">
-                                                    {item}
+                                                // If not a link, render as plain text
+                                                <div key={`text-${field.name}-${name}-${index}`} className="text-wrap">
+                                                    {name}
                                                 </div>
                                             )
                                         ))
                                     ) : (
-                                        <div className="text-wrap">{result[field.name]}</div>
+                                        // If the field is not an array, check if it should be a link
+                                        field.isLink ? (
+                                            <Link
+                                                key={`link-${field.name}`}
+                                                to={field.linkTo || resultPageInfo.navigateBackTo}
+                                                onClick={(e) => handleClick(e, result[field.name], field.linkTo || resultPageInfo.navigateBackTo)}
+                                                className='text-wrap'
+                                            >
+                                                {result[field.name]}
+                                            </Link>
+                                        ) : (
+                                            <div key={`text-${field.name}`} className="text-wrap">{result[field.name]}</div>
+                                        )
                                     )}
                                 </div>
                             ) : null

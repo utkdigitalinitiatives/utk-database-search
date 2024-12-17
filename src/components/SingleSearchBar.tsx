@@ -18,7 +18,7 @@ export default function SearchBar(props: any) {
             wt: 'json',
         })
         let fullURL = `${props.endpoint}${params}`;
-        console.log(fullURL)
+        
         const data = await searchSolr(fullURL);
 
         props.onSearch(data.response, fullURL, 0);

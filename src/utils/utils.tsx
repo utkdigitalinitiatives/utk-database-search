@@ -25,7 +25,6 @@ export async function searchSolr(fullUrl:string) {
             throw new Error(`Solr request failed: ${response.status} ${response.statusText}\n${errorText}`);
         }
         
-        // console.log(response.text())
         const data = await response.json();
         return data;
     } catch (error) {

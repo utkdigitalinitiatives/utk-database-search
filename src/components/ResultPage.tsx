@@ -35,8 +35,8 @@ export default function ResultPage({ resultPageInfo }: any) {
 
     return (
         <>
-            <div className="border-t flex justify-center shadow-inner my-2">
-                <div className="container rounded-md my-2 mx-2 max-w-screen-lg text-utk-smokey border border-utk-orange shadow-md">
+            <div className="flex justify-center shadow-inner">
+                <div className="container rounded-md my-3 mx-2 max-w-screen-lg text-utk-smokey border border-utk-orange shadow-md">
                     <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 rounded-t-md">
                         {result?.[resultPageInfo.titleField] ? result[resultPageInfo.titleField] : 'Title Not Available'}
                     </div>

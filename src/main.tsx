@@ -8,14 +8,14 @@ import './index.css'
 import Index from './routes/Index';
 
 // Result Pages
-import SongPage from './routes/ResultPages/SongPage';
-import SermonPage from './routes/ResultPages/SermonPage';
-import SymphonyPage from './routes/ResultPages/SymphonyPage';
-import TennesseeNewsPage from './routes/ResultPages/TennesseeNewsPage';
+import ResultPage from './components/ResultPage.tsx';
 
 // Overall Page Layout
 import PageLayout from './components/PageLayout';
-import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo }  from './routeInfo.ts'
+import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo } from './routeInfo.ts'
+
+// Individual Page Info
+import { songResultInfo, symphonyResultInfo, sermonResultInfo, newspaperResultInfo } from './resultPageConfig.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -24,13 +24,13 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<App />}>
           <Route index element={<Index />} />
           <Route path="song" element={<PageLayout routeInfo={songRouteInfo} />} />
-          <Route path="song/:songId" element={<SongPage />} />
+          <Route path="song/:songId" element={<ResultPage resultPageInfo={songResultInfo} />} />
           <Route path="sermon" element={<PageLayout routeInfo={sermonRouteInfo} />} />
-          <Route path="sermon/:sermonId" element={<SermonPage />} />
+          <Route path="sermon/:sermonId" element={<ResultPage resultPageInfo={sermonResultInfo} />} />
           <Route path="symphony" element={<PageLayout routeInfo={symphonyRouteInfo} />} />
-          <Route path="symphony/:symphonyId" element={<SymphonyPage />} />
+          <Route path="symphony/:symphonyId" element={<ResultPage resultPageInfo={symphonyResultInfo} />} />
           <Route path="tennessee-news" element={<PageLayout routeInfo={newsRouteInfo} />} />
-          <Route path="tennessee-news/:newsId" element={<TennesseeNewsPage />} />
+          <Route path="tennessee-news/:newsId" element={<ResultPage resultPageInfo={newspaperResultInfo} />} />
         </Route>
       </Routes>
     </BrowserRouter>

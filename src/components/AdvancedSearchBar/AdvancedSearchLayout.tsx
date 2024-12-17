@@ -3,8 +3,6 @@ import { useState } from "react";
 import AdvancedSearchInput from "./AdvancedSearchInput.tsx";
 import AdvancedSearchSelect from "./AdvancedSearchSelect.tsx";
 
-import songInputVals from '../../configFiles/AdvancedSearchInputVals/InputValsSong.ts'
-// import { searchSolr } from "../utils/utils";
 
 interface AdvancedProps {
     inputVals: any;
@@ -61,7 +59,6 @@ export default function AdvancedSearch({
             wt: 'json',
         });
         const fullUrl = `${endpoint}${params}`;
-        console.log(fullUrl)
         const data = await searchSolr(fullUrl);
         onSearch(data.response, fullUrl, 0);
     };

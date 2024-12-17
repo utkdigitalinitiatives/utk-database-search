@@ -35,6 +35,8 @@ export default function PageLayout({ routeInfo }: any) {
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
+
+        sessionStorage.setItem('routeName', `${routeInfo.routeName}`)
         sessionStorage.setItem('searchURL', `${searchURL}`);
         sessionStorage.setItem('startVal', `${startVal}`);
     }
@@ -51,10 +53,15 @@ export default function PageLayout({ routeInfo }: any) {
 
     useEffect(() => {
         const getData = async () => {
+            
+            const routeName = sessionStorage.getItem('routeName');
+            if (routeName !== routeInfo.routeName) {
+                return;
+            }
+            const previousSearchURL  = sessionStorage.getItem('searchURL');
+            let start = sessionStorage.getItem('startVal');
 
-            const previousSearchURL = sessionStorage.getItem('searchURL');
-            const start = sessionStorage.getItem('startVal');
-            if (previousSearchURL) {
+            if (previousSearchURL !== null) {
                 try {
                     const data = await searchSolr(`${previousSearchURL}&start=${start}`);
                     setTotalFound(data.response.numFound)
@@ -99,7 +106,6 @@ export default function PageLayout({ routeInfo }: any) {
                                 <button className=" text-utk-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
                             </div>
                             {routeInfo.routeName ? (
-
                                 <AdvancedSearch
                                     inputVals={routeInfo.inputVals}
                                     endpoint={endpoint}
@@ -122,7 +128,6 @@ export default function PageLayout({ routeInfo }: any) {
                                 :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }
-
                             <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                         </>
                         :

@@ -36,20 +36,15 @@ export default function ResultPage({ resultPageInfo }: any) {
 
     return (
         <>
-            {/* <div className="bg-utk-smokey">
-                <Breadcrumbs />
-            </div> */}
             <div className="border-t flex justify-center">
                 <div className="container rounded-md my-2 mx-2 max-w-screen-lg text-utk-smokey border border-utk-orange shadow-md">
                     <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 rounded-t-md drop-shadow-md">
-                        {/* Dynamically render the title based on titleField */}
                         {result?.[resultPageInfo.titleField]}
                     </div>
                     <div className="p-4 shadow-inner text-utk-smokey utk-link">
                         {resultPageInfo.resultFields.map(field => (
                             result?.[field.name] ? (
                                 <div key={field.name} className="flex flex-row flex-wrap text-wrap pt-3">
-                                    {/* <div className=""> */}
                                         <span className="font-semibold px-2">
                                             {field.name.charAt(0).toUpperCase() + field.name.slice(1)}:
                                         </span>
@@ -62,7 +57,6 @@ export default function ResultPage({ resultPageInfo }: any) {
                                         ) : (
                                             <div className="text-wrap">{result[field.name]}</div>
                                         )}
-                                    {/* </div> */}
                                 </div>
                             ) : null
                         ))}

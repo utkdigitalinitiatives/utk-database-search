@@ -11,9 +11,7 @@ export default function ResultPage({ resultPageInfo }: any) {
     const id = symphonyId || songId || sermonId || newsId
 
     useEffect(() => {
-        const url = `${resultPageInfo.endpoint}q=${resultPageInfo.queryField}:${id}`;
-        console.log(url);
-
+        const url = `${resultPageInfo.endpoint}q=${resultPageInfo.idField}:${id}`;
 
         const getData = async () => {
             try {
@@ -36,43 +34,38 @@ export default function ResultPage({ resultPageInfo }: any) {
         navigate(to);
     };
 
-
     return (
         <>
-            <div className="bg-utk-smokey">
+            {/* <div className="bg-utk-smokey">
                 <Breadcrumbs />
-            </div>
+            </div> */}
             <div className="border-t flex justify-center">
                 <div className="container rounded-md my-2 mx-2 max-w-screen-lg text-utk-smokey border border-utk-orange shadow-md">
                     <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 rounded-t-md drop-shadow-md">
-                        {result?.title}
+                        {/* Dynamically render the title based on titleField */}
+                        {result?.[resultPageInfo.titleField]}
                     </div>
-                    <div className="flex flex-row flex-wrap justify-evenly py-4 md:py-6 lg:py-8 shadow-inner text-utk-smokey utk-link">
-                        {resultPageInfo.resultFields.map((field) => {
-                            const fieldValue = result?.[field.name];
-                            if (!fieldValue) return null; // Skip rendering if the field value is not available
-
-                            return (
-                                <div key={field.name} className="flex flex-col flex-wrap">
-                                    <div className="flex flex-row flex-wrap text-wrap">
+                    <div className="p-4 shadow-inner text-utk-smokey utk-link">
+                        {resultPageInfo.resultFields.map(field => (
+                            result?.[field.name] ? (
+                                <div key={field.name} className="flex flex-row flex-wrap text-wrap pt-3">
+                                    {/* <div className=""> */}
                                         <span className="font-semibold px-2">
                                             {field.name.charAt(0).toUpperCase() + field.name.slice(1)}:
                                         </span>
-                                        {field.isLink ? (
-                                            <Link
-                                                to={field.linkTo || resultPageInfo.navigateBackTo}
-                                                onClick={(e) => handleClick(e, fieldValue, field.linkTo || resultPageInfo.navigateBackTo)}
-                                                className="text-wrap"
-                                            >
-                                                {fieldValue}
-                                            </Link>
+                                        {Array.isArray(result[field.name]) ? (
+                                            result[field.name].map((item: string, index: number) => (
+                                                <Link key={`${result.id}${item}${index}`} to={field.linkTo || resultPageInfo.navigateBackTo} onClick={(e) => handleClick(e, item, field.linkTo || resultPageInfo.navigateBackTo)} className="text-wrap">
+                                                    {item}
+                                                </Link>
+                                            ))
                                         ) : (
-                                            <div className="text-wrap">{fieldValue}</div>
+                                            <div className="text-wrap">{result[field.name]}</div>
                                         )}
-                                    </div>
+                                    {/* </div> */}
                                 </div>
-                            );
-                        })}
+                            ) : null
+                        ))}
                     </div>
                 </div>
             </div>

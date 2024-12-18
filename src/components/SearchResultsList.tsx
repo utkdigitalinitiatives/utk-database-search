@@ -11,7 +11,7 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
     return (
         <div className="mx-4 py-3 px-4 my-3 utk-link">
             {resultList?.map(result => (
-                <div key={result?.[config.idField]} className="border-t rounded-sm border-utk-orange my-3 odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2">
+                <div key={result?.[config.idField]} className="border-t rounded-b-sm border-utk-orange my-3 odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2">
                     <div className="flex justify-center text-utk-link font-medium text-xl">
                         {result?.[config.titleField]}
                     </div>
@@ -21,7 +21,7 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
 
                             if (field.type === "string") {
                                 return (
-                                    <div className="flex flex-col flex-wrap" key={`${result[config.idField]}-${field.key}`}>
+                                    <div className="flex flex-col" key={`${result[config.idField]}-${field.key}`}>
                                         <div className="flex flex-row flex-wrap">
                                             <span className="font-semibold px-2">{field.label}:</span>
                                             <div className="text-wrap">{value}</div>
@@ -33,16 +33,15 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
                             if (field.type === "array" && Array.isArray(value)) {
                                 return (
                                     <div className="flex flex-col" key={`${result[config.idField]}-${field.key}`}>
-                                        <div className="flex flex-wrap">
+                                        <div className="flex flex-row flex-wrap">
                                             <span className="font-semibold px-2">{field.label}:</span>
-                                            {/* Call the render function to display the array */}
                                             <div className="text-wrap">{field.render ? field.render(value) : null}</div>
                                         </div>
                                     </div>
                                 );
                             }
 
-                            return null; // Return nothing if it's an unknown field type
+                            return null;
                         })}
                     </div>
                     <div className="flex flex-row flex-wrap justify-end text-utk-smokey max-w-108 mx-auto">

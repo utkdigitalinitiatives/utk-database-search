@@ -2,7 +2,7 @@
 
 export default function ResultTop(props: any) {
     return (
-        <div className="mx-4 py-3 px-4 my-3 text-lg bg-utk-light-gray border-2 rounded-sm shadow-inner md:flex md:flex-row">
+        <div className="mx-4 py-3 px-4 my-3 text-lg bg-utk-light-gray border-2 rounded-sm shadow-inner text-utk-smokey md:flex md:flex-row">
             <div>
                 Records found:
                 <span className="font-semibold">

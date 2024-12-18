@@ -105,7 +105,7 @@ export default function AdvancedSearch({
                 </button>
             </div>
             <div className="flex flex-row mt-1 ms-1 text-utk-white text-sm">
-                <button type="reset">Restart Search</button>
+                <button type="reset">Clear Search</button>
             </div>
         </form>
     );

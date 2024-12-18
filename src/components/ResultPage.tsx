@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router';
 import { searchSolr } from '../utils/utils';
+import TitleStringCleaner from '../helper/fieldTitleCleanup';
 
 export default function ResultPage({ resultPageInfo }: any) {
     let navigate = useNavigate();
@@ -45,7 +46,7 @@ export default function ResultPage({ resultPageInfo }: any) {
                             result?.[field.name] ? (
                                 <div key={`field-${field.name}`} className="flex flex-row flex-wrap text-wrap pt-3">
                                     <span className="font-semibold px-2">
-                                        {field.name.charAt(0).toUpperCase() + field.name.slice(1)}:
+                                        {TitleStringCleaner(field.name)}:
                                     </span>
 
                                     {Array.isArray(result[field.name]) ? (

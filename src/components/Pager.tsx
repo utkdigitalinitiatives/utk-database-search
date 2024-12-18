@@ -27,13 +27,13 @@ export default function Pager(props: any) {
 
     return (
         <>
-            <div className="flex flex-row justify-center my-1">
+            <div className="flex flex-row justify-center my-2">
                 {props.searchStart > 0 ?
-                    <button className="mx-2 p-2 border rounded-sm border-utk-smokey" onClick={handlePrevious}>Previous</button>
+                    <button className="mx-2 p-2 border rounded-md border-utk-smokey shadow-lg" onClick={handlePrevious}>Previous</button>
                     :
-                    <button disabled  className="mx-2 p-2 border rounded-sm border-utk-orange cursor-not-allowed" >Previous</button>
+                    <button disabled className="mx-2 p-2 border bg-neutral-300 text-neutral-50 rounded-md cursor-not-allowed" >Previous</button>
                 }
-                <button className="mx-2 p-2 border rounded-sm border-utk-smokey" onClick={handleNext}>Next</button>
+                <button className="mx-2 p-2 border rounded-md border-utk-smokey shadow-lg" onClick={handleNext}>Next</button>
             </div>
         </>
     )

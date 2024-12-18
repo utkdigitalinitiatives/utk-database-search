@@ -11,11 +11,13 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
     return (
         <div className="mx-4 py-3 px-4 utk-link">
             {resultList?.map(result => (
-                <div key={result?.[config.idField]} className="border-t rounded-b-sm border-utk-orange odd:bg-utk-light-gray even:bg-utk-white shadow-md py-3 px-2 my-5">
-                    <div className="flex justify-center text-utk-link font-medium text-xl">
+                <div key={result?.[config.idField]} className="relative rounded-b-sm odd:bg-utk-light-gray even:bg-utk-white shadow-lg py-3 px-2 mb-5">
+                    <div className="absolute top-0 left-0 w-1/3 lg:w-[32rem] border-t-[6px] border-utk-orange group-hover:border-utk-orange"></div>
+                    <div className="absolute top-0 left-0 h-1/2 border-l-[6px] border-utk-orange group-hover:border-utk-orange"></div>
+                    <div className="flex justify-center text-utk-link font-medium text-xl mt-2">
                         {result?.[config.titleField]}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2 px-5">
                         {config.fields.map(field => {
                             const value = result?.[field.key];
 

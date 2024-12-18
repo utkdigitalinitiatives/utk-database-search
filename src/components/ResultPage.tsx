@@ -38,13 +38,13 @@ export default function ResultPage({ resultPageInfo }: any) {
         <>
             <div className="flex justify-center shadow-inner">
                 <div className="container rounded-md my-3 mx-2 max-w-screen-lg text-utk-smokey border border-utk-orange shadow-md">
-                    <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 rounded-t-md">
+                    <div className="bg-[rgba(75,75,75,0.90)] text-utk-white flex justify-center text-2xl font-semibold py-4 px-2 rounded-t-md">
                         {result?.[resultPageInfo.titleField] ? result[resultPageInfo.titleField] : 'Title Not Available'}
                     </div>
-                    <div className="p-4 text-utk-smokey utk-link">
+                    <div className="text-utk-smokey utk-link shadow-inner">
                         {resultPageInfo.resultFields.map((field: any) => (
                             result?.[field.name] ? (
-                                <div key={`field-${field.name}`} className="flex flex-row flex-wrap text-wrap pt-3">
+                                <div key={`field-${field.name}`} className="flex flex-row flex-wrap text-wrap py-3 odd:bg-utk-light-gray even:bg-utk-white rounded-b">
                                     <span className="font-semibold px-2">
                                         {TitleStringCleaner(field.name)}:
                                     </span>
@@ -57,13 +57,13 @@ export default function ResultPage({ resultPageInfo }: any) {
                                                     key={`link-${field.name}-${name}-${index}`} // Ensure uniqueness here
                                                     to={field.linkTo || resultPageInfo.navigateBackTo}
                                                     onClick={(e) => handleClick(e, name, field.linkTo || resultPageInfo.navigateBackTo)}
-                                                    className="text-wrap"
+                                                    className="text-wrap px-2"
                                                 >
                                                     {name}
                                                 </Link>
                                             ) : (
                                                 // If not a link, render as plain text
-                                                <div key={`text-${field.name}-${name}-${index}`} className="text-wrap">
+                                                <div key={`text-${field.name}-${name}-${index}`} className="text-wrap px-2">
                                                     {name}
                                                 </div>
                                             )
@@ -75,12 +75,12 @@ export default function ResultPage({ resultPageInfo }: any) {
                                                 key={`link-${field.name}`}
                                                 to={field.linkTo || resultPageInfo.navigateBackTo}
                                                 onClick={(e) => handleClick(e, result[field.name], field.linkTo || resultPageInfo.navigateBackTo)}
-                                                className='text-wrap'
+                                                className='text-wrap px-2'
                                             >
                                                 {result[field.name]}
                                             </Link>
                                         ) : (
-                                            <div key={`text-${field.name}`} className="text-wrap">{result[field.name]}</div>
+                                            <div key={`text-${field.name}`} className="text-wrap px-2">{result[field.name]}</div>
                                         )
                                     )}
                                 </div>

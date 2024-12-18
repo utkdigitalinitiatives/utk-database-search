@@ -29,11 +29,11 @@ export default function Pager(props: any) {
         <>
             <div className="flex flex-row justify-center my-2">
                 {props.searchStart > 0 ?
-                    <button className="mx-2 p-2 border rounded-md border-utk-smokey shadow-lg" onClick={handlePrevious}>Previous</button>
+                    <button className="mx-2 p-2 border rounded-md border-utk-orange shadow-lg ease-in-out duration-300 hover:scale-105" onClick={handlePrevious}>Previous</button>
                     :
                     <button disabled className="mx-2 p-2 border bg-neutral-300 text-neutral-50 rounded-md cursor-not-allowed" >Previous</button>
                 }
-                <button className="mx-2 p-2 border rounded-md border-utk-smokey shadow-lg" onClick={handleNext}>Next</button>
+                <button className="mx-2 p-2 border rounded-md border-utk-orange shadow-lg ease-in-out duration-300 hover:scale-105" onClick={handleNext}>Next</button>
             </div>
         </>
     )

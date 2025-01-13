@@ -48,7 +48,21 @@ const newspaperResultInfo: ResultPageInfo = {
     endpoint: `/tennessee_newspaper_db_dev/select?`,
     idField: 'id',
     titleField: 'mainentry_title',
-    resultFields: []
+    resultFields: [
+        { name: 'call_number', isLink: false },
+        { name: 'schd1', isLink: false },
+        { name: 'frequency', isLink: false },
+        { name: 'copy_type', isLink: false },
+        { name: 'newspaper_county_name', isLink: false },
+        { name: 'newspaper_city_name', isLink: false },
+        { name: 'newspaper_state_name', isLink: false },
+        { name: 'holding_library', isLink: false },
+        { name: 'oclc', isLink: false },
+        { name: 'sihd', isLink: false },
+        { name: 'lcno', isLink: false },
+        { name: 'stat', isLink: false },
+    ],
+    navigateBackTo: '/tennessee-news'
 }
 
 const sermonResultInfo: ResultPageInfo = {

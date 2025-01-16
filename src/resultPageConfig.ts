@@ -39,6 +39,7 @@ const songResultInfo: ResultPageInfo = {
         { name: 'accomp_values', isLink: false },
         { name: 'anthology_title', isLink: true, linkTo: '/song' },
         { name: 'first_line', isLink: false },
+        { name: 'db_type', isLink: false },
     ],
     navigateBackTo: '/song',
 };
@@ -61,6 +62,7 @@ const newspaperResultInfo: ResultPageInfo = {
         { name: 'sihd', isLink: false },
         { name: 'lcno', isLink: false },
         { name: 'stat', isLink: false },
+        { name: 'db_type', isLink: false },
     ],
     navigateBackTo: '/tennessee-news'
 }

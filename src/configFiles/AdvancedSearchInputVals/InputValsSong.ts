@@ -405,7 +405,18 @@ const songInputVals = {
         optionTitle: 'Aramaic'
       }
     ]
-  }
+  },
+
+  dbOrigin: {
+    type: "select",
+    label: "Choose DB Origin",
+    name: "db_type",
+    optionVals: [
+      { value: 'select', optionTitle: 'Select' },
+      { value: 'song_db', optionTitle: 'Song' },
+      { value: 'analysis_db', optionTitle: 'Analysis' },
+    ]
+  },
 };
 
 export default songInputVals;

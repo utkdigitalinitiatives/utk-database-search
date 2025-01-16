@@ -23,6 +23,9 @@ export default function NavBar() {
                     />
                     <a className="text-3xl font-normal text-utk-smokey" href="https://lib.utk.edu">LIBRARIES</a>
                 </div>
+                <div>
+                    <a className="flex-none text-utk-smokey px-3 underline-effect" href="/">Home</a>
+                </div>
                 <div className="dropdown relative mx-2 text-utk-smokey">
                     <button onClick={handleOpen} className="flex items-center">
                         <svg
@@ -32,7 +35,7 @@ export default function NavBar() {
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                             className="block md:hidden"
-                            >
+                        >
                             <path
                                 d="M4 5a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM4 9a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM3 14a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1ZM4 17a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"
                                 fill="#4b4b4b" />
@@ -55,9 +58,6 @@ export default function NavBar() {
                     </button>
                     {open ?
                         <ul className="dropdown-content absolute right-0 mt-3 w-56 bg-utk-white shadow-lg overflow-y-auto md:text-end text-center z-[100]">
-                            <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <a className="flex-none text-utk-smokey px-3" href="/">Home</a>
-                            </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
                                 <a className="flex-none text-utk-smokey px-3" href="/song">Song Index</a>
                             </li>

@@ -94,9 +94,14 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                     );
                 },
             },
+            {
+                label: 'Database Origin',
+                key: 'db_type',
+                type: 'string',
+            }
         ]
     },
-    symphony:{
+    symphony: {
         titleField: 'title',
         idField: 'id',
         fields: [
@@ -202,6 +207,20 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                         <div className="flex flex-col">
                             {data.map((library, index) => (
                                 <div key={index} className="text-wrap">{library}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Database Type',
+                key: 'db_type',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((date, index) => (
+                                <div key={index} className="text-wrap">{date}</div>
                             ))}
                         </div>
                     );

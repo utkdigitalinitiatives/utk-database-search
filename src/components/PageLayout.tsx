@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SingleSearchBar from "./SingleSearchBar";
 import ResultHeader from "./ResultHeader";
-import Breadcrumbs from "./Breadcrumbs";
 import Pager from "./Pager";
 import { searchSolr } from "../utils/utils";
 

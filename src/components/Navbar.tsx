@@ -1,4 +1,3 @@
-import { Link } from "react-router"
 import power_t from "../assets/images/power_t_logo.png"
 import { useState } from "react"
 

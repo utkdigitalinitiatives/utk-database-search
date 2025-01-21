@@ -8,7 +8,7 @@ interface InputVal {
     label: string;
     name: string;
     placeholder?: string;
-    optionVals?: string[];
+    optionVals?: { value: string; optionTitle: string }[];
 }
 
 interface AdvancedProps {
@@ -94,7 +94,7 @@ export default function AdvancedSearch({
                         ) : inputVal.type === 'select' ? (
                             <AdvancedSearchSelect
                                 label={inputVal.label}
-                                optionVals={inputVal.optionVals}
+                                optionVals={inputVal.optionVals || []} 
                                 name={inputVal.name}
                                 value={formState[inputVal.name] || ''}
                                 onChange={handleChange}

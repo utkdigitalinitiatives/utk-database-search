@@ -5,6 +5,7 @@ interface SearchBarProps {
     endpoint: string;
     placeholder: string;
     onSearch: (response: { docs: number, numFound: number[] }, searchURL: string, newSearchStartVal: number) => void;
+    searchStart: number;
 }
 
 export default function SearchBar(props: SearchBarProps) {

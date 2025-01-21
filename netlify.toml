@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "/unified_song_db_dev/*"
+  to = "https://jchlib.com/unified_song_db_dev/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sermon_db_new_dev/*"
+  to = "https://jchlib.com/sermon_db_new_dev/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/knoxville_symphony_dev/*"
+  to = "https://jchlib.com/knoxville_symphony_dev/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/tennessee_newspaper_db_dev/*"
+  to = "https://jchlib.com/tennessee_newspaper_db_dev/:splat"
+  status = 200
+  force = true

@@ -1,6 +1,6 @@
 interface AdvancedSearchInputProps {
     label: string;
-    placeholder: string;
+    placeholder: string | undefined;
     name: string;
     value: string;  // The current value of the input field
     onChange: (field: string, value: string) => void;  // The onChange handler

@@ -3,14 +3,20 @@ import { useState } from "react";
 import AdvancedSearchInput from "./AdvancedSearchInput.tsx";
 import AdvancedSearchSelect from "./AdvancedSearchSelect.tsx";
 
-
-interface AdvancedProps {
-    inputVals: any;
-    endpoint: string;
-    onSearch: (data: any, url: string, status: number) => void;
-    initialValues?: Record<string, any>; // Optional initial values for form
+interface InputVal {
+    type: 'input' | 'select';
+    label: string;
+    name: string;
+    placeholder?: string;
+    optionVals?: string[];
 }
 
+interface AdvancedProps {
+    inputVals: Record<string, InputVal>;
+    endpoint: string;
+    onSearch: (data: any, url: string, status: number) => void;
+    initialValues?: Record<string, any>;
+}
 
 export default function AdvancedSearch({
     inputVals,
@@ -18,8 +24,8 @@ export default function AdvancedSearch({
     onSearch,
     initialValues = {},
 }: AdvancedProps) {
-    const [formState, setFormState] = useState<any>(() => {
-        const initialState: Record<string, any> = {};
+    const [formState, setFormState] = useState<Record<string, string>>(() => {
+        const initialState: Record<string, string> = {};
         Object.entries(inputVals).forEach(([key, inputVal]) => {
             initialState[key] = initialValues[inputVal.name] || '';
         });
@@ -28,7 +34,7 @@ export default function AdvancedSearch({
 
     // Handle changes to form fields
     const handleChange = (field: string, value: string) => {
-        setFormState((prevState: any) => ({
+        setFormState((prevState) => ({
             ...prevState,
             [field]: value,
         }));

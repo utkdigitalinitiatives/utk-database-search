@@ -21,9 +21,3 @@
   to = "https://jchlib.com/tennessee_newspaper_db_dev/:splat"
   status = 200
   force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true

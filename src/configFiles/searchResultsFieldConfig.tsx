@@ -2,7 +2,7 @@ interface Field {
     label: string;
     key: string;
     type: 'string' | 'array';  // You can add more types as necessary
-    render?: (data: any) => JSX.Element;  // This should always return a JSX.Element
+    render?: (data: string[]) => JSX.Element;  // This should always return a JSX.Element
 }
 
 interface ResultConfig {

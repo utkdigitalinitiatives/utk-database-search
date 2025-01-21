@@ -26,6 +26,13 @@ export default function Index() {
             image: musicImg
         },
         {
+            dbName: "Knoxville Symphony Orchestra Program Notes",
+            endpoint: "/symphony",
+            //TODO: Need better copy for the dbsummary on this page
+            dbSummary: "Program notes for the Knoxville Symphony Orchestra",
+            image: symphonyImg,
+        },
+        {
             dbName: "Sermon Database",
             endpoint: "/sermon",
             //TODO: Need better copy for the dbsummary on this page
@@ -40,13 +47,6 @@ export default function Index() {
             image: newsImg,
         },
 
-        {
-            dbName: "Knoxville Symphony Orchestra Program Notes",
-            endpoint: "/symphony",
-            //TODO: Need better copy for the dbsummary on this page
-            dbSummary: "Program notes for the Knoxville Symphony Orchestra",
-            image: symphonyImg,
-        },
     ]
 
 

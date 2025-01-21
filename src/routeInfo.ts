@@ -4,26 +4,13 @@ import symphonyInputVals from './configFiles/AdvancedSearchInputVals/InputValsSy
 import songInputVals from './configFiles/AdvancedSearchInputVals/InputValsSong';
 import sermonInputVals from './configFiles/AdvancedSearchInputVals/InputValsSermon';
 
-interface Field {
-    label: string;
-    key: string;
-    type: 'string' | 'array';  // You can add more types as necessary
-    render?: (data: string[]) => JSX.Element;  // This should always return a JSX.Element
-}
-
-interface ResultConfig {
-    titleField: string;
-    idField: string;
-    fields: Field[];
-}
-
 interface routeInfo {
     routeName: string;
     fieldConfigName: string;
     endpoint: string;
     placeholder: string;
     siteTitle: string;
-    inputVals: ResultConfig;
+    inputVals: any;
 }
 
 const newsRouteInfo: routeInfo = {

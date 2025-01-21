@@ -21,7 +21,7 @@ export default function AdvancedSearch({
     const [formState, setFormState] = useState<any>(() => {
         const initialState: Record<string, any> = {};
         Object.entries(inputVals).forEach(([key, inputVal]) => {
-            initialState[inputVal.name] = initialValues[inputVal.name] || '';
+            initialState[key] = initialValues[inputVal.name] || '';
         });
         return initialState;
     });
@@ -76,7 +76,7 @@ export default function AdvancedSearch({
         <form method="post" id="search-form" className="mx-auto p-2" onSubmit={handleSubmit} onReset={handleReset}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {Object.entries(inputVals).map(([key, inputVal], index) => (
-                    <div key={index}>
+                    <div key={key + index}>
                         {inputVal.type === 'input' ? (
                             <AdvancedSearchInput
                                 label={inputVal.label}

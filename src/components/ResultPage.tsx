@@ -3,54 +3,33 @@ import { useNavigate, useParams, Link } from 'react-router';
 import { searchSolr } from '../utils/utils';
 import TitleStringCleaner from '../helper/fieldTitleCleanup';
 
-interface Field {
-    name: string;
-    isLink: boolean;
-    linkTo?: string;
-}
-
-interface ResultPageInfo {
-    endpoint: string;
-    idField: string;
-    titleField: string;
-    resultFields: Field[];
-    navigateBackTo: string;
-}
-
-interface Result {
-    [key: string]: string | string[];  // Fields can either be a string or an array of strings
-}
-
-interface ResultPageProps {
-    resultPageInfo: ResultPageInfo;
-}
-
-export default function ResultPage({ resultPageInfo }: ResultPageProps) {
+export default function ResultPage({ resultPageInfo }: any) {
     const navigate = useNavigate();
-    const [result, setResults] = useState<Result | null>(null);  // result is either an object or null initially
+    const [result, setResults] = useState<any>(null);
     const params = useParams();
     const { symphonyId, songId, sermonId, newsId } = params;
-    const id = symphonyId || songId || sermonId || newsId;
+    const id = symphonyId || songId || sermonId || newsId
 
     useEffect(() => {
         const url = `${resultPageInfo.endpoint}q=${resultPageInfo.idField}:${id}`;
 
         const getData = async () => {
             try {
-                const data = await searchSolr(url);
+                const data = await searchSolr(url)
                 setResults(data.response.docs[0]);
             } catch (error) {
                 console.error('Error fetching existing data:', error);
             }
+
         };
 
         getData();
-    }, [id, resultPageInfo.endpoint, resultPageInfo.idField]);
+    }, []);
 
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, queryVal: string | string[], to: string) => {
+    const handleClick = (e: any, queryVal: any, to: string) => {
         e.preventDefault();
-        const sanitizedQuery = String(queryVal).replace(/[.,!?;:(){}[\]"'"\-<>@#$%^&*_+=|\\/~`]/g, '');
-        sessionStorage.setItem('searchURL', `${resultPageInfo.endpoint}q=full_text:*${sanitizedQuery}*`);
+        queryVal = String(queryVal).replace(/[.,!?;:(){}[\]"'"\-<>@#$%^&*_+=|\\/~`]/g, '');
+        sessionStorage.setItem('searchURL', `${resultPageInfo.endpoint}q=full_text:*${queryVal}*`);
         sessionStorage.setItem('startVal', "0");
         navigate(to);
     };
@@ -63,7 +42,7 @@ export default function ResultPage({ resultPageInfo }: ResultPageProps) {
                         {result?.[resultPageInfo.titleField] ? result[resultPageInfo.titleField] : 'Title Not Available'}
                     </div>
                     <div className="text-utk-smokey utk-link shadow-inner">
-                        {resultPageInfo.resultFields.map((field) => (
+                        {resultPageInfo.resultFields.map((field: any) => (
                             result?.[field.name] ? (
                                 <div key={`field-${field.name}`} className="flex flex-row flex-wrap text-wrap py-3 odd:bg-utk-light-gray even:bg-utk-white rounded-b">
                                     <span className="font-semibold px-2">
@@ -71,10 +50,11 @@ export default function ResultPage({ resultPageInfo }: ResultPageProps) {
                                     </span>
 
                                     {Array.isArray(result[field.name]) ? (
-                                        result[field.name].map((name, index) => (
+                                        result[field.name].map((name: string, index: number) => (
                                             field.isLink ? (
+                                                // If the field is a link, render as a Link component
                                                 <Link
-                                                    key={`link-${field.name}-${name}-${index}`}
+                                                    key={`link-${field.name}-${name}-${index}`} // Ensure uniqueness here
                                                     to={field.linkTo || resultPageInfo.navigateBackTo}
                                                     onClick={(e) => handleClick(e, name, field.linkTo || resultPageInfo.navigateBackTo)}
                                                     className="text-wrap px-2"
@@ -82,12 +62,14 @@ export default function ResultPage({ resultPageInfo }: ResultPageProps) {
                                                     {name}
                                                 </Link>
                                             ) : (
+                                                // If not a link, render as plain text
                                                 <div key={`text-${field.name}-${name}-${index}`} className="text-wrap px-2">
                                                     {name}
                                                 </div>
                                             )
                                         ))
                                     ) : (
+                                        // If the field is not an array, check if it should be a link
                                         field.isLink ? (
                                             <Link
                                                 key={`link-${field.name}`}
@@ -109,4 +91,5 @@ export default function ResultPage({ resultPageInfo }: ResultPageProps) {
             </div>
         </>
     );
-}
+};
+

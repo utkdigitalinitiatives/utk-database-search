@@ -1,16 +1,20 @@
-// import { Form } from "react-router-dom";
 import { searchSolr } from "../utils/utils";
 import { useState } from "react";
 
+interface SearchBarProps {
+    endpoint: string;
+    placeholder: string;
+    onSearch: (response: { docs: number, numFound: number[] }, searchURL: string, newSearchStartVal: number) => void;
+}
 
-export default function SearchBar(props: any) {
+export default function SearchBar(props: SearchBarProps) {
     const [query, setQuery] = useState('');
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuery((event.target.value));
     }
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const params = new URLSearchParams({
             q: `full_text:*${query}*`,

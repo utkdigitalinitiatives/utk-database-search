@@ -59,7 +59,7 @@ export default function PageLayout({ routeInfo }: any) {
                 return;
             }
             const previousSearchURL  = sessionStorage.getItem('searchURL');
-            let start = sessionStorage.getItem('startVal');
+            const start = sessionStorage.getItem('startVal');
 
             if (previousSearchURL !== null) {
                 try {

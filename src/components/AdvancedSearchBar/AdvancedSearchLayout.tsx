@@ -36,7 +36,7 @@ export default function AdvancedSearch({
 
     const createParams = () => {
         let queryString = '';
-        let queryParts: string[] = [];
+        const queryParts: string[] = [];
 
         Object.entries(formState).forEach(([key, value]) => {
             if (value && value !== 'select' && value !== '') {
@@ -65,7 +65,7 @@ export default function AdvancedSearch({
 
     const handleReset = () => {
         setFormState(initialValues);
-        let response = {
+        const response = {
             docs: 0,
             numFound: [],
         };

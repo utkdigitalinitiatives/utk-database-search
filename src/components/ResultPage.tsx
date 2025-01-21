@@ -4,7 +4,7 @@ import { searchSolr } from '../utils/utils';
 import TitleStringCleaner from '../helper/fieldTitleCleanup';
 
 export default function ResultPage({ resultPageInfo }: any) {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const [result, setResults] = useState<any>(null);
     const params = useParams();
     const { symphonyId, songId, sermonId, newsId } = params;

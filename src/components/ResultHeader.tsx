@@ -1,6 +1,9 @@
+interface ResultTopProps {
+    totalRecords: number;
+    searchStart: number;
+  }
 
-
-export default function ResultTop(props: any) {
+export default function ResultTop(props: ResultTopProps) {
     return (
         <div className="mx-4 py-3 px-4 my-3 text-lg bg-utk-light-gray border-2 rounded-sm shadow-inner text-utk-smokey md:flex md:flex-row">
             <div>

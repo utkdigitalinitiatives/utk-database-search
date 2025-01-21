@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SingleSearchBar from "./SingleSearchBar";
 import ResultHeader from "./ResultHeader";
-import Breadcrumbs from "./Breadcrumbs";
 import Pager from "./Pager";
 import { searchSolr } from "../utils/utils";
 
@@ -59,7 +58,7 @@ export default function PageLayout({ routeInfo }: any) {
                 return;
             }
             const previousSearchURL  = sessionStorage.getItem('searchURL');
-            let start = sessionStorage.getItem('startVal');
+            const start = sessionStorage.getItem('startVal');
 
             if (previousSearchURL !== null) {
                 try {
@@ -81,9 +80,6 @@ export default function PageLayout({ routeInfo }: any) {
 
     return (
         <main>
-            {/* <div className="bg-utk-smokey">
-                <Breadcrumbs />
-            </div> */}
             <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
                 <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                 <div className='h-full grid justify-center my-auto py-3'>

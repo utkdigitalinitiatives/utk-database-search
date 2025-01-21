@@ -1,14 +1,20 @@
 import { searchSolr } from "../utils/utils";
 
+interface PagerProps<T> {
+    refVal: React.RefObject<HTMLElement>;
+    searchStart: number;
+    searchURL: string;
+    onSearch: (response: T, searchURL: string, newSearchStartVal: number) => void;
+}
 
 // TODO: more styling and add jump to deeper pages functionality
-export default function Pager(props: any) {
+export default function Pager<T>(props: PagerProps<T>) {
 
     const handlePrevious = async () => {
         props.refVal.current?.scrollIntoView({
             behavior: 'smooth'
         })
-        let newSearchStartVal = props.searchStart - 10;
+        const newSearchStartVal = props.searchStart - 10;
         const data = await searchSolr(`${props.searchURL}&start=${newSearchStartVal}`);
         props.onSearch(data.response, props.searchURL, newSearchStartVal);
 
@@ -18,7 +24,7 @@ export default function Pager(props: any) {
         props.refVal.current?.scrollIntoView({
             behavior: 'smooth'
         })
-        let newSearchStartVal = props.searchStart + 10;
+        const newSearchStartVal = props.searchStart + 10;
         const data = await searchSolr(`${props.searchURL}&start=${newSearchStartVal}`);
         props.onSearch(data.response, props.searchURL, newSearchStartVal);
 

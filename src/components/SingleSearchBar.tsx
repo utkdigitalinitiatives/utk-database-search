@@ -20,9 +20,9 @@ export default function SearchBar(props: SearchBarProps) {
         let queryStr: string = "";
         for (let i = 0; i < stringArr.length; i++) {
             if (i != stringArr.length - 1) {
-                queryStr += `full_text:*${stringArr[i]}* AND`
+                queryStr += `full_text:${stringArr[i]}* AND `
             } else {
-                queryStr += `full_text:*${stringArr[i]}*`
+                queryStr += `full_text:${stringArr[i]}*`
             }
         }
         return queryStr;
@@ -32,8 +32,10 @@ export default function SearchBar(props: SearchBarProps) {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(query);
+        const queryStr = buildQueryString(query);
+        console.log(queryStr);
         const params = new URLSearchParams({
-            q: `full_text:*${query}*`,
+            q: queryStr,
             indent: "true",
             wt: 'json',
         })

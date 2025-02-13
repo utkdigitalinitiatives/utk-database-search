@@ -15,19 +15,33 @@ export default function SearchBar(props: SearchBarProps) {
         setQuery((event.target.value));
     }
 
+    const buildQueryString = (searchString: string) => {
+        const stringArr: string[] = searchString.split(" ");
+        let queryStr: string = "";
+        for (let i = 0; i < stringArr.length; i++) {
+            if (i != stringArr.length - 1) {
+                queryStr += `full_text:*${stringArr[i]}* AND`
+            } else {
+                queryStr += `full_text:*${stringArr[i]}*`
+            }
+        }
+        return queryStr;
+
+    }
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        console.log(query);
         const params = new URLSearchParams({
             q: `full_text:*${query}*`,
             indent: "true",
             wt: 'json',
         })
         const fullURL = `${props.endpoint}${params}`;
-        
+
         const data = await searchSolr(fullURL);
 
         props.onSearch(data.response, fullURL, 0);
-
     }
 
     const handleReset = () => {

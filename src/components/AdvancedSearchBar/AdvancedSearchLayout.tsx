@@ -46,7 +46,7 @@ export default function AdvancedSearch({
 
         Object.entries(formState).forEach(([key, value]) => {
             if (value && value !== 'select' && value !== '') {
-                queryParts.push(`${key}:*${value}*`);
+                queryParts.push(`${key}:"*${value}*"`);
             }
         });
 
@@ -64,6 +64,7 @@ export default function AdvancedSearch({
             indent: 'true',
             wt: 'json',
         });
+        console.log(query)
         const fullUrl = `${endpoint}${params}`;
         const data = await searchSolr(fullUrl);
         onSearch(data.response, fullUrl, 0);
@@ -94,7 +95,7 @@ export default function AdvancedSearch({
                         ) : inputVal.type === 'select' ? (
                             <AdvancedSearchSelect
                                 label={inputVal.label}
-                                optionVals={inputVal.optionVals || []} 
+                                optionVals={inputVal.optionVals || []}
                                 name={inputVal.name}
                                 value={formState[inputVal.name] || ''}
                                 onChange={handleChange}

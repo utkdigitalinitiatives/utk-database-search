@@ -8,10 +8,13 @@ import './index.css'
 import Index from './routes/Index';
 
 // Result Pages
-import ResultPage from './components/ResultPage.tsx';
+import ResultPage from './routes/ResultPage.tsx';
 
 // Overall Page Layout
 import PageLayout from './components/PageLayout';
+
+//Anthology Page 
+import AnthologyPage from './routes/AnthologyPage.tsx';
 
 import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo, analysisRouteInfo } from './routeInfo.ts'
 
@@ -26,6 +29,7 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<Index />} />
           <Route path="song" element={<PageLayout routeInfo={songRouteInfo} />} />
           <Route path="song/:songId" element={<ResultPage resultPageInfo={songResultInfo} />} />
+          <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={songRouteInfo}/>} />
           <Route path="song-analysis" element={<PageLayout routeInfo={analysisRouteInfo} />} />
           <Route path="song-analysis/:songId" element={<ResultPage resultPageInfo={analysisResultInfo} />} />
           <Route path="sermon" element={<PageLayout routeInfo={sermonRouteInfo} />} />

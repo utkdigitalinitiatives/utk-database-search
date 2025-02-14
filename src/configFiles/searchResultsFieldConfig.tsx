@@ -1,7 +1,7 @@
 interface Field {
     label: string;
     key: string;
-    type: 'string' | 'array';  // You can add more types as necessary
+    type: 'string' | 'array' | 'link';  // You can add more types as necessary
     render?: (data: string[]) => JSX.Element;  // This should always return a JSX.Element
 }
 
@@ -95,10 +95,24 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 },
             },
             {
-                label: 'Database Origin',
-                key: 'db_type',
-                type: 'string',
-            }
+                label: "Accompanient",
+                key: "accomp_values",
+                type: "array",
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((language, index) => (
+                                <div key={index} className="text-wrap">{language}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: "Anthology",
+                key: "anthology_title",
+                type: "link",
+            },
         ]
     },
     symphony: {

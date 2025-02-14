@@ -43,6 +43,15 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
                                 );
                             }
 
+                            if(field.type === "link") {
+                                return (
+                                    <div className='flex flex-row text-utk-smokey'  key={`${result[config.idField]}-${field.key}`}>
+                                        <span className="font-semibold px-2">{field.label}:</span>
+                                        <Link to={`${result?.[config.idField]}/anthology/${value}`}>{ value }</Link>
+                                    </div>
+                                )
+                            }
+
                             return null;
                         })}
                     </div>

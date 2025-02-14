@@ -20,7 +20,6 @@ export default function SearchBar(props: SearchBarProps) {
         let queryStr: string = "";
         // Add Context for Analysis vs Song
         // TODO: Make this better to so it isn't perscriptive
-        console.log(window.location.pathname == '/song-analysis')
         if (window.location.pathname == '/song-analysis') {
             queryStr += 'db_type:"analysis_db" AND ';
         }
@@ -39,7 +38,6 @@ export default function SearchBar(props: SearchBarProps) {
 
     }
 
-    console.log(window.location.pathname)
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const queryStr = buildQueryString(query);
@@ -49,7 +47,6 @@ export default function SearchBar(props: SearchBarProps) {
             wt: 'json',
         })
         const fullURL = `${props.endpoint}${params}`;
-        console.log(fullURL)
         const data = await searchSolr(fullURL);
 
         props.onSearch(data.response, fullURL, 0);

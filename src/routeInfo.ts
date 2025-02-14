@@ -3,6 +3,7 @@ import paperInputVals from './configFiles/AdvancedSearchInputVals/InputValsNewsp
 import symphonyInputVals from './configFiles/AdvancedSearchInputVals/InputValsSymphony';
 import songInputVals from './configFiles/AdvancedSearchInputVals/InputValsSong';
 import sermonInputVals from './configFiles/AdvancedSearchInputVals/InputValsSermon';
+import analysisInputVals from './configFiles/AdvancedSearchInputVals/InputValsAnalysis';
 
 interface routeInfo {
     routeName: string;
@@ -49,5 +50,14 @@ const sermonRouteInfo: routeInfo = {
     inputVals: sermonInputVals,
 }
 
+const analysisRouteInfo: routeInfo = {
+    routeName: 'analysis',
+    fieldConfigName: 'analysis',
+    endpoint: `/unified_song_db_dev/select?`,
+    placeholder: 'Search the Anaylsis index database...',
+    siteTitle: 'UT Song Analysis Index',
+    inputVals: analysisInputVals,
+}
 
-export { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo };
+
+export { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo, analysisRouteInfo };

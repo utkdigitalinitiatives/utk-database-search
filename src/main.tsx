@@ -13,7 +13,7 @@ import ResultPage from './components/ResultPage.tsx';
 // Overall Page Layout
 import PageLayout from './components/PageLayout';
 
-import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo } from './routeInfo.ts'
+import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo, analysisRouteInfo } from './routeInfo.ts'
 
 // Individual Page Info
 import { songResultInfo, symphonyResultInfo, sermonResultInfo, newspaperResultInfo } from './resultPageConfig.ts'
@@ -26,6 +26,8 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<Index />} />
           <Route path="song" element={<PageLayout routeInfo={songRouteInfo} />} />
           <Route path="song/:songId" element={<ResultPage resultPageInfo={songResultInfo} />} />
+          <Route path="analysis" element={<PageLayout routeInfo={analysisRouteInfo} />} />
+          <Route path="analysis/:songId" element={<ResultPage resultPageInfo={songRouteInfo} />} />
           <Route path="sermon" element={<PageLayout routeInfo={sermonRouteInfo} />} />
           <Route path="sermon/:sermonId" element={<ResultPage resultPageInfo={sermonResultInfo} />} />
           <Route path="symphony" element={<PageLayout routeInfo={symphonyRouteInfo} />} />

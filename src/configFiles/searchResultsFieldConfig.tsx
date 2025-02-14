@@ -95,6 +95,11 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 },
             },
             {
+                label: 'Page',
+                key: 'page',
+                type: 'string',
+            },
+            {
                 label: 'Database Origin',
                 key: 'db_type',
                 type: 'string',

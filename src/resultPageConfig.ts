@@ -39,7 +39,6 @@ const songResultInfo: ResultPageInfo = {
         { name: 'accomp_values', isLink: false },
         { name: 'anthology_title', isLink: true, linkTo: '/song' },
         { name: 'first_line', isLink: false },
-        { name: 'db_type', isLink: false },
     ],
     navigateBackTo: '/song',
 };
@@ -62,7 +61,6 @@ const newspaperResultInfo: ResultPageInfo = {
         { name: 'sihd', isLink: false },
         { name: 'lcno', isLink: false },
         { name: 'stat', isLink: false },
-        { name: 'db_type', isLink: false },
     ],
     navigateBackTo: '/tennessee-news'
 }
@@ -102,4 +100,25 @@ const sermonResultInfo: ResultPageInfo = {
 
 }
 
-export { symphonyResultInfo, songResultInfo, sermonResultInfo, newspaperResultInfo };
+
+const analysisResultInfo: ResultPageInfo = {
+    endpoint: '/unified_song_db_dev/select?',
+    idField: 'db_id',
+    titleField: 'title',
+    resultFields: [
+        { name: 'composers', isLink: true, linkTo: '/analysis' },
+        { name: 'authors', isLink: true, linkTo: '/analysis' },
+        { name: 'call_number', isLink: false },
+        { name: 'geographic_areas', isLink: true, linkTo: '/analysis' },
+        { name: 'song_types', isLink: true, linkTo: '/analysis' },
+        { name: 'languages', isLink: true, linkTo: '/analysis' },
+        { name: 'accomp_values', isLink: false },
+        { name: 'anthology_title', isLink: true, linkTo: '/analysis' },
+        { name: 'first_line', isLink: false },
+        { name: 'db_type', isLink: false },
+    ],
+    navigateBackTo: '/analysis',
+};
+
+
+export { symphonyResultInfo, songResultInfo, sermonResultInfo, newspaperResultInfo, analysisResultInfo };

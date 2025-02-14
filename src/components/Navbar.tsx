@@ -1,4 +1,4 @@
-import power_t from "../assets/images/power_t_logo.png"
+import power_t from "../assets/images/power_t_logo.webp"
 import { useState } from "react"
 
 export default function NavBar() {

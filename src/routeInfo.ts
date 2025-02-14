@@ -52,7 +52,7 @@ const sermonRouteInfo: routeInfo = {
 
 const analysisRouteInfo: routeInfo = {
     routeName: 'song-analysis',
-    fieldConfigName: 'song-analysis',
+    fieldConfigName: 'songAnalysis',
     endpoint: `/unified_song_db_dev/select?`,
     placeholder: 'Search the Anaylsis index database...',
     siteTitle: 'UT Song Analysis Index',

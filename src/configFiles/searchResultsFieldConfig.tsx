@@ -95,11 +95,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 },
             },
             {
-                label: 'Page',
-                key: 'page',
-                type: 'string',
-            },
-            {
                 label: 'Database Origin',
                 key: 'db_type',
                 type: 'string',
@@ -232,5 +227,73 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 },
             },
         ]
-    }
+    },
+    songAnalysis: {
+        titleField: 'title',
+        idField: 'db_id',
+        fields: [
+            {
+                label: 'Composers',
+                key: 'composers',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((composer, index) => (
+                                <div key={index} className="text-wrap">{composer}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Authors',
+                key: 'authors',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((author, index) => (
+                                <div key={index} className="text-wrap">{author}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: "Call Number",
+                key: "call_number",
+                type: "string",
+            },
+            {
+                label: "Song Type",
+                key: "song_types",
+                type: "string",
+            },
+            {
+                label: 'Languages',
+                key: 'languages',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((language, index) => (
+                                <div key={index} className="text-wrap">{language}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
+                label: 'Page',
+                key: 'page',
+                type: 'string',
+            },
+            {
+                label: 'Database Origin',
+                key: 'db_type',
+                type: 'string',
+            }
+        ]
+    },
 };

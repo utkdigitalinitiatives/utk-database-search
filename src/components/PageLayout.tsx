@@ -7,12 +7,13 @@ import { searchSolr } from "../utils/utils";
 // Instructions - need to make these more repeatable
 import SongInstructions from "./Instructions/SongInstructions";
 import SermonInstructions from "./Instructions/SermonInstructions";
+import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
+import AnalysisInstructions from "./Instructions/AnalysisInstructions";
+import SymphonyInstructions from "./Instructions/SymphonyInstructions";
 
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 import SearchResultsList from "./SearchResultsList";
-import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
-import SymphonyInstructions from "./Instructions/SymphonyInstructions";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -52,12 +53,12 @@ export default function PageLayout({ routeInfo }: any) {
 
     useEffect(() => {
         const getData = async () => {
-            
+
             const routeName = sessionStorage.getItem('routeName');
             if (routeName !== routeInfo.routeName) {
                 return;
             }
-            const previousSearchURL  = sessionStorage.getItem('searchURL');
+            const previousSearchURL = sessionStorage.getItem('searchURL');
             const start = sessionStorage.getItem('startVal');
 
             if (previousSearchURL !== null) {
@@ -80,7 +81,7 @@ export default function PageLayout({ routeInfo }: any) {
 
     return (
         <main>
-            <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
+            <div className="bg-[url('/src/assets/images/hodges-exterior.webp')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
                 <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                 <div className='h-full grid justify-center my-auto py-3'>
                     {singleSearchVisible &&
@@ -136,6 +137,8 @@ export default function PageLayout({ routeInfo }: any) {
                                 <TennesseeNewspaperInstructions />
                             ) : routeInfo.routeName === 'symphony' ? (
                                 <SymphonyInstructions />
+                            ) : routeInfo.routeName === 'song-analysis' ? (
+                                <AnalysisInstructions />
                             ) :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }

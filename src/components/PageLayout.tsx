@@ -79,6 +79,7 @@ export default function PageLayout({ routeInfo }: any) {
         getData();
     }, [])
 
+    console.log(endpoint)
     return (
         <main>
             <div className="bg-[url('/src/assets/images/hodges-exterior.webp')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">

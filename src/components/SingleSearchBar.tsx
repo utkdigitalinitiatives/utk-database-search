@@ -18,6 +18,16 @@ export default function SearchBar(props: SearchBarProps) {
     const buildQueryString = (searchString: string) => {
         const stringArr: string[] = searchString.split(" ");
         let queryStr: string = "";
+        // Add Context for Analysis vs Song
+        // TODO: Make this better to so it isn't perscriptive
+        console.log(window.location.pathname == '/song-analysis')
+        if (window.location.pathname == '/song-analysis') {
+            queryStr += 'db_type:"analysis_db" AND ';
+        }
+        if(window.location.pathname == '/song') {
+            queryStr += 'db_type:"song_db" AND ';
+        }
+
         for (let i = 0; i < stringArr.length; i++) {
             if (i != stringArr.length - 1) {
                 queryStr += `full_text:${stringArr[i]}* AND `
@@ -29,18 +39,17 @@ export default function SearchBar(props: SearchBarProps) {
 
     }
 
+    console.log(window.location.pathname)
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(query);
         const queryStr = buildQueryString(query);
-        console.log(queryStr);
         const params = new URLSearchParams({
             q: queryStr,
             indent: "true",
             wt: 'json',
         })
         const fullURL = `${props.endpoint}${params}`;
-
+        console.log(fullURL)
         const data = await searchSolr(fullURL);
 
         props.onSearch(data.response, fullURL, 0);

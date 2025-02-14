@@ -41,10 +41,15 @@ export default function AnthologyPage({ routeInfo }: any) {
         }
     }, [count]);  
 
-
+    // TODO: Style this Page
     return (
         <div>
-            {result.map()}
+            {result?.map((title:string, idx:number) => (
+                <div key={idx} className="flex flex-row">
+                    <p>Song #{idx}</p> 
+                    <p>{title}</p>
+                </div>
+            ))}
         </div>
     )
 }

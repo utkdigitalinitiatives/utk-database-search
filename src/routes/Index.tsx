@@ -1,6 +1,7 @@
 import musicImg from "../assets/images/musiceresources.png"
-import symphonyImg from '../assets/images/samuel-sianipar-unsplash-symphony.png';
-import newsImg from '../assets/images/bank-phrom-unsplash-news.png';
+import symphonyImg from '../assets/images/symphony.webp';
+import newsImg from '../assets/images/newspaper.webp';
+import analysisImg from '../assets/images/analysis.webp';
 import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.png';
 import trimString from "../utils/utils"
 import Card from "../components/Card"
@@ -24,6 +25,12 @@ export default function Index() {
             endpoint: "/song",
             dbSummary: "Containing the Song Index and Song Analysis Index from the George F. Devine Music Library. Includes the words and music for over 50,000 songs in 15,000 collections of songs in the Music Library.",
             image: musicImg
+        },
+        {
+            dbName: "Song Analysis Index",
+            endpoint: '/song-analysis',
+            dbSummary: 'The Analysis Index provides access to program notes and descriptions or analyses of musical compositions in books owned by the UT Music Library.',
+            image: analysisImg
         },
         {
             dbName: "Knoxville Symphony Orchestra Program Notes",

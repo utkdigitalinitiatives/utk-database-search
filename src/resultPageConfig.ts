@@ -106,18 +106,18 @@ const analysisResultInfo: ResultPageInfo = {
     idField: 'db_id',
     titleField: 'title',
     resultFields: [
-        { name: 'composers', isLink: true, linkTo: '/analysis' },
-        { name: 'authors', isLink: true, linkTo: '/analysis' },
+        { name: 'composers', isLink: true, linkTo: '/song-analysis' },
+        { name: 'authors', isLink: true, linkTo: '/song-analysis' },
         { name: 'call_number', isLink: false },
-        { name: 'geographic_areas', isLink: true, linkTo: '/analysis' },
-        { name: 'song_types', isLink: true, linkTo: '/analysis' },
-        { name: 'languages', isLink: true, linkTo: '/analysis' },
+        { name: 'geographic_areas', isLink: true, linkTo: '/song-analysis' },
+        { name: 'song_types', isLink: true, linkTo: '/song-analysis' },
+        { name: 'languages', isLink: true, linkTo: '/song-analysis' },
         { name: 'accomp_values', isLink: false },
-        { name: 'anthology_title', isLink: true, linkTo: '/analysis' },
+        { name: 'anthology_title', isLink: true, linkTo: '/song-analysis' },
         { name: 'first_line', isLink: false },
         { name: 'db_type', isLink: false },
     ],
-    navigateBackTo: '/analysis',
+    navigateBackTo: '/song-analysis',
 };
 
 

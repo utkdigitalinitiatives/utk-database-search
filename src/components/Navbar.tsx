@@ -61,13 +61,13 @@ export default function NavBar() {
                                 <a className="flex-none text-utk-smokey px-3" href="/song">Song Index</a>
                             </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
+                                <a className="flex-none text-utk-smokey px-3" href="/song-analysis">Analysis Index</a>
+                            </li>
+                            <li className="bg-utk-white hover:bg-utk-light-gray py-2">
                                 <a className="flex-none text-utk-smokey px-3" href="/sermon">Sermon Database</a>
                             </li>
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
                                 <a className="flex-none text-utk-smokey px-3" href="/symphony">Knoxville Symphony</a>
-                            </li>
-                            <li className="bg-utk-white hover:bg-utk-light-gray py-2">
-                                <a className="flex-none text-utk-smokey px-3" href="/tennessee-news">Tennessee Newspapers</a>
                             </li>
                         </ul>
                         : <></>

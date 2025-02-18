@@ -1,5 +1,4 @@
 // Import the input values for the advanced search items
-import paperInputVals from './configFiles/AdvancedSearchInputVals/InputValsNewspaper';
 import symphonyInputVals from './configFiles/AdvancedSearchInputVals/InputValsSymphony';
 import songInputVals from './configFiles/AdvancedSearchInputVals/InputValsSong';
 import sermonInputVals from './configFiles/AdvancedSearchInputVals/InputValsSermon';
@@ -12,15 +11,6 @@ interface routeInfo {
     placeholder: string;
     siteTitle: string;
     inputVals: any;
-}
-
-const newsRouteInfo: routeInfo = {
-    routeName: 'tennessee-news',
-    fieldConfigName: 'tennesseeNews',
-    endpoint: `/tennessee_newspaper_db_dev/select?`,
-    placeholder: 'Search the Tennessee newspaper index database...',
-    siteTitle: 'Tennessee Newspaper Index Search',
-    inputVals: paperInputVals,
 }
 
 const symphonyRouteInfo: routeInfo = {
@@ -60,4 +50,4 @@ const analysisRouteInfo: routeInfo = {
 }
 
 
-export { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo, analysisRouteInfo };
+export { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, analysisRouteInfo };

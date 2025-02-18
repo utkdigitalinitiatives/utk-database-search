@@ -21,11 +21,6 @@ export default defineConfig({
         changeOrigin: true,
         secure: false
       },
-      '/tennessee_newspaper_db_dev': {
-        target: 'https://jchlib.com',
-        changeOrigin: true,
-        secure: false
-      },
     }
   }
 })

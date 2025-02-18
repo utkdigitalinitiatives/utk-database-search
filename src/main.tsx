@@ -16,10 +16,10 @@ import PageLayout from './components/PageLayout';
 //Anthology Page 
 import AnthologyPage from './routes/AnthologyPage.tsx';
 
-import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, newsRouteInfo, analysisRouteInfo } from './routeInfo.ts'
+import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, analysisRouteInfo } from './routeInfo.ts'
 
 // Individual Page Info
-import { songResultInfo, symphonyResultInfo, sermonResultInfo, newspaperResultInfo, analysisResultInfo } from './resultPageConfig.ts'
+import { songResultInfo, symphonyResultInfo, sermonResultInfo, analysisResultInfo } from './resultPageConfig.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -36,8 +36,6 @@ createRoot(document.getElementById('root')!).render(
           <Route path="sermon/:sermonId" element={<ResultPage resultPageInfo={sermonResultInfo} />} />
           <Route path="symphony" element={<PageLayout routeInfo={symphonyRouteInfo} />} />
           <Route path="symphony/:symphonyId" element={<ResultPage resultPageInfo={symphonyResultInfo} />} />
-          <Route path="tennessee-news" element={<PageLayout routeInfo={newsRouteInfo} />} />
-          <Route path="tennessee-news/:newsId" element={<ResultPage resultPageInfo={newspaperResultInfo} />} />
         </Route>
       </Routes>
     </BrowserRouter>

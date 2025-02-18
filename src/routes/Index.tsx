@@ -1,6 +1,5 @@
 import musicImg from "../assets/images/musiceresources.png"
 import symphonyImg from '../assets/images/symphony.webp';
-import newsImg from '../assets/images/newspaper.webp';
 import analysisImg from '../assets/images/analysis.webp';
 import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.png';
 import trimString from "../utils/utils"
@@ -46,14 +45,6 @@ export default function Index() {
             dbSummary: "A collection of sermons from various denominations throughout East Tennessee",
             image: sermonImg,
         },
-        {
-            dbName: "Tennessee News Database",
-            endpoint: "/tennessee-news",
-            //TODO: Need better copy for the dbsummary on this page
-            dbSummary: "Information regarding Tennessee Newspapers that have been printed",
-            image: newsImg,
-        },
-
     ]
 
 

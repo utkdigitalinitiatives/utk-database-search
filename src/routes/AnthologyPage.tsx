@@ -4,7 +4,7 @@ import { searchSolr } from '../utils/utils';
 
 
 export default function AnthologyPage({ routeInfo }: any) {
-    let params = useParams();
+    const params = useParams();
     const [result, setResults] = useState<any>(null);
     const [count, setCount] = useState<number>(0);
 

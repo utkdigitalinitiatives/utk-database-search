@@ -38,7 +38,7 @@ export default function PageLayout({ routeInfo }: any) {
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
         setNoResults(noResults);
-        console.log(noResults);
+        
         sessionStorage.setItem('routeName', `${routeInfo.routeName}`)
         sessionStorage.setItem('searchURL', `${searchURL}`);
         sessionStorage.setItem('startVal', `${startVal}`);

@@ -33,7 +33,6 @@ export default function SearchBar(props: SearchBarProps) {
                 queryStr += `full_text:${stringArr[i]}*`
             }
         }
-        console.log(queryStr)
         return queryStr;
 
     }

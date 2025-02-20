@@ -38,7 +38,7 @@ export default function PageLayout({ routeInfo }: any) {
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
         setNoResults(noResults);
-        
+
         sessionStorage.setItem('routeName', `${routeInfo.routeName}`)
         sessionStorage.setItem('searchURL', `${searchURL}`);
         sessionStorage.setItem('startVal', `${startVal}`);
@@ -121,6 +121,7 @@ export default function PageLayout({ routeInfo }: any) {
             </div>
             <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                 {
+                    // TODO: this needs a bit of re-working
                     results.length >= 1 ?
                         // Display results
                         <>

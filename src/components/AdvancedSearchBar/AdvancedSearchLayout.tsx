@@ -42,41 +42,38 @@ export default function AdvancedSearch({
 
     const createParams = () => {
         let queryString = '';
-        const queryParts: string[] = [];
-
         Object.entries(formState).forEach(([key, value]) => {
             if (value && value !== 'select' && value !== '') {
-                console.log(value)
                 const stringArr: string[] = value.split(" ");
-                for (let i = 0; i < stringArr.length; i++) {
-                    if (i != stringArr.length - 1) {
-                        queryParts.push(`${key}:${value}* AND`);
-                    } else {
-                        queryParts.push(`${key}:${value}*`);
-                    }
+                const isMultiWord = stringArr.length > 1;
+    
+                if (isMultiWord) {
+                    // If the value contains spaces (multi-word), wrap it in quotes for phrase matching.
+                    queryString += `${key}:"${value}" AND `;
+                } else {
+                    // If it's a single word, apply wildcard to the term.
+                    queryString += `${key}:${value}* AND `;
                 }
             }
         });
 
-        if (queryParts.length > 0) {
-            queryString = queryParts.join(' AND ');
+        // Remove the trailing AND
+        if (queryString.endsWith(' AND ')) {
+            queryString = queryString.slice(0, -5);
         }
         return queryString;
     };
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-
         const query = createParams();
         const params = new URLSearchParams({
             q: query,
             indent: 'true',
             wt: 'json',
         });
-
         const fullUrl = `${endpoint}${params}`;
         const data = await searchSolr(fullUrl);
-        
         if(data.response.numFound === 0) {
             onSearch(data.response, fullUrl, 0, true);
         } else {

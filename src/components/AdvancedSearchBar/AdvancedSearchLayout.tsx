@@ -43,16 +43,17 @@ export default function AdvancedSearch({
     const createParams = () => {
         let queryString = '';
         const queryParts: string[] = [];
-
+        // TODO: Need to update this to take into account spaces
         Object.entries(formState).forEach(([key, value]) => {
             if (value && value !== 'select' && value !== '') {
-                queryParts.push(`${key}:"*${value}*"`);
+                queryParts.push(`${key}:${value}*`);
             }
         });
 
         if (queryParts.length > 0) {
             queryString = queryParts.join(' AND ');
         }
+        console.log(queryString)
         return queryString;
     };
 

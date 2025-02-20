@@ -14,7 +14,7 @@ interface InputVal {
 interface AdvancedProps {
     inputVals: Record<string, InputVal>;
     endpoint: string;
-    onSearch: (data: any, url: string, status: number) => void;
+    onSearch: (data: any, url: string, status: number, noResults: boolean) => void;
     initialValues?: Record<string, any>;
 }
 
@@ -67,7 +67,7 @@ export default function AdvancedSearch({
         console.log(query)
         const fullUrl = `${endpoint}${params}`;
         const data = await searchSolr(fullUrl);
-        onSearch(data.response, fullUrl, 0);
+        onSearch(data.response, fullUrl, 0, false);
     };
 
     const handleReset = () => {
@@ -76,7 +76,7 @@ export default function AdvancedSearch({
             docs: 0,
             numFound: [],
         };
-        onSearch(response, '', 0);
+        onSearch(response, '', 0, false);
     };
 
     return (

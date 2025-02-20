@@ -4,8 +4,7 @@ interface PagerProps<T> {
     refVal: React.RefObject<HTMLElement>;
     searchStart: number;
     searchURL: string;
-    onSearch: (response: T, searchURL: string, newSearchStartVal: number) => void;
-    noResults: boolean;
+    onSearch: (response: T, searchURL: string, newSearchStartVal: number, noResults: boolean) => void;
 }
 
 // TODO: more styling and add jump to deeper pages functionality
@@ -17,7 +16,7 @@ export default function Pager<T>(props: PagerProps<T>) {
         })
         const newSearchStartVal = props.searchStart - 10;
         const data = await searchSolr(`${props.searchURL}&start=${newSearchStartVal}`);
-        props.onSearch(data.response, props.searchURL, newSearchStartVal);
+        props.onSearch(data.response, props.searchURL, newSearchStartVal, false);
 
     }
 
@@ -27,7 +26,7 @@ export default function Pager<T>(props: PagerProps<T>) {
         })
         const newSearchStartVal = props.searchStart + 10;
         const data = await searchSolr(`${props.searchURL}&start=${newSearchStartVal}`);
-        props.onSearch(data.response, props.searchURL, newSearchStartVal);
+        props.onSearch(data.response, props.searchURL, newSearchStartVal, false);
 
     }
 

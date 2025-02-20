@@ -67,7 +67,11 @@ export default function AdvancedSearch({
         console.log(query)
         const fullUrl = `${endpoint}${params}`;
         const data = await searchSolr(fullUrl);
-        onSearch(data.response, fullUrl, 0, false);
+        if(data.response.numFound === 0) {
+            onSearch(data.response, fullUrl, 0, true);
+        } else {
+            onSearch(data.response, fullUrl, 0, false);
+        }
     };
 
     const handleReset = () => {

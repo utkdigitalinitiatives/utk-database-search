@@ -64,7 +64,6 @@ export default function AdvancedSearch({
             indent: 'true',
             wt: 'json',
         });
-        console.log(query)
         const fullUrl = `${endpoint}${params}`;
         const data = await searchSolr(fullUrl);
         if(data.response.numFound === 0) {

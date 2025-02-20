@@ -121,7 +121,7 @@ export default function PageLayout({ routeInfo }: any) {
             </div>
             <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                 {
-                    results.length > 0 && noResults === false ?
+                    results.length >= 1 ?
                         // Display results
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
@@ -135,7 +135,7 @@ export default function PageLayout({ routeInfo }: any) {
                         :
                         noResults === true ?
                             // Display when no results are found
-                            <div className="size-full min-h-full flex justify-center items-center">
+                            <div className="h-96 flex justify-center items-center">
                                 <NoResult />
                             </div>
                             :

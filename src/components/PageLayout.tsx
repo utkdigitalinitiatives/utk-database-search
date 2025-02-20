@@ -7,12 +7,14 @@ import { searchSolr } from "../utils/utils";
 // Instructions - need to make these more repeatable
 import SongInstructions from "./Instructions/SongInstructions";
 import SermonInstructions from "./Instructions/SermonInstructions";
+import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
+import AnalysisInstructions from "./Instructions/AnalysisInstructions";
+import SymphonyInstructions from "./Instructions/SymphonyInstructions";
 
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 import SearchResultsList from "./SearchResultsList";
-import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
-import SymphonyInstructions from "./Instructions/SymphonyInstructions";
+import NoResult from "./NoResult";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -21,6 +23,7 @@ export default function PageLayout({ routeInfo }: any) {
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
     const [searchStartVal, setSearchStartVal] = useState(0);
+    const [noResults, setNoResults] = useState(false);
 
     const endpoint = routeInfo.endpoint;
     const placeholder = routeInfo.placeholder;
@@ -29,11 +32,12 @@ export default function PageLayout({ routeInfo }: any) {
     const [singleSearchVisible, setSingleSearchVisible] = useState(true);
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
-    const handleSearchResults = (response: any, searchURL: string, startVal: number) => {
+    const handleSearchResults = (response: any, searchURL: string, startVal: number, noResults: boolean) => {
         setResults(response.docs);
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
+        setNoResults(noResults);
 
         sessionStorage.setItem('routeName', `${routeInfo.routeName}`)
         sessionStorage.setItem('searchURL', `${searchURL}`);
@@ -52,12 +56,12 @@ export default function PageLayout({ routeInfo }: any) {
 
     useEffect(() => {
         const getData = async () => {
-            
+
             const routeName = sessionStorage.getItem('routeName');
             if (routeName !== routeInfo.routeName) {
                 return;
             }
-            const previousSearchURL  = sessionStorage.getItem('searchURL');
+            const previousSearchURL = sessionStorage.getItem('searchURL');
             const start = sessionStorage.getItem('startVal');
 
             if (previousSearchURL !== null) {
@@ -78,9 +82,10 @@ export default function PageLayout({ routeInfo }: any) {
         getData();
     }, [])
 
+
     return (
         <main>
-            <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
+            <div className="bg-[url('/src/assets/images/hodges-exterior.webp')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
                 <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
                 <div className='h-full grid justify-center my-auto py-3'>
                     {singleSearchVisible &&
@@ -116,7 +121,9 @@ export default function PageLayout({ routeInfo }: any) {
             </div>
             <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                 {
-                    results.length > 0 ?
+                    // TODO: this needs a bit of re-working
+                    results.length >= 1 ?
+                        // Display results
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                             {routeInfo.routeName ?
@@ -127,19 +134,26 @@ export default function PageLayout({ routeInfo }: any) {
                             <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                         </>
                         :
-                        <>
-                            {routeInfo.routeName === 'song' ? (
-                                <SongInstructions />
-                            ) : routeInfo.routeName === 'sermon' ? (
-                                <SermonInstructions />
-                            ) : routeInfo.routeName === 'tennessee-news' ? (
-                                <TennesseeNewspaperInstructions />
-                            ) : routeInfo.routeName === 'symphony' ? (
-                                <SymphonyInstructions />
-                            ) :
-                                <div className="text-red-600">An error occurred when loading the instructions information</div>
-                            }
-                        </>
+                        noResults === true ?
+                            // Display when no results are found
+                                <NoResult />
+                            :
+                            // display instructions
+                            <>
+                                {routeInfo.routeName === 'song' ? (
+                                    <SongInstructions />
+                                ) : routeInfo.routeName === 'sermon' ? (
+                                    <SermonInstructions />
+                                ) : routeInfo.routeName === 'tennessee-news' ? (
+                                    <TennesseeNewspaperInstructions />
+                                ) : routeInfo.routeName === 'symphony' ? (
+                                    <SymphonyInstructions />
+                                ) : routeInfo.routeName === 'song-analysis' ? (
+                                    <AnalysisInstructions />
+                                ) :
+                                    <div className="text-red-600">An error occurred when loading the instructions information</div>
+                                }
+                            </>
                 }
             </div>
         </main>

@@ -39,33 +39,9 @@ const songResultInfo: ResultPageInfo = {
         { name: 'accomp_values', isLink: false },
         { name: 'anthology_title', isLink: true, linkTo: '/song' },
         { name: 'first_line', isLink: false },
-        { name: 'db_type', isLink: false },
     ],
     navigateBackTo: '/song',
 };
-
-
-const newspaperResultInfo: ResultPageInfo = {
-    endpoint: `/tennessee_newspaper_db_dev/select?`,
-    idField: 'id',
-    titleField: 'mainentry_title',
-    resultFields: [
-        { name: 'call_number', isLink: false },
-        { name: 'schd1', isLink: false },
-        { name: 'frequency', isLink: false },
-        { name: 'copy_type', isLink: false },
-        { name: 'newspaper_county_name', isLink: false },
-        { name: 'newspaper_city_name', isLink: false },
-        { name: 'newspaper_state_name', isLink: false },
-        { name: 'holding_library', isLink: false },
-        { name: 'oclc', isLink: false },
-        { name: 'sihd', isLink: false },
-        { name: 'lcno', isLink: false },
-        { name: 'stat', isLink: false },
-        { name: 'db_type', isLink: false },
-    ],
-    navigateBackTo: '/tennessee-news'
-}
 
 const sermonResultInfo: ResultPageInfo = {
     endpoint: `/sermon_db_new_dev/select?`,
@@ -102,4 +78,25 @@ const sermonResultInfo: ResultPageInfo = {
 
 }
 
-export { symphonyResultInfo, songResultInfo, sermonResultInfo, newspaperResultInfo };
+
+const analysisResultInfo: ResultPageInfo = {
+    endpoint: '/unified_song_db_dev/select?',
+    idField: 'db_id',
+    titleField: 'title',
+    resultFields: [
+        { name: 'composers', isLink: true, linkTo: '/song-analysis' },
+        { name: 'authors', isLink: true, linkTo: '/song-analysis' },
+        { name: 'call_number', isLink: false },
+        { name: 'geographic_areas', isLink: true, linkTo: '/song-analysis' },
+        { name: 'song_types', isLink: true, linkTo: '/song-analysis' },
+        { name: 'languages', isLink: true, linkTo: '/song-analysis' },
+        { name: 'accomp_values', isLink: false },
+        { name: 'anthology_title', isLink: true, linkTo: '/song-analysis' },
+        { name: 'first_line', isLink: false },
+        { name: 'db_type', isLink: false },
+    ],
+    navigateBackTo: '/song-analysis',
+};
+
+
+export { symphonyResultInfo, songResultInfo, sermonResultInfo, analysisResultInfo };

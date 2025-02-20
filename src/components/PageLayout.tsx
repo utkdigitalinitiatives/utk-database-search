@@ -135,9 +135,7 @@ export default function PageLayout({ routeInfo }: any) {
                         :
                         noResults === true ?
                             // Display when no results are found
-                            // <div className="h-ful">
                                 <NoResult />
-                            // </div>
                             :
                             // display instructions
                             <>

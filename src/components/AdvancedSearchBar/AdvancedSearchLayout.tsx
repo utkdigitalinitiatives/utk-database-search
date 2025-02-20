@@ -43,30 +43,40 @@ export default function AdvancedSearch({
     const createParams = () => {
         let queryString = '';
         const queryParts: string[] = [];
-        // TODO: Need to update this to take into account spaces
+
         Object.entries(formState).forEach(([key, value]) => {
             if (value && value !== 'select' && value !== '') {
-                queryParts.push(`${key}:${value}*`);
+                console.log(value)
+                const stringArr: string[] = value.split(" ");
+                for (let i = 0; i < stringArr.length; i++) {
+                    if (i != stringArr.length - 1) {
+                        queryParts.push(`${key}:${value}* AND`);
+                    } else {
+                        queryParts.push(`${key}:${value}*`);
+                    }
+                }
             }
         });
 
         if (queryParts.length > 0) {
             queryString = queryParts.join(' AND ');
         }
-        console.log(queryString)
         return queryString;
     };
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+
         const query = createParams();
         const params = new URLSearchParams({
             q: query,
             indent: 'true',
             wt: 'json',
         });
+
         const fullUrl = `${endpoint}${params}`;
         const data = await searchSolr(fullUrl);
+        
         if(data.response.numFound === 0) {
             onSearch(data.response, fullUrl, 0, true);
         } else {

@@ -22,6 +22,7 @@ export default function PageLayout({ routeInfo }: any) {
     const [totalFound, setTotalFound] = useState(0);
     const [searchURL, setSearchURL] = useState('');
     const [searchStartVal, setSearchStartVal] = useState(0);
+    const [noResults, setNoResults] = useState(false);
 
     const endpoint = routeInfo.endpoint;
     const placeholder = routeInfo.placeholder;
@@ -30,12 +31,13 @@ export default function PageLayout({ routeInfo }: any) {
     const [singleSearchVisible, setSingleSearchVisible] = useState(true);
     const [advancedSearchVisible, setAdvancedSearchVisible] = useState(false);
 
-    const handleSearchResults = (response: any, searchURL: string, startVal: number) => {
+    const handleSearchResults = (response: any, searchURL: string, startVal: number, noResults: boolean) => {
         setResults(response.docs);
         setTotalFound(response.numFound);
         setSearchURL(searchURL);
         setSearchStartVal(startVal);
-
+        setNoResults(noResults);
+        console.log(noResults);
         sessionStorage.setItem('routeName', `${routeInfo.routeName}`)
         sessionStorage.setItem('searchURL', `${searchURL}`);
         sessionStorage.setItem('startVal', `${startVal}`);
@@ -79,6 +81,7 @@ export default function PageLayout({ routeInfo }: any) {
         getData();
     }, [])
 
+
     return (
         <main>
             <div className="bg-[url('/src/assets/images/hodges-exterior.webp')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
@@ -117,7 +120,7 @@ export default function PageLayout({ routeInfo }: any) {
             </div>
             <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                 {
-                    results.length > 0 ?
+                    results.length > 0 && noResults === false ?
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                             {routeInfo.routeName ?
@@ -128,21 +131,25 @@ export default function PageLayout({ routeInfo }: any) {
                             <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
                         </>
                         :
-                        <>
-                            {routeInfo.routeName === 'song' ? (
-                                <SongInstructions />
-                            ) : routeInfo.routeName === 'sermon' ? (
-                                <SermonInstructions />
-                            ) : routeInfo.routeName === 'tennessee-news' ? (
-                                <TennesseeNewspaperInstructions />
-                            ) : routeInfo.routeName === 'symphony' ? (
-                                <SymphonyInstructions />
-                            ) : routeInfo.routeName === 'song-analysis' ? (
-                                <AnalysisInstructions />
-                            ) :
-                                <div className="text-red-600">An error occurred when loading the instructions information</div>
-                            }
-                        </>
+                        noResults === true ?
+                            // Display when no results are found
+                            <p>No results found. Try adjusting your search query or check out the instructions below.</p>
+                            :
+                            <>
+                                {routeInfo.routeName === 'song' ? (
+                                    <SongInstructions />
+                                ) : routeInfo.routeName === 'sermon' ? (
+                                    <SermonInstructions />
+                                ) : routeInfo.routeName === 'tennessee-news' ? (
+                                    <TennesseeNewspaperInstructions />
+                                ) : routeInfo.routeName === 'symphony' ? (
+                                    <SymphonyInstructions />
+                                ) : routeInfo.routeName === 'song-analysis' ? (
+                                    <AnalysisInstructions />
+                                ) :
+                                    <div className="text-red-600">An error occurred when loading the instructions information</div>
+                                }
+                            </>
                 }
             </div>
         </main>

@@ -5,6 +5,7 @@ interface PagerProps<T> {
     searchStart: number;
     searchURL: string;
     onSearch: (response: T, searchURL: string, newSearchStartVal: number) => void;
+    noResults: boolean;
 }
 
 // TODO: more styling and add jump to deeper pages functionality

@@ -4,13 +4,12 @@ import { useState } from "react";
 interface SearchBarProps {
     endpoint: string;
     placeholder: string;
-    onSearch: (response: { docs: number, numFound: number[] }, searchURL: string, newSearchStartVal: number) => void;
+    onSearch: (response: { docs: number, numFound: number[] }, searchURL: string, newSearchStartVal: number, noResults: boolean) => void;
     searchStart: number;
 }
 
 export default function SearchBar(props: SearchBarProps) {
     const [query, setQuery] = useState('');
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuery((event.target.value));
     }
@@ -49,7 +48,12 @@ export default function SearchBar(props: SearchBarProps) {
         const fullURL = `${props.endpoint}${params}`;
         const data = await searchSolr(fullURL);
 
-        props.onSearch(data.response, fullURL, 0);
+        if(data.response.numFound == 0) {
+            props.onSearch(data.response, fullURL, 0, true);
+        }
+        else{
+            props.onSearch(data.response, fullURL, 0, false);
+        }
     }
 
     const handleReset = () => {
@@ -58,9 +62,10 @@ export default function SearchBar(props: SearchBarProps) {
             docs: 0,
             numFound: [],
         }
-        props.onSearch(response, '', 0);
+        props.onSearch(response, '', 0, false);
     }
 
+    
     return (
         <form method="post" id="search-form" className="w-full mx-auto px-2 pb-2" onSubmit={handleSubmit} onReset={handleReset}>
             <div className="flex flex-row">

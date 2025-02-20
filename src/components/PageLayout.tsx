@@ -14,6 +14,7 @@ import SymphonyInstructions from "./Instructions/SymphonyInstructions";
 // Advanced Search Bar Layout
 import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 import SearchResultsList from "./SearchResultsList";
+import NoResult from "./NoResult";
 
 
 export default function PageLayout({ routeInfo }: any) {
@@ -121,6 +122,7 @@ export default function PageLayout({ routeInfo }: any) {
             <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
                 {
                     results.length > 0 && noResults === false ?
+                        // Display results
                         <>
                             <ResultHeader totalRecords={totalFound} searchStart={searchStartVal} />
                             {routeInfo.routeName ?
@@ -133,8 +135,11 @@ export default function PageLayout({ routeInfo }: any) {
                         :
                         noResults === true ?
                             // Display when no results are found
-                            <p>No results found. Try adjusting your search query or check out the instructions below.</p>
+                            <div className="size-full min-h-full flex justify-center items-center">
+                                <NoResult />
+                            </div>
                             :
+                            // display instructions
                             <>
                                 {routeInfo.routeName === 'song' ? (
                                     <SongInstructions />

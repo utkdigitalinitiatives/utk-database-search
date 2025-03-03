@@ -79,5 +79,25 @@
   width: 100%;
 }
 
+.underline-white {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-white::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--utk-logo--white);
+  transition: width 0.3s ease;
+}
+
+.underline-white:hover::after {
+  width: 100%;
+}
+
 
 

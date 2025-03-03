@@ -17,7 +17,7 @@ const AdvancedSearchInput: React.FC<AdvancedSearchInputProps> = ({ label, placeh
                 placeholder={placeholder}
                 value={value}  // Bind the input's value to the state
                 onChange={(e) => onChange(name, e.target.value)}  // Call the onChange handler when value changes
-                className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-hidden p-1 rounded-md w-full text-utk-smokey"
+                className="form-control shadow-inner border-2 focus:border-utk-orange focus:outline-hidden p-1 rounded-md w-full bg-utk-white text-utk-smokey"
             />
         </div>
     );

@@ -91,7 +91,7 @@ export default function PageLayout({ routeInfo }: any) {
                     {singleSearchVisible &&
                         <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                             <div className="flex flex-row-reverse">
-                                <button className=" text-utk-white underline-white text-sm my-1 px-2" onClick={setSingleInvisible}>Advanced</button>
+                                <button className="text-utk-white underline-white text-sm my-1 px-2" onClick={setSingleInvisible}>Advanced</button>
                             </div>
                             <SingleSearchBar
                                 placeholder={placeholder}
@@ -104,7 +104,7 @@ export default function PageLayout({ routeInfo }: any) {
                     {advancedSearchVisible &&
                         <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                             <div className="flex flex-row-reverse">
-                                <button className=" text-utk-white underline-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
+                                <button className="text-utk-white underline-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
                             </div>
                             {routeInfo.routeName ? (
                                 <AdvancedSearch

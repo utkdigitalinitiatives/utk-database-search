@@ -58,7 +58,7 @@ const Footer = () => {
                         if (e.target.value === 'Search utk.edu') {
                             e.target.value = '';
                         }
-                    }} placeholder="Search utk.edu" className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 " title="search" />
+                    }} placeholder="Search utk.edu" className="bg-utk-white text-utk-smokey form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-hidden p-1 rounded-l-md md:w-96 " title="search" />
                     <input name="go" type="submit" title="Submit" className="bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-smokey hover:text-utk-white hover:border-utk-smokey  text-center p-1 w-24" value="Search" />
                 </form>
                 <div className="grid grid-cols-4 gap-1 text-utk-smokey text-xs py-2 px-2">

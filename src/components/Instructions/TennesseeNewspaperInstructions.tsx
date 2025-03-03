@@ -1,10 +1,10 @@
 export default function TennesseeNewspaperInstructions() {
     return (
         <>
-            <div className="max-w-screen-md px-2 text-sm text-utk-smokey mt-4 mx-auto">
+            <div className="max-w-(--breakpoint-md) px-2 text-sm text-utk-smokey mt-4 mx-auto">
                 This database provides access to Knoxville Symphony Orchestra programs.  More information to go here
             </div>
-            <div className="text-sm text-utk-smokey px-2 max-w-screen-md mx-auto">
+            <div className="text-sm text-utk-smokey px-2 max-w-(--breakpoint-md) mx-auto">
                 <p className="font-semibold my-2">INSTRUCTIONS</p>
                 <ol className="list-disc px-4 mt-2">
                     <li>

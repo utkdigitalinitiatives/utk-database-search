@@ -15,7 +15,7 @@ const AdvancedSearchSelect: React.FC<AdvancedSearchSelectProps> = ({ label, opti
                 name={name}
                 value={value}  
                 onChange={(e) => onChange(name, e.target.value)} 
-                className="shadow-inner border-2 focus:border-utk-orange focus:outline-none p-1 rounded-md text-utk-smokey transition ease-in-out duration-300 "
+                className="shadow-inner border-2 focus:border-utk-orange focus:outline-hidden p-1 rounded-md text-utk-smokey bg-utk-white transition ease-in-out duration-300 "
             >
                 <option value="select" disabled>Select an option</option> 
                 {optionVals.map((option, index) => (

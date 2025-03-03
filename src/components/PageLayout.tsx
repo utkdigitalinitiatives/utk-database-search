@@ -119,7 +119,7 @@ export default function PageLayout({ routeInfo }: any) {
                     }
                 </div>
             </div>
-            <div className="container mx-auto max-w-screen-lg" ref={searchRef}>
+            <div className="container mx-auto max-w-(--breakpoint-lg)" ref={searchRef}>
                 {
                     // TODO: this needs a bit of re-working
                     results.length >= 1 ?

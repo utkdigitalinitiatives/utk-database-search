@@ -11,7 +11,7 @@ export default function NavBar() {
     return (
         <>
             <hr className="bg-utk-orange h-1 p-0 m-0 border-t-0" />
-            <nav className="h-115 w-full flex flex-row flex-wrap items-center p-1">
+            <nav className="w-full flex flex-row flex-wrap items-center p-1">
                 <div className="grow flex flex-row items-center">
                     <img
                         src={power_t}
@@ -39,7 +39,7 @@ export default function NavBar() {
                                 d="M4 5a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM4 9a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM3 14a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1ZM4 17a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"
                                 fill="#4b4b4b" />
                         </svg>
-                        <div className="px-4 hidden md:flex items-center focus:outline-none">
+                        <div className="px-4 hidden md:flex items-center focus:outline-hidden">
                             Change Database
                             <svg
                                 width="24"
@@ -56,7 +56,7 @@ export default function NavBar() {
                         </div>
                     </button>
                     {open ?
-                        <ul className="dropdown-content absolute right-0 mt-3 w-56 bg-utk-white shadow-lg overflow-y-auto md:text-end text-center z-[100]">
+                        <ul className="dropdown-content absolute right-0 mt-3 w-56 bg-utk-white shadow-lg overflow-y-auto md:text-end text-center z-100">
                             <li className="bg-utk-white hover:bg-utk-light-gray py-2">
                                 <a className="flex-none text-utk-smokey px-3" href="/song">Song Index</a>
                             </li>

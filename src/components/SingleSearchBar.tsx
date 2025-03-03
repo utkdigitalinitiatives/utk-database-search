@@ -73,7 +73,7 @@ export default function SearchBar(props: SearchBarProps) {
                     type="text"
                     placeholder={props.placeholder}
                     name="search"
-                    className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-none p-1 rounded-l-md md:w-96 "
+                    className="form-control shadow-inner border-s-2 border-y-2 focus:border-utk-orange focus:outline-hidden p-1 rounded-l-md md:w-96 "
                     onChange={handleChange}
                 />
                 <button type="submit" className=" bg-[#dbdcde] border-e-2 border-y-2 rounded-r-md text-utk-smokey hover:bg-utk-orange hover:text-utk-white hover:border-utk-orange text-center p-1 w-24">

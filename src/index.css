@@ -1,6 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-utk-smokey: var(--utk-logo--smokey);
+  --color-utk-orange: var(--utk-logo--orange);
+  --color-utk-white: var(--utk-logo--white);
+  --color-utk-light-gray: var(--utk-light-gray);
+  --color-utk-blue--accent: var(--utk-blue--accent);
+  --color-utk-light-steel-blue--accent: var(--utk-light-steel-blue--accent);
+  --color-utk-light-blue--accent: var(--utk-light-blue--accent);
+  --color-utk-white--accent: var(--utk-white--accent);
+  --color-utk-link: var(--utk-link);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 :root {
   --utk-logo--smokey: #4b4b4b;

@@ -5,7 +5,7 @@ import { searchSolr } from '../utils/utils';
 
 export default function AnthologyPage({ routeInfo }: any) {
     const params = useParams();
-    const [result, setResults] = useState<any>(null);
+    const [results, setResults] = useState<any>(null);
     const [resultTitle, setResultTitle] = useState<any>(null);
     const [count, setCount] = useState<number>(0);
 
@@ -46,7 +46,7 @@ export default function AnthologyPage({ routeInfo }: any) {
     // TODO: Style this Page
     return (
         <div>
-            {result?.map((title: string, idx: number) => (
+            {results?.map((title: string, idx: number) => (
                 <div key={idx} className="flex flex-row">
                     <p>Song #{idx}</p>
                     <p>{title}</p>

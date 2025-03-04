@@ -170,83 +170,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
             },
         ]
     },
-    tennesseeNews: {
-        titleField: 'mainentry_title',
-        idField: 'id',
-        fields: [
-            {
-                label: 'Copy Type',
-                key: 'copy_type',
-                type: 'array',
-                render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
-                    return (
-                        <div className="flex flex-col">
-                            {data.map((copyType, index) => (
-                                <div key={index} className="text-wrap">{copyType}</div>
-                            ))}
-                        </div>
-                    );
-                },
-            },
-            {
-                label: 'OCLC',
-                key: 'oclc',
-                type: 'array',
-                render: (data: string[]): JSX.Element => {
-                    return (
-                        <div className="flex flex-col">
-                            {data.map((oclc, index) => (
-                                <div key={index} className="text-wrap">{oclc}</div>
-                            ))}
-                        </div>
-                    );
-                },
-            },
-            {
-                label: 'Call Number',
-                key: 'call_number',
-                type: 'array',
-                render: (data: string[]): JSX.Element => {
-                    return (
-                        <div className="flex flex-col">
-                            {data.map((callNumber, index) => (
-                                <div key={index} className="text-wrap">{callNumber}</div>
-                            ))}
-                        </div>
-                    );
-                },
-            },
-            {
-                label: 'Holding Library',
-                key: 'holding_library',
-                type: 'array',
-                render: (data: string[]): JSX.Element => {
-                    return (
-                        <div className="flex flex-col">
-                            {data.map((library, index) => (
-                                <div key={index} className="text-wrap">{library}</div>
-                            ))}
-                        </div>
-                    );
-                },
-            },
-            {
-                label: 'Database Type',
-                key: 'db_type',
-                type: 'array',
-                render: (data: string[]): JSX.Element => {
-                    return (
-                        <div className="flex flex-col">
-                            {data.map((date, index) => (
-                                <div key={index} className="text-wrap">{date}</div>
-                            ))}
-                        </div>
-                    );
-                },
-            },
-        ]
-    },
     songAnalysis: {
         titleField: 'title',
         idField: 'db_id',
@@ -285,9 +208,9 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 type: "string",
             },
             {
-                label: "Song Type",
-                key: "song_types",
-                type: "string",
+                label: "Anthology",
+                key: "anthology_title",
+                type: "link",
             },
             {
                 label: 'Languages',
@@ -308,11 +231,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: 'page',
                 type: 'string',
             },
-            {
-                label: 'Database Origin',
-                key: 'db_type',
-                type: 'string',
-            }
         ]
     },
 };

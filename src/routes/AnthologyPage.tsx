@@ -6,6 +6,7 @@ import { searchSolr } from '../utils/utils';
 export default function AnthologyPage({ routeInfo }: any) {
     const params = useParams();
     const [result, setResults] = useState<any>(null);
+    const [resultTitle, setResultTitle] = useState<any>(null);
     const [count, setCount] = useState<number>(0);
 
     useEffect(() => {
@@ -15,7 +16,7 @@ export default function AnthologyPage({ routeInfo }: any) {
         const getRecordCount = async () => {
             try {
                 const data = await searchSolr(url + "&rows=0");
-                setCount(data.response.numFound);  
+                setCount(data.response.numFound);
             } catch (error) {
                 console.error('Error fetching record count:', error);
             }
@@ -24,7 +25,7 @@ export default function AnthologyPage({ routeInfo }: any) {
         getRecordCount();
     }, [params.title]);
 
- 
+
     useEffect(() => {
         const url = `${routeInfo.endpoint}q=anthology_title:"${params.title}"`;
         if (count > 0) {
@@ -32,6 +33,7 @@ export default function AnthologyPage({ routeInfo }: any) {
                 try {
                     const data = await searchSolr(`${url}&rows=${count}`);
                     const titles = data.response.docs.map((doc: any) => doc.title);
+                    setResultTitle(data.response.docs[0].anthology_title)
                     setResults(titles);
                 } catch (error) {
                     console.error('Error fetching data:', error);
@@ -39,14 +41,14 @@ export default function AnthologyPage({ routeInfo }: any) {
             };
             getData();
         }
-    }, [count]);  
+    }, [count]);
 
     // TODO: Style this Page
     return (
         <div>
-            {result?.map((title:string, idx:number) => (
+            {result?.map((title: string, idx: number) => (
                 <div key={idx} className="flex flex-row">
-                    <p>Song #{idx}</p> 
+                    <p>Song #{idx}</p>
                     <p>{title}</p>
                 </div>
             ))}

@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { searchSolr } from '../utils/utils';
+import SubPageResults from "../components/SubPageResults";
 
 
 export default function AnthologyPage({ routeInfo }: any) {
@@ -43,15 +44,7 @@ export default function AnthologyPage({ routeInfo }: any) {
         }
     }, [count]);
 
-    // TODO: Style this Page
     return (
-        <div>
-            {results?.map((title: string, idx: number) => (
-                <div key={idx} className="flex flex-row">
-                    <p>Song #{idx}</p>
-                    <p>{title}</p>
-                </div>
-            ))}
-        </div>
+        <SubPageResults title={resultTitle} results={results} />
     )
 }

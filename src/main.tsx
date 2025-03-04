@@ -36,7 +36,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="song/:songId/large-work/:title" element={<LargeWorkPage routeInfo={songRouteInfo} />} />
           <Route path="song-analysis" element={<PageLayout routeInfo={analysisRouteInfo} />} />
           <Route path="song-analysis/:songId" element={<ResultPage resultPageInfo={analysisResultInfo} />} />
-          <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={analysisRouteInfo} />} />
+          <Route path="song-analysis/:songId/anthology/:title" element={<AnthologyPage routeInfo={analysisRouteInfo} />} />
           <Route path="sermon" element={<PageLayout routeInfo={sermonRouteInfo} />} />
           <Route path="sermon/:sermonId" element={<ResultPage resultPageInfo={sermonResultInfo} />} />
           <Route path="symphony" element={<PageLayout routeInfo={symphonyRouteInfo} />} />

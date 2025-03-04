@@ -26,13 +26,20 @@ export default function SearchBar(props: SearchBarProps) {
             queryStr += 'db_type:"song_db" AND ';
         }
 
-        for (let i = 0; i < stringArr.length; i++) {
-            if (i != stringArr.length - 1) {
-                queryStr += `full_text:${stringArr[i]}* AND `
-            } else {
-                queryStr += `full_text:${stringArr[i]}*`
+        if (stringArr.length === 1) {
+            queryStr += `(full_text:"${stringArr[0]}" OR `;
+            queryStr += `full_text:${stringArr[0]}*)`;
+        }
+        else {
+            for (let i = 0; i < stringArr.length; i++) {
+                if (i != stringArr.length - 1) {
+                    queryStr += `full_text:${stringArr[i]}* AND `
+                } else {
+                    queryStr += `full_text:${stringArr[i]}*`
+                }
             }
         }
+
         return queryStr;
 
     }

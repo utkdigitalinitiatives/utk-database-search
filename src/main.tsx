@@ -29,9 +29,11 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<Index />} />
           <Route path="song" element={<PageLayout routeInfo={songRouteInfo} />} />
           <Route path="song/:songId" element={<ResultPage resultPageInfo={songResultInfo} />} />
-          <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={songRouteInfo}/>} />
+          <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={songRouteInfo} />} />
+          <Route path="song/:songId/large-work/:title" element={<AnthologyPage routeInfo={songRouteInfo} />} />
           <Route path="song-analysis" element={<PageLayout routeInfo={analysisRouteInfo} />} />
           <Route path="song-analysis/:songId" element={<ResultPage resultPageInfo={analysisResultInfo} />} />
+          <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={analysisRouteInfo} />} />
           <Route path="sermon" element={<PageLayout routeInfo={sermonRouteInfo} />} />
           <Route path="sermon/:sermonId" element={<ResultPage resultPageInfo={sermonResultInfo} />} />
           <Route path="symphony" element={<PageLayout routeInfo={symphonyRouteInfo} />} />

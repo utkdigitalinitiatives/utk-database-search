@@ -44,7 +44,6 @@ export default function SearchResultsList({ resultList, resultType }: SearchResu
                             }
 
                             if (field.type === "link") {
-                                console.log(field.label);
                                 if (field.label === 'Anthology') {
                                     return (
                                         <div className='flex flex-row text-utk-smokey' key={`${result[config.idField]}-${field.key}`}>

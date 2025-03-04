@@ -16,6 +16,9 @@ import PageLayout from './components/PageLayout';
 //Anthology Page 
 import AnthologyPage from './routes/AnthologyPage.tsx';
 
+//Large Work Page
+import LargeWorkPage from './routes/LargeWork.tsx';
+
 import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, analysisRouteInfo } from './routeInfo.ts'
 
 // Individual Page Info
@@ -30,7 +33,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="song" element={<PageLayout routeInfo={songRouteInfo} />} />
           <Route path="song/:songId" element={<ResultPage resultPageInfo={songResultInfo} />} />
           <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={songRouteInfo} />} />
-          <Route path="song/:songId/large-work/:title" element={<AnthologyPage routeInfo={songRouteInfo} />} />
+          <Route path="song/:songId/large-work/:title" element={<LargeWorkPage routeInfo={songRouteInfo} />} />
           <Route path="song-analysis" element={<PageLayout routeInfo={analysisRouteInfo} />} />
           <Route path="song-analysis/:songId" element={<ResultPage resultPageInfo={analysisResultInfo} />} />
           <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={analysisRouteInfo} />} />

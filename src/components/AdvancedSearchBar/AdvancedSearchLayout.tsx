@@ -51,8 +51,9 @@ export default function AdvancedSearch({
                     // If the value contains spaces (multi-word), wrap it in quotes for phrase matching.
                     queryString += `${key}:"${value}" AND `;
                 } else {
-                    // If it's a single word, apply wildcard to the term.
-                    queryString += `${key}:${value}* AND `;
+                    // If it's a single word, apply wildcard to the term
+                    queryString += `${key}:"${value}" OR `;
+                    queryString += `${key}:${value}* OR `;
                 }
             }
         });
@@ -61,6 +62,11 @@ export default function AdvancedSearch({
         if (queryString.endsWith(' AND ')) {
             queryString = queryString.slice(0, -5);
         }
+
+        if (queryString.endsWith( ' OR ' )) {
+            queryString = queryString.slice(0, -4);
+        }
+        
         return queryString;
     };
 

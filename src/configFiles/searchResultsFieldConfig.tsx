@@ -71,11 +71,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 },
             },
             {
-                label: "Call Number",
-                key: "call_number",
-                type: "string",
-            },
-            {
                 label: "Song Type",
                 key: "song_types",
                 type: "string",
@@ -101,17 +96,27 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 render: (data: string[]): JSX.Element => {
                     return (
                         <div className="flex flex-col">
-                            {data.map((language, index) => (
-                                <div key={index} className="text-wrap">{language}</div>
+                            {data.map((accomp_val, index) => (
+                                <div key={index} className="text-wrap">{accomp_val}</div>
                             ))}
                         </div>
                     );
                 },
             },
             {
+                label: "Large Work",
+                key: "large_work",
+                type: "link"
+            },
+            {
                 label: "Anthology",
                 key: "anthology_title",
                 type: "link",
+            },
+            {
+                label: "Call Number",
+                key: "call_number",
+                type: "string",
             },
         ]
     },

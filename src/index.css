@@ -82,6 +82,7 @@
 .underline-white {
   position: relative;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .underline-white::after {

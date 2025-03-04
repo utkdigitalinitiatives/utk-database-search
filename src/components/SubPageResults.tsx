@@ -13,9 +13,8 @@ export default function SubPageResults(props: SubPageResultsProps) {
                 </div>
                 <div className="text-utk-smokey utk-link shadow-inner">
                     {props.results?.map((title: string, idx: number) => (
-                        <div key={idx} className="flex flex-row">
-                            <p>Song #{idx}</p>
-                            <p>{title}</p>
+                        <div key={idx} className="flex flex-row flex-wrap text-wrap py-3 odd:bg-utk-light-gray even:bg-utk-white rounded-b">
+                            <p className="ps-4">{idx}: {title}</p>
                         </div>
                     ))}
                 </div>

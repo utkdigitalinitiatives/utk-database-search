@@ -34,6 +34,7 @@ export default function ResultPage({ resultPageInfo }: any) {
         navigate(to);
     };
 
+
     return (
         <>
             <div className="flex justify-center shadow-inner">
@@ -71,14 +72,33 @@ export default function ResultPage({ resultPageInfo }: any) {
                                     ) : (
                                         // If the field is not an array, check if it should be a link
                                         field.isLink ? (
-                                            <Link
-                                                key={`link-${field.name}`}
-                                                to={field.linkTo || resultPageInfo.navigateBackTo}
-                                                onClick={(e) => handleClick(e, result[field.name], field.linkTo || resultPageInfo.navigateBackTo)}
-                                                className='text-wrap px-2'
-                                            >
-                                                {result[field.name]}
-                                            </Link>
+                                            field.name === "anthology_title" ?
+                                                <Link
+                                                    key={`link-${field.name}`}
+                                                    to={`anthology/${result[field.name]}`}
+                                                    className='text-wrap px-2'
+                                                >
+                                                    {result[field.name]}
+                                                </Link>
+                                                : field.name === "large_work" ?
+
+                                                    <Link
+                                                        key={`link-${field.name}`}
+                                                        to={`large-work/${result[field.name]}`}
+                                                        className='text-wrap px-2'
+                                                    >
+                                                        {result[field.name]}
+                                                    </Link>
+                                                    :
+                                                    <Link
+                                                        key={`link-${field.name}`}
+                                                        to={field.linkTo || resultPageInfo.navigateBackTo}
+                                                        onClick={(e) => handleClick(e, result[field.name], field.linkTo || resultPageInfo.navigateBackTo)}
+                                                        className='text-wrap px-2'
+                                                    >
+                                                        {result[field.name]}
+                                                    </Link>
+
                                         ) : (
                                             <div key={`text-${field.name}`} className="text-wrap px-2">{result[field.name]}</div>
                                         )
@@ -88,7 +108,7 @@ export default function ResultPage({ resultPageInfo }: any) {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 };

@@ -37,6 +37,7 @@ const songResultInfo: ResultPageInfo = {
         { name: 'song_types', isLink: true, linkTo: '/song' },
         { name: 'languages', isLink: true, linkTo: '/song' },
         { name: 'accomp_values', isLink: false },
+        { name: 'large_work', isLink: true, linkTo: '/song' },
         { name: 'anthology_title', isLink: true, linkTo: '/song' },
         { name: 'first_line', isLink: false },
     ],

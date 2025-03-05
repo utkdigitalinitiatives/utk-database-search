@@ -34,7 +34,6 @@ export default function ResultPage({ resultPageInfo }: any) {
         navigate(to);
     };
 
-    console.log(result)
 
     return (
         <>

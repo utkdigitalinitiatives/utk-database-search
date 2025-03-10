@@ -4,6 +4,7 @@ This is an index database search tool for the University of Tennessee Knoxville 
 Development for this is on-going and is only a frontend that interacts with our Solr server.  We are in process of creating a more interactive backend for maintenance of records.
 
 ## Table of Contents
+- [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Future Enhancements](#future-enhancements)

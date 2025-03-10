@@ -8,6 +8,16 @@ Development for this is on-going and is only a frontend that interacts with our 
 - [Usage](#usage)
 - [Future Enhancements](#future-enhancements)
 - [Build Status](#build-status)
+- [Contributors](#contributors)
+
+## Technologies Used
+1. Typescript
+2. React
+3. Vite
+4. Solr
+5. TailwindCSS
+6. React Router v7
+
 
 ## Installation
 Current this project is only a frontend requires Node 22+ and Yarn 4.6+ and interacts with our Solr server.
@@ -38,3 +48,10 @@ Current this project is only a frontend requires Node 22+ and Yarn 4.6+ and inte
 
 ## Build Status
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27a2379b-6dfa-4222-8c97-a54833c54ac5/deploy-status)](https://app.netlify.com/sites/utk-lib-db/deploys)
+
+## Contributors
+ 1. [Imtinan Uddin](https://github.com/imtinan-utk)
+ 2. [Aaron Albro](https://github.com/di-aaron)
+ 3. [David Shaw](https://github.com/dshaw11)
+
+

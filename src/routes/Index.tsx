@@ -1,4 +1,4 @@
-import musicImg from "../assets/images/musiceresources.png"
+import musicImg from "../assets/images/musiceresources.webp"
 import symphonyImg from '../assets/images/symphony.webp';
 import analysisImg from '../assets/images/analysis.webp';
 import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.png';

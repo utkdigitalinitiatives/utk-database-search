@@ -65,6 +65,8 @@ export default function Index() {
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
+                    width="1920"
+                    height="600"
                 />
                 <div className="absolute inset-0 bg-slate-600 opacity-50"></div>
                 <div className="relative">

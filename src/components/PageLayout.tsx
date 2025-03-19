@@ -16,6 +16,8 @@ import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
 import SearchResultsList from "./SearchResultsList";
 import NoResult from "./NoResult";
 
+import hodgesExterior from "../assets/images/hodges-exterior.webp";
+
 
 export default function PageLayout({ routeInfo }: any) {
     const searchRef = useRef<HTMLDivElement | null>(null);
@@ -85,38 +87,48 @@ export default function PageLayout({ routeInfo }: any) {
 
     return (
         <main>
-            <div className="bg-[url('/src/assets/images/hodges-exterior.webp')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md py-2">
-                <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
-                <div className='h-full grid justify-center my-auto py-3'>
-                    {singleSearchVisible &&
-                        <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
-                            <div className="flex flex-row-reverse">
-                                <button className="text-utk-white underline-white text-sm my-1 px-2" onClick={setSingleInvisible}>Advanced</button>
-                            </div>
-                            <SingleSearchBar
-                                placeholder={placeholder}
-                                endpoint={endpoint}
-                                onSearch={handleSearchResults}
-                                searchStart={searchStartVal}
-                            />
-                        </div>
-                    }
-                    {advancedSearchVisible &&
-                        <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
-                            <div className="flex flex-row-reverse">
-                                <button className="text-utk-white underline-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
-                            </div>
-                            {routeInfo.routeName ? (
-                                <AdvancedSearch
-                                    inputVals={routeInfo.inputVals}
+            <div className="relative shadow-md py-2">
+                <img
+                    src={hodgesExterior}
+                    alt="Hodges Library Exterior"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                />
+                <div className="absolute inset-0 bg-slate-600 opacity-50"></div>
+                <div className="relative">
+                    <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
+                    <div className='h-full grid justify-center my-auto py-3'>
+                        {singleSearchVisible &&
+                            <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
+                                <div className="flex flex-row-reverse">
+                                    <button className="text-utk-white underline-white text-sm my-1 px-2" onClick={setSingleInvisible}>Advanced</button>
+                                </div>
+                                <SingleSearchBar
+                                    placeholder={placeholder}
                                     endpoint={endpoint}
                                     onSearch={handleSearchResults}
+                                    searchStart={searchStartVal}
                                 />
-                            ) :
-                                <div className="text-red-600">An error occurred when loading the advanced form</div>
-                            }
-                        </div>
-                    }
+                            </div>
+                        }
+                        {advancedSearchVisible &&
+                            <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
+                                <div className="flex flex-row-reverse">
+                                    <button className="text-utk-white underline-white text-sm my-1 px-2" onClick={setAdvancedInvisible} >General</button>
+                                </div>
+                                {routeInfo.routeName ? (
+                                    <AdvancedSearch
+                                        inputVals={routeInfo.inputVals}
+                                        endpoint={endpoint}
+                                        onSearch={handleSearchResults}
+                                    />
+                                ) :
+                                    <div className="text-red-600">An error occurred when loading the advanced form</div>
+                                }
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
             <div className="container mx-auto max-w-(--breakpoint-lg)" ref={searchRef}>
@@ -136,7 +148,7 @@ export default function PageLayout({ routeInfo }: any) {
                         :
                         noResults === true ?
                             // Display when no results are found
-                                <NoResult />
+                            <NoResult />
                             :
                             // display instructions
                             <>

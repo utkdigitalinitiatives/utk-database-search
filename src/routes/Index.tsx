@@ -1,10 +1,11 @@
-import musicImg from "../assets/images/musiceresources.png"
+import musicImg from "../assets/images/musiceresources.webp"
 import symphonyImg from '../assets/images/symphony.webp';
 import analysisImg from '../assets/images/analysis.webp';
 import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.png';
 import trimString from "../utils/utils"
 import Card from "../components/Card"
 import { useEffect } from "react";
+import hodgesExterior from "../assets/images/hodges-exterior.webp";
 
 
 
@@ -57,8 +58,20 @@ export default function Index() {
 
     return (
         <main className='pb-2'>
-            <div className="bg-[url('/src/assets/images/hodges-exterior.png')] bg-cover bg-center bg-slate-600 bg-blend-soft-light shadow-md">
-                <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Select a Database to Search</h1>
+            <div className="relative shadow-md">
+                <img
+                    src={hodgesExterior}
+                    alt="Hodges Library Exterior"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                    width="1920"
+                    height="600"
+                />
+                <div className="absolute inset-0 bg-slate-600 opacity-50"></div>
+                <div className="relative">
+                    <h1 className='font-medium text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white h-44'>Select a Database to Search</h1>
+                </div>
             </div>
             <div className='container mx-auto py-2 mt-2 max-w-(--breakpoint-xl)'>
                 <div className="text-utk-smokey text-lg max-w-(--breakpoint-md) mx-auto mb-3 mt-2 px-2">

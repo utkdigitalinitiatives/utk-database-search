@@ -1,5 +1,21 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Montserrat-VariableFont_wght.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Montserrat-Italic-VariableFont_wght.woff2') format('woff2');
+}
+
 @theme {
   --color-transparent: transparent;
   --color-current: currentColor;
@@ -12,6 +28,9 @@
   --color-utk-light-blue--accent: var(--utk-light-blue--accent);
   --color-utk-white--accent: var(--utk-white--accent);
   --color-utk-link: var(--utk-link);
+
+  --font-sans: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
 }
 
 /*

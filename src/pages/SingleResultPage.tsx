@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router';
 import { searchSolr } from '../utils/utils';
 import TitleStringCleaner from '../helper/fieldTitleCleanup';
 
-export default function ResultPage({ resultPageInfo }: any) {
+export default function SingleResultPage({ resultPageInfo }: any) {
     const navigate = useNavigate();
     const [result, setResults] = useState<any>(null);
     const params = useParams();

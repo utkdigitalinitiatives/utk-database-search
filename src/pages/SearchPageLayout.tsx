@@ -1,25 +1,25 @@
 import { useEffect, useRef, useState } from "react";
-import SingleSearchBar from "./SingleSearchBar";
-import ResultHeader from "./ResultHeader";
-import Pager from "./Pager";
+import SingleSearchBar from "../components/SingleSearchBar";
+import ResultHeader from "../components/ResultHeader";
+import Pager from "../components/Pager";
 import { searchSolr } from "../utils/utils";
 
 // Instructions - need to make these more repeatable
-import SongInstructions from "./Instructions/SongInstructions";
-import SermonInstructions from "./Instructions/SermonInstructions";
-import TennesseeNewspaperInstructions from "./Instructions/TennesseeNewspaperInstructions";
-import AnalysisInstructions from "./Instructions/AnalysisInstructions";
-import SymphonyInstructions from "./Instructions/SymphonyInstructions";
+import SongInstructions from "../components/Instructions/SongInstructions";
+import SermonInstructions from "../components/Instructions/SermonInstructions";
+import TennesseeNewspaperInstructions from "../components/Instructions/TennesseeNewspaperInstructions";
+import AnalysisInstructions from "../components/Instructions/AnalysisInstructions";
+import SymphonyInstructions from "../components/Instructions/SymphonyInstructions";
 
 // Advanced Search Bar Layout
-import AdvancedSearch from "./AdvancedSearchBar/AdvancedSearchLayout";
-import SearchResultsList from "./SearchResultsList";
-import NoResult from "./NoResult";
+import AdvancedSearch from "../components/AdvancedSearchBar/AdvancedSearchLayout";
+import SearchResultsList from "../components/SearchResultsList";
+import NoResult from "../components/NoResult";
 
 import hodgesExterior from "../assets/images/hodges-exterior.webp";
 
 
-export default function PageLayout({ routeInfo }: any) {
+export default function SearchPageLayout({ routeInfo }: any) {
     const searchRef = useRef<HTMLDivElement | null>(null);
     const [results, setResults] = useState([]);
     const [totalFound, setTotalFound] = useState(0);

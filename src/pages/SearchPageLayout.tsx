@@ -143,7 +143,13 @@ export default function SearchPageLayout({ routeInfo }: any) {
                                 :
                                 <div className="text-red-600">An error occurred when loading the instructions information</div>
                             }
-                            <Pager onSearch={handleSearchResults} searchURL={searchURL} searchStart={searchStartVal} refVal={searchRef} />
+                            <Pager 
+                            onSearch={handleSearchResults} 
+                            searchURL={searchURL} 
+                            searchStart={searchStartVal} 
+                            refVal={searchRef} 
+                            totalFound={totalFound}
+                            />
                         </>
                         :
                         noResults === true ?

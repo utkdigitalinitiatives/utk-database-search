@@ -4,6 +4,7 @@ interface PagerProps<T> {
     refVal: React.RefObject<HTMLElement>;
     searchStart: number;
     searchURL: string;
+    totalFound: number;
     onSearch: (response: T, searchURL: string, newSearchStartVal: number, noResults: boolean) => void;
 }
 
@@ -39,7 +40,11 @@ export default function Pager<T>(props: PagerProps<T>) {
                     :
                     <button disabled className="mx-2 p-2 border bg-neutral-300 text-neutral-50 rounded-md cursor-not-allowed" >Previous</button>
                 }
-                <button className="mx-2 p-2 border rounded-md border-utk-orange shadow-lg ease-in-out duration-300 hover:scale-105" onClick={handleNext}>Next</button>
+                {props.totalFound > 10 ?
+                    <button className="mx-2 p-2 border rounded-md border-utk-orange shadow-lg ease-in-out duration-300 hover:scale-105" onClick={handleNext}>Next</button>
+                    :
+                    <button disabled className="mx-2 p-2 border bg-neutral-300 text-neutral-50 rounded-md cursor-not-allowed">Next</button>
+                }
             </div>
         </>
     )

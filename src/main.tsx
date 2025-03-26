@@ -8,16 +8,16 @@ import './index.css'
 import Index from './routes/Index';
 
 // Result Pages
-import ResultPage from './routes/ResultPage.tsx';
+import SingleResultPage from './pages/SingleResultPage.tsx';
 
-// Overall Page Layout
-import PageLayout from './components/PageLayout';
+// Search Page Layout
+import SearchPageLayout from './pages/SearchPageLayout.tsx';
 
 //Anthology Page 
-import AnthologyPage from './routes/AnthologyPage.tsx';
+import AnthologyPage from './pages/AnthologyPage.tsx';
 
 //Large Work Page
-import LargeWorkPage from './routes/LargeWork.tsx';
+import LargeWorkPage from './pages/LargeWorkPage.tsx';
 
 import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, analysisRouteInfo } from './routeInfo.ts'
 
@@ -30,17 +30,17 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Index />} />
-          <Route path="song" element={<PageLayout routeInfo={songRouteInfo} />} />
-          <Route path="song/:songId" element={<ResultPage resultPageInfo={songResultInfo} />} />
+          <Route path="song" element={<SearchPageLayout routeInfo={songRouteInfo} />} />
+          <Route path="song/:songId" element={<SingleResultPage resultPageInfo={songResultInfo} />} />
           <Route path="song/:songId/anthology/:title" element={<AnthologyPage routeInfo={songRouteInfo} />} />
           <Route path="song/:songId/large-work/:title" element={<LargeWorkPage routeInfo={songRouteInfo} />} />
-          <Route path="song-analysis" element={<PageLayout routeInfo={analysisRouteInfo} />} />
-          <Route path="song-analysis/:songId" element={<ResultPage resultPageInfo={analysisResultInfo} />} />
+          <Route path="song-analysis" element={<SearchPageLayout routeInfo={analysisRouteInfo} />} />
+          <Route path="song-analysis/:songId" element={<SingleResultPage resultPageInfo={analysisResultInfo} />} />
           <Route path="song-analysis/:songId/anthology/:title" element={<AnthologyPage routeInfo={analysisRouteInfo} />} />
-          <Route path="sermon" element={<PageLayout routeInfo={sermonRouteInfo} />} />
-          <Route path="sermon/:sermonId" element={<ResultPage resultPageInfo={sermonResultInfo} />} />
-          <Route path="symphony" element={<PageLayout routeInfo={symphonyRouteInfo} />} />
-          <Route path="symphony/:symphonyId" element={<ResultPage resultPageInfo={symphonyResultInfo} />} />
+          <Route path="sermon" element={<SearchPageLayout routeInfo={sermonRouteInfo} />} />
+          <Route path="sermon/:sermonId" element={<SingleResultPage resultPageInfo={sermonResultInfo} />} />
+          <Route path="symphony" element={<SearchPageLayout routeInfo={symphonyRouteInfo} />} />
+          <Route path="symphony/:symphonyId" element={<SingleResultPage resultPageInfo={symphonyResultInfo} />} />
         </Route>
       </Routes>
     </BrowserRouter>

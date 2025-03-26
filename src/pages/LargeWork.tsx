@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { searchSolr } from '../utils/utils';
-import SubPageResults from "../components/SubPageResults";
+import SubPageResults from "./SubPageResults";
 
 
 export default function LargeWorkPage({ routeInfo }: any) {

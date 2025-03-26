@@ -8,16 +8,16 @@ import './index.css'
 import Index from './routes/Index';
 
 // Result Pages
-import ResultPage from './routes/ResultPage.tsx';
+import ResultPage from './pages/ResultPage.tsx';
 
 // Overall Page Layout
 import PageLayout from './components/PageLayout';
 
 //Anthology Page 
-import AnthologyPage from './routes/AnthologyPage.tsx';
+import AnthologyPage from './pages/AnthologyPage.tsx';
 
 //Large Work Page
-import LargeWorkPage from './routes/LargeWork.tsx';
+import LargeWorkPage from './pages/LargeWork.tsx';
 
 import { sermonRouteInfo, songRouteInfo, symphonyRouteInfo, analysisRouteInfo } from './routeInfo.ts'
 

@@ -1,7 +1,7 @@
-import musicImg from "../assets/images/musiceresources.webp"
+import musicImg from "../assets/images/musiceresources-thumbnail.webp"
 import symphonyImg from '../assets/images/symphony.webp';
-import analysisImg from '../assets/images/analysis.webp';
-import sermonImg from '../assets/images/emmanuel-phaeton-unsplash-sermon.png';
+import analysisImg from '../assets/images/analysis-thumbnail.webp';
+import sermonImg from '../assets/images/sermon-thumbnail.webp';
 import trimString from "../utils/utils"
 import Card from "../components/Card"
 import { useEffect } from "react";

@@ -41,32 +41,48 @@ export default function AdvancedSearch({
     };
 
     const createParams = () => {
-        let queryString = '';
+        // Create field-specific query parts first
+        const fieldQueries: string[] = [];
+        
         Object.entries(formState).forEach(([key, value]) => {
             if (value && value !== 'select' && value !== '') {
+                const terms: string[] = [];
                 const stringArr: string[] = value.split(" ");
                 const isMultiWord = stringArr.length > 1;
-    
+                
                 if (isMultiWord) {
-                    // If the value contains spaces (multi-word), wrap it in quotes for phrase matching.
-                    queryString += `${key}:"${value}" AND `;
+                    // Add exact phrase match
+                    terms.push(`${key}:"${value}"`);
+                    
+                    // Add individual word matches with wildcard
+                    stringArr.forEach(word => {
+                        if (word.trim()) {
+                            terms.push(`${key}:${word}*`);
+                        }
+                    });
                 } else {
-                    // If it's a single word, apply wildcard to the term
-                    queryString += `${key}:"${value}" OR `;
-                    queryString += `${key}:${value}* OR `;
+                    // Single word with exact and wildcard
+                    terms.push(`${key}:"${value}"`);
+                    terms.push(`${key}:${value}*`);
+                }
+                
+                // Join all terms for this field with OR
+                if (terms.length > 0) {
+                    fieldQueries.push(`(${terms.join(" OR ")})`);
                 }
             }
         });
-
-        // Remove the trailing AND
-        if (queryString.endsWith(' AND ')) {
-            queryString = queryString.slice(0, -5);
+        
+        // Join all field queries with AND
+        let queryString = fieldQueries.join(" AND ");
+        if (window.location.pathname == '/song-analysis') {
+            queryString += ' AND db_type:"analysis_db"';
         }
-
-        if (queryString.endsWith( ' OR ' )) {
-            queryString = queryString.slice(0, -4);
+        if(window.location.pathname == '/song') {
+            queryString += ' AND db_type:"song_db"';
         }
         
+        console.log(queryString);
         return queryString;
     };
 

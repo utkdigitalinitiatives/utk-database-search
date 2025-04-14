@@ -29,6 +29,12 @@ const songInputVals = {
     placeholder: "Enter the first line",
     name: "first_line",
   },
+  largeWork: {
+    type: 'input',
+    label: 'Search by Larger Work',
+    placeholder: "Enter the large work name",
+    name: "large_work",
+  },
   callNumber: {
     type: 'input',
     label: 'Search by Call Number',
@@ -40,7 +46,6 @@ const songInputVals = {
     label: "Select Song Type",
     name: "song_types",
     optionVals: [
-      { value: 'select', optionTitle: 'Select' },
       { value: "aria", optionTitle: "Aria" },
       { value: "art song", optionTitle: "Art Song" },
       { value: "carol", optionTitle: "Carol" },
@@ -73,7 +78,6 @@ const songInputVals = {
     label: "Select Accompaniment",
     name: "accomp_values",
     optionVals: [
-      { value: 'select', optionTitle: 'Select' },
       { value: "instrumental", optionTitle: "Instrumental" },
       { value: "keyboard", optionTitle: "Keyboard" },
       { value: "orchestra", optionTitle: "Orchestra" },
@@ -85,7 +89,6 @@ const songInputVals = {
     label: "Choose a Language",
     name: "languages",
     optionVals: [
-      { value: 'select', optionTitle: 'Select' },
       { value: "english", optionTitle: "English" },
       { value: "french", optionTitle: "French" },
       { value: "german", optionTitle: "German" },
@@ -404,18 +407,7 @@ const songInputVals = {
         value: 'aramaic',
         optionTitle: 'Aramaic'
       }
-    ]
-  },
-
-  dbOrigin: {
-    type: "select",
-    label: "Choose DB Origin",
-    name: "db_type",
-    optionVals: [
-      { value: 'select', optionTitle: 'Select' },
-      { value: 'song_db', optionTitle: 'Song' },
-      { value: 'analysis_db', optionTitle: 'Analysis' },
-    ]
+    ],
   },
 };
 

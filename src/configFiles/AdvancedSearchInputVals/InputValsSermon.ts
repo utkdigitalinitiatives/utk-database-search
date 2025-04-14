@@ -34,7 +34,6 @@ const sermonInputVals = {
         label: 'Search by State',
         name: 'state',
         optionVals: [
-            { value: 'select', optionTitle: 'Select' },
             { value: 'GA', optionTitle: 'GA' },
             { value: 'MD', optionTitle: 'MD' },
             { value: 'NC', optionTitle: 'NC' },
@@ -49,7 +48,6 @@ const sermonInputVals = {
         label: 'Search by denomination',
         name: 'denomination',
         optionVals: [
-            { value: 'select', optionTitle: 'Select' },
             { value: "Bapt", optionTitle: 'Baptist'},
             { value: "Cath", optionTitle: 'Catholic'},
             { value: "Cong", optionTitle: 'Congregationalist'},

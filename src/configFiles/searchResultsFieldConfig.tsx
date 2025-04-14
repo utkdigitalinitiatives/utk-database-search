@@ -143,7 +143,6 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 key: 'season',
                 type: 'array',
                 render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
                             {data.map((season, index) => (
@@ -154,11 +153,24 @@ export const fieldsConfig: { [key: string]: ResultConfig } = {
                 },
             },
             {
+                label: 'Author',
+                key: 'author_name',
+                type: 'array',
+                render: (data: string[]): JSX.Element => {
+                    return (
+                        <div className="flex flex-col">
+                            {data.map((date, index) => (
+                                <div key={index} className="text-wrap">{date}</div>
+                            ))}
+                        </div>
+                    );
+                },
+            },
+            {
                 label: 'Date',
                 key: 'date',
                 type: 'array',
                 render: (data: string[]): JSX.Element => {
-                    // Ensure it returns JSX elements, not boolean
                     return (
                         <div className="flex flex-col">
                             {data.map((date, index) => (

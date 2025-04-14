@@ -18,7 +18,7 @@ const symphonyRouteInfo: routeInfo = {
     fieldConfigName: 'symphony',
     endpoint: `/knoxville_symphony_dev/select?`,
     placeholder: 'Search the Knoxville Symphony Orchestra Programs....',
-    siteTitle: 'Knoxville Symphony Orchestra Program Index Search',
+    siteTitle: 'Knoxville Symphony Orchestra Program Index',
     inputVals: symphonyInputVals,
 }
 
@@ -27,7 +27,7 @@ const songRouteInfo: routeInfo = {
     fieldConfigName: 'song',
     endpoint: `/unified_song_db_dev/select?`,
     placeholder: 'Search the song index database...',
-    siteTitle: 'UT Song Index Search',
+    siteTitle: 'Song Index Search',
     inputVals: songInputVals,
 }
 
@@ -36,7 +36,7 @@ const sermonRouteInfo: routeInfo = {
     fieldConfigName: 'sermon',
     endpoint: `/sermon_db_new_dev/select?`,
     placeholder: "Search the sermon index database...",
-    siteTitle: 'UT Sermon Index',
+    siteTitle: 'Sermon Index',
     inputVals: sermonInputVals,
 }
 
@@ -45,7 +45,7 @@ const analysisRouteInfo: routeInfo = {
     fieldConfigName: 'songAnalysis',
     endpoint: `/unified_song_db_dev/select?`,
     placeholder: 'Search the Anaylsis index database...',
-    siteTitle: 'UT Song Analysis Index',
+    siteTitle: 'Analysis Index',
     inputVals: analysisInputVals,
 }
 

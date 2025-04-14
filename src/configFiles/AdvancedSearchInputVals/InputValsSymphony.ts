@@ -11,6 +11,12 @@ const symphony = {
         placeholder: "Composer's Name",
         name: 'composer_name'
     },
+    author: {
+        type: 'input',
+        label: "Search by authors's name",
+        placeholder: "Authors's Name",
+        name: 'author_name'
+    },
     season: {
         type: 'input',
         label: 'Search by sesaon',

@@ -29,7 +29,7 @@ export default function Index() {
             image: musicImg
         },
         {
-            dbName: "Song Analysis Index",
+            dbName: "Analysis Index",
             endpoint: '/song-analysis',
             dbSummary: 'The Analysis Index provides access to program notes and descriptions or analyses of musical compositions in books owned by the UT Music Library.',
             image: analysisImg

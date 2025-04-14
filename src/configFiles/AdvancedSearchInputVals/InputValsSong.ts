@@ -29,6 +29,12 @@ const songInputVals = {
     placeholder: "Enter the first line",
     name: "first_line",
   },
+  largeWork: {
+    type: 'input',
+    label: 'Search by Larger Work',
+    placeholder: "Enter the large work name",
+    name: "large_work",
+  },
   callNumber: {
     type: 'input',
     label: 'Search by Call Number',

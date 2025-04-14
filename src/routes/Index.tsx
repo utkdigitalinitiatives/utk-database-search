@@ -6,6 +6,8 @@ import trimString from "../utils/utils"
 import Card from "../components/Card"
 import { useEffect } from "react";
 import hodgesExterior from "../assets/images/hodges-exterior.webp";
+import hodgesExteriorSmall from "../assets/images/hodges-exterior-small.webp";
+import hodgesExteriorMedium from "../assets/images/hodges-exterior-medium.webp";
 
 
 
@@ -61,6 +63,8 @@ export default function Index() {
             <div className="relative shadow-md">
                 <img
                     src={hodgesExterior}
+                    srcSet={`${hodgesExteriorSmall} 480w, ${hodgesExteriorMedium} 768w, ${hodgesExterior} 1920w`}
+                    sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1920px"
                     alt="Hodges Library Exterior"
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="eager"

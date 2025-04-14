@@ -4,10 +4,9 @@ interface AdvancedSearchSelectProps {
     name: string;
     value: string;  
     onChange: (field: string, value: string) => void;  
-    defaultValue?: string;
 }
 
-const AdvancedSearchSelect: React.FC<AdvancedSearchSelectProps> = ({ label, optionVals, name, value, onChange, defaultValue = "" }) => {
+const AdvancedSearchSelect: React.FC<AdvancedSearchSelectProps> = ({ label, optionVals, name, value, onChange }) => {
 
     const sortedOptions = [...optionVals]
         .sort((a, b) => a.optionTitle.localeCompare(b.optionTitle));

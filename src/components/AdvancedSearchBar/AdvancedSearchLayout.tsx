@@ -82,7 +82,6 @@ export default function AdvancedSearch({
             queryString += ' AND db_type:"song_db"';
         }
         
-        console.log(queryString);
         return queryString;
     };
 

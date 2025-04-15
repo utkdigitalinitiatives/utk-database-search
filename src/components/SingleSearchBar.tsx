@@ -20,10 +20,10 @@ export default function SearchBar(props: SearchBarProps) {
         // Add Context for Analysis vs Song
         // TODO: Make this better to so it isn't perscriptive
         if (window.location.pathname == '/song-analysis') {
-            queryStr += 'db_type:"analysis_db" AND ';
+            queryStr += `db_type:"analysis_db" AND `;
         }
         if(window.location.pathname == '/song') {
-            queryStr += 'db_type:"song_db" AND ';
+            queryStr += `db_type:"song_db" AND `;
         }
 
         if (stringArr.length === 1) {

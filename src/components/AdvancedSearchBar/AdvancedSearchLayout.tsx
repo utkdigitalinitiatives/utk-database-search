@@ -76,10 +76,10 @@ export default function AdvancedSearch({
         // Join all field queries with AND
         let queryString = fieldQueries.join(" AND ");
         if (window.location.pathname == '/song-analysis') {
-            queryString += ' AND db_type:"analysis_db"';
+            queryString += ` AND db_type:"analysis_db"`;
         }
         if(window.location.pathname == '/song') {
-            queryString += ' AND db_type:"song_db"';
+            queryString += ` AND db_type:"song_db"`;
         }
         
         return queryString;

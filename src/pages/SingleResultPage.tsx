@@ -11,8 +11,8 @@ export default function SingleResultPage({ resultPageInfo }: any) {
     const id = symphonyId || songId || sermonId || newsId
 
     useEffect(() => {
-        const url = `${resultPageInfo.endpoint}q=${resultPageInfo.idField}:${id}`;
-
+        const url = `${resultPageInfo.endpoint}${resultPageInfo.idField}:${id}`;
+        
         const getData = async () => {
             try {
                 const data = await searchSolr(url)

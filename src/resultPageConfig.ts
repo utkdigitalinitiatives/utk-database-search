@@ -26,7 +26,7 @@ const symphonyResultInfo: ResultPageInfo = {
 }
 
 const songResultInfo: ResultPageInfo = {
-    endpoint: '/unified_song_db_dev/select?q=db_type:"song_db" AND ',
+    endpoint: `/unified_song_db_dev/select?q=db_type:"song_db" AND `,
     idField: 'db_id',
     titleField: 'title',
     resultFields: [
@@ -81,7 +81,7 @@ const sermonResultInfo: ResultPageInfo = {
 
 
 const analysisResultInfo: ResultPageInfo = {
-    endpoint: '/unified_song_db_dev/select?q=db_type:"analysis_db" AND ',
+    endpoint: `/unified_song_db_dev/select?q=db_type:"analysis_db" AND `,
     idField: 'db_id',
     titleField: 'title',
     resultFields: [

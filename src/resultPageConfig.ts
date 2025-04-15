@@ -13,7 +13,7 @@ interface ResultPageInfo {
 }
 
 const symphonyResultInfo: ResultPageInfo = {
-    endpoint: `/knoxville_symphony_dev/select?`,
+    endpoint: `/knoxville_symphony_dev/select?q=`,
     idField: 'id',
     titleField: 'title',
     resultFields: [
@@ -26,7 +26,7 @@ const symphonyResultInfo: ResultPageInfo = {
 }
 
 const songResultInfo: ResultPageInfo = {
-    endpoint: '/unified_song_db_dev/select?',
+    endpoint: '/unified_song_db_dev/select?q=db_type:"song_db" AND ',
     idField: 'db_id',
     titleField: 'title',
     resultFields: [
@@ -45,7 +45,7 @@ const songResultInfo: ResultPageInfo = {
 };
 
 const sermonResultInfo: ResultPageInfo = {
-    endpoint: `/sermon_db_new_dev/select?`,
+    endpoint: `/sermon_db_new_dev/select?q=`,
     idField: 'id',
     titleField: 'sermon_title',
     resultFields: [
@@ -81,7 +81,7 @@ const sermonResultInfo: ResultPageInfo = {
 
 
 const analysisResultInfo: ResultPageInfo = {
-    endpoint: '/unified_song_db_dev/select?',
+    endpoint: '/unified_song_db_dev/select?q=db_type:"analysis_db" AND ',
     idField: 'db_id',
     titleField: 'title',
     resultFields: [

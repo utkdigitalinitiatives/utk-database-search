@@ -12,7 +12,7 @@ export default function SingleResultPage({ resultPageInfo }: any) {
 
     useEffect(() => {
         const url = `${resultPageInfo.endpoint}${resultPageInfo.idField}:${id}`;
-        console.log(url);
+        
         const getData = async () => {
             try {
                 const data = await searchSolr(url)

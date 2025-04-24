@@ -1,4 +1,5 @@
 import { searchSolr } from "../utils/utils";
+import PagerButton from "./PagerButton/PagerButton";
 
 interface PagerProps<T> {
     refVal: React.RefObject<HTMLElement>;
@@ -35,16 +36,16 @@ export default function Pager<T>(props: PagerProps<T>) {
     return (
         <>
             <div className="flex flex-row justify-center my-2">
-                {props.searchStart > 0 ?
-                    <button className="mx-2 p-2 border rounded-md border-utk-orange shadow-lg ease-in-out duration-300 hover:scale-105" onClick={handlePrevious}>Previous</button>
-                    :
-                    <button disabled className="mx-2 p-2 border bg-neutral-300 text-neutral-50 rounded-md cursor-not-allowed" >Previous</button>
-                }
-                {props.totalFound > (props.searchStart + 10) ?
-                    <button className="mx-2 p-2 border rounded-md border-utk-orange shadow-lg ease-in-out duration-300 hover:scale-105" onClick={handleNext}>Next</button>
-                    :
-                    <button disabled className="mx-2 p-2 border bg-neutral-300 text-neutral-50 rounded-md cursor-not-allowed">Next</button>
-                }
+                <PagerButton
+                    text="Previous"
+                    onClick={handlePrevious}
+                    disabled={props.searchStart <= 0}
+                />
+                <PagerButton
+                    text="Next"
+                    onClick={handleNext}
+                    disabled={props.totalFound <= (props.searchStart + 10)}
+                />
             </div>
         </>
     )

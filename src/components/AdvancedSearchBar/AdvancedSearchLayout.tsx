@@ -15,7 +15,7 @@ interface AdvancedProps {
     inputVals: Record<string, InputVal>;
     endpoint: string;
     onSearch: (data: any, url: string, status: number, noResults: boolean) => void;
-    initialValues?: Record<string, any>;
+    initialValues?: Record<string, string>;
 }
 
 export default function AdvancedSearch({

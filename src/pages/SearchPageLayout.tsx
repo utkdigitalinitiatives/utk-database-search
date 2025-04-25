@@ -98,7 +98,7 @@ export default function SearchPageLayout({ routeInfo }: any) {
                 <div className="absolute inset-0 bg-slate-600 opacity-50"></div>
                 <div className="relative">
                     <h1 className='text-center flex justify-center items-center text-2xl md:text-4xl text-utk-white py-2 font-medium'>{routeInfo.siteTitle}</h1>
-                    <div className='h-full grid justify-center my-auto py-3'>
+                    <div className='h-full grid justify-center my-auto py-3' ref={searchRef}>
                         {singleSearchVisible &&
                             <div className="bg-[rgba(75,75,75,0.90)] rounded-md">
                                 <div className="flex flex-row-reverse">
@@ -131,7 +131,7 @@ export default function SearchPageLayout({ routeInfo }: any) {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto max-w-(--breakpoint-lg)" ref={searchRef}>
+            <div className="container mx-auto max-w-(--breakpoint-lg)">
                 {
                     // TODO: this needs a bit of re-working
                     results.length >= 1 ?
